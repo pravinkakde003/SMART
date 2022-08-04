@@ -1,7 +1,8 @@
-package com.user.smart
+package com.user.smart.views.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.user.smart.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

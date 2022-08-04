@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/black_dot.xml" value="0.247" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2135" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login_signup.xml" value="0.2" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login_singup_info.xml" value="0.2421875" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_onboarding.xml" value="0.2421875" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/fragment_onboarding_page.xml" value="0.2421875" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

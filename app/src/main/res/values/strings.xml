@@ -1,3 +1,35 @@
 <resources>
-    <string name="app_name">SMART</string>
+    <string name="app_name">S.M.A.R.T.</string>
+
+    <string name="app_tag_text">Discover &amp; connect with great\nlocal business</string>
+    <string name="lets_get_started">Let\'s get started</string>
+
+    <!--OnBoarding String-->
+    <string name="onBoarding_title_1">Smart Office</string>
+    <string name="onBoarding_title_2">Smart Office</string>
+    <string name="onBoarding_title_3">Smart Office</string>
+
+    <string name="onBoarding_desc_1">Welcome to the\nS.M.A.R.T. Office.</string>
+    <string name="onBoarding_desc_2">Welcome to the\nS.M.A.R.T. Office.</string>
+    <string name="onBoarding_desc_3">Welcome to the\nS.M.A.R.T. Office.</string>
+
+
+    <string name="close">Close</string>
+    <string name="skip">Skip</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="discover_amp_connect_with_great_local_business"><![CDATA[Discover & connect with great local business]]></string>
+    <string name="welcome">Welcome</string>
+    <string name="txt_continue">Continue</string>
+    <string name="content_description_end_icon">username icon description</string>
+    <string name="new_member">New member? Sign Up</string>
+    <string name="already_member">Already a member? Sign In</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
 </resources>

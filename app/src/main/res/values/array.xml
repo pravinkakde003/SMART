@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="onBoardingImages">
+        <item>@drawable/ic_onboarding_one</item>
+        <item>@drawable/ic_onboarding_one</item>
+        <item>@drawable/ic_onboarding_one</item>
+    </integer-array>
+
+    <string-array name="onBoardingTitles">
+        <item>@string/onBoarding_title_1</item>
+        <item>@string/onBoarding_title_2</item>
+        <item>@string/onBoarding_title_3</item>
+    </string-array>
+
+    <string-array name="onBoardingDescription">
+        <item>@string/onBoarding_desc_1</item>
+        <item>@string/onBoarding_desc_2</item>
+        <item>@string/onBoarding_desc_3</item>
+    </string-array>
+</resources>
