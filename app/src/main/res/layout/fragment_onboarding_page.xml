@@ -11,7 +11,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/onBoardingTitle"
         style="@style/OnBoardingTitleTextStyle"
         android:layout_marginTop="16dp"
@@ -20,12 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewOnBoarding" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/onBoardingDescription"
         style="@style/OnBoardingDescriptionTextStyle"
         android:layout_marginTop="12dp"
         android:gravity="center_horizontal"
-        android:lineSpacingExtra="5dp"
+        android:lineSpacingExtra="3dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

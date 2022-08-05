@@ -22,7 +22,6 @@
     <string name="login">Login</string>
     <string name="signup">Sign Up</string>
     <string name="sign_in">Sign In</string>
-    <string name="discover_amp_connect_with_great_local_business"><![CDATA[Discover & connect with great local business]]></string>
     <string name="welcome">Welcome</string>
     <string name="txt_continue">Continue</string>
     <string name="content_description_end_icon">username icon description</string>
@@ -30,6 +29,11 @@
     <string name="already_member">Already a member? Sign In</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
+    <string name="email_address">Email address</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="txt_login_description">Enter your email and password\nto login</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="privacy_policy"><a href="https://prawindroid.blogspot.com/">Privacy Policy</a>  and  <a href="https://prawindroid.blogspot.com/">Terms and conditions</a> </string>
 </resources>

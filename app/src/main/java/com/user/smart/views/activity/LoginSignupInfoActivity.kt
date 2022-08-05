@@ -24,13 +24,13 @@ class LoginSignupInfoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view) {
             binding.buttonLogin -> {
-                val intent = Intent(this@LoginSignupInfoActivity, LoginSignupActivity::class.java)
+                val intent = Intent(this@LoginSignupInfoActivity, LoginActivity::class.java)
                 intent.putExtra(DATA_KEY, LOGIN)
                 startActivity(intent)
                 finish()
             }
             binding.buttonCreateAccount -> {
-                val intent = Intent(this@LoginSignupInfoActivity, LoginSignupActivity::class.java)
+                val intent = Intent(this@LoginSignupInfoActivity, LoginActivity::class.java)
                 intent.putExtra(DATA_KEY, SIGN_UP)
                 startActivity(intent)
                 finish()

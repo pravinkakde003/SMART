@@ -2,7 +2,6 @@ package com.user.smart.views.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +18,7 @@ class OnBoardingActivity : AppCompatActivity() {
     lateinit var onBoardingPages: ArrayList<OnBoardingModel>
     lateinit var slideInAnimRegister: Animation
     private lateinit var binding: ActivityOnboardingBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +71,9 @@ class OnBoardingActivity : AppCompatActivity() {
         })
 
         binding.finishButton.setOnClickListener {
-            startActivity(Intent(this@OnBoardingActivity, LoginSignupInfoActivity::class.java))
+            startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
             finish()
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 

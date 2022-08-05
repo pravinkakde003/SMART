@@ -53,7 +53,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="18dp"
-        android:text="@string/discover_amp_connect_with_great_local_business"
+        android:text="@string/txt_login_description"
         android:textColor="@color/gray_variant"
         app:layout_constraintBottom_toTopOf="@id/buttonCreateAccount"
         app:layout_constraintEnd_toEndOf="parent"

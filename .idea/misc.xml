@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/black_dot.xml" value="0.247" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/dot_indicator.xml" value="0.1685" />
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2135" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2135" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_password.xml" value="0.2135" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login_signup.xml" value="0.2" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login_singup_info.xml" value="0.2421875" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
