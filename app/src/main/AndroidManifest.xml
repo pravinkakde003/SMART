@@ -27,10 +27,6 @@
             android:name=".views.activity.OnBoardingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppFullScreenTheme" />
-        <activity
-            android:name=".views.activity.LoginSignupInfoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppFullScreenTheme" />
 
         <activity
             android:name=".views.activity.LoginActivity"

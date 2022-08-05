@@ -16,6 +16,7 @@ class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivitySelectStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.nextButton.setOnClickListener(this)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -38,8 +39,9 @@ class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.nextButton -> {
-                val intent = Intent(this@SelectStoreActivity, ForgetPasswordActivity::class.java)
+                val intent = Intent(this@SelectStoreActivity, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
         }
