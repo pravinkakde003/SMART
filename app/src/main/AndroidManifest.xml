@@ -41,6 +41,16 @@
             android:name=".views.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppFullScreenTheme" />
+
+        <activity
+            android:name=".views.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFullScreenTheme" />
+
+        <activity
+            android:name=".views.activity.SelectStoreActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFullScreenTheme" />
     </application>
 
 </manifest>

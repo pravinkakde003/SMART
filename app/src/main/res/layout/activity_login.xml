@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_screen_bg">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_background_blue"
+        android:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textviewLogo"
         style="@style/TextAppearance.Display2"
@@ -19,7 +30,7 @@
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/loginDescription"
@@ -37,7 +48,9 @@
         android:id="@+id/dataLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginDescription">
@@ -49,9 +62,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/email_address"
             app:boxBackgroundColor="@android:color/white"
-
             app:boxStrokeColor="@color/gray_variant2"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -107,7 +118,7 @@
             app:layout_constraintTop_toBottomOf="@id/passwordTextField" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/finishButton"
+            android:id="@+id/loginButton"
             style="@style/ButtonStyleRoundedFilled"
             android:layout_width="match_parent"
             android:paddingHorizontal="42dp"
@@ -117,7 +128,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/forgotPasswordButton" />
 
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_policy"
             style="@style/AppSmallTextStyle"
@@ -125,12 +135,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center_horizontal"
-            android:textColorLink="@color/primary_color"
             android:text="@string/privacy_policy"
+            android:textColorLink="@color/primary_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/finishButton" />
-
+            app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

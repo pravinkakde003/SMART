@@ -35,5 +35,7 @@
     <string name="txt_login_description">Enter your email and password\nto login</string>
     <string name="remember_me">Remember me</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="send">Send</string>
     <string name="privacy_policy"><a href="https://prawindroid.blogspot.com/">Privacy Policy</a>  and  <a href="https://prawindroid.blogspot.com/">Terms and conditions</a> </string>
+    <string name="select_store">Select store</string>
 </resources>
