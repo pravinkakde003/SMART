@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.user.smart.R
 import com.user.smart.databinding.ActivityLoginBinding
+import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -32,7 +33,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
             binding.loginButton -> {
                 val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
+                intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)
                 startActivity(intent)
+                finish()
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
         }

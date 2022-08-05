@@ -8,14 +8,20 @@ import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import com.user.smart.R
 import com.user.smart.databinding.ActivitySelectStoreBinding
+import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
 
 class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivitySelectStoreBinding
+    var isFromLoginScreen = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        if (null != intent && intent.hasExtra(FROM_LOGIN_SCREEN_KEY)) {
+            isFromLoginScreen = intent.getBooleanExtra(FROM_LOGIN_SCREEN_KEY, false)
+        }
         binding.nextButton.setOnClickListener(this)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
@@ -39,10 +45,13 @@ class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.nextButton -> {
-                val intent = Intent(this@SelectStoreActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                when {
+                    isFromLoginScreen -> {
+                        val intent = Intent(this@SelectStoreActivity, DashboardActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+                onBackPressed()
             }
         }
     }

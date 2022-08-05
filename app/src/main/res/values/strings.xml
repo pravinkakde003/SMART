@@ -38,4 +38,6 @@
     <string name="send">Send</string>
     <string name="privacy_policy"><a href="https://prawindroid.blogspot.com/">Privacy Policy</a>  and  <a href="https://prawindroid.blogspot.com/">Terms and conditions</a> </string>
     <string name="select_store">Select store</string>
+
+    <string name="dashboard">Dashboard</string>
 </resources>

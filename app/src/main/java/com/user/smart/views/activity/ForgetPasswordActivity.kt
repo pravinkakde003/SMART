@@ -28,9 +28,6 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.sendButton -> {
-//                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//                startActivity(intent)
-//                finish()
             }
         }
     }
