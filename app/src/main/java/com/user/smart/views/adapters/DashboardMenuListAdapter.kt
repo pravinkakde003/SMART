@@ -17,7 +17,7 @@ class DashboardMenuListAdapter(var context: Context) :
     private var dataList = emptyList<DashboardMenuModel>()
     var mContext: Context = context
 
-    fun setLisData(dataList: List<DashboardMenuModel>){
+    fun setLisData(dataList: List<DashboardMenuModel>) {
         this.dataList = dataList
     }
 
@@ -32,15 +32,21 @@ class DashboardMenuListAdapter(var context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view =
+        val view =
             LayoutInflater.from(parent.context).inflate(R.layout.dashboard_menu_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var data = dataList[position]
+        val data = dataList[position]
         holder.title.text = data.title
-//        holder.image.setImageResource(data.imageRes)
+        if (null != data.imageRes) {
+            val resourceId: Int =
+                mContext.resources.getIdentifier(data.imageRes, "drawable", mContext.packageName)
+            if (resourceId != 0) {
+                holder.image.setImageResource(resourceId)
+            }
+        }
     }
 
     override fun getItemCount() = dataList.size
