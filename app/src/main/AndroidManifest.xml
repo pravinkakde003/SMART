@@ -23,6 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".views.activity.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DashboardActivityTheme" />
+
         <activity
             android:name=".views.activity.OnBoardingActivity"
             android:screenOrientation="portrait"
@@ -32,11 +38,6 @@
             android:name=".views.activity.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppFullScreenTheme" />
-
-        <activity
-            android:name=".views.activity.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/DashboardActivityTheme" />
 
         <activity
             android:name=".views.activity.ForgetPasswordActivity"

@@ -25,15 +25,30 @@
         <include layout="@layout/profile_menu_items" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewDashboard"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:paddingBottom="72dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileMenuLayout" />
+        app:layout_constraintTop_toBottomOf="@id/profileMenuLayout">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtStoreName"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:paddingVertical="16dp"
+            android:text=" Store Name"
+            android:textColor="@color/gray_variant"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
