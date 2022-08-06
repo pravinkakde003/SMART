@@ -40,4 +40,7 @@
     <string name="select_store">Select store</string>
 
     <string name="dashboard">Dashboard</string>
+    <string name="profile">Profile</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
 </resources>

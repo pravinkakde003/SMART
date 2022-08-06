@@ -104,6 +104,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+
     <style name="OnBoardingDescriptionTextStyle" parent="Base.TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/product_sans_bold</item>
         <item name="fontFamily">@font/product_sans_bold</item>
@@ -118,6 +119,7 @@
         <item name="android:fontFamily">@font/product_sans_regular</item>
         <item name="fontFamily">@font/product_sans_regular</item>
         <item name="lineSpacing">2dp</item>
+        <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">@color/gray_variant</item>
         <item name="android:textSize">@dimen/abc_text_size_small_material</item>
     </style>
