@@ -2,11 +2,33 @@ package com.user.smart.utils
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewAnimationUtils
+import androidx.annotation.RawRes
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.user.smart.models.DashboardMenuModel
+import java.io.IOException
 import kotlin.math.hypot
 
 object AppUtils {
+
+    fun getArrayListFromJson(context: Context,@RawRes resourceId: Int): List<DashboardMenuModel> {
+        lateinit var jsonString: String
+        try {
+            jsonString =
+                context.resources.openRawResource(resourceId)
+                    .bufferedReader()
+                    .use { it.readText() }
+        } catch (ioException: IOException) {
+            Log.e("AppUtils", ioException.toString())
+        }
+
+        val listCountryType = object : TypeToken<List<DashboardMenuModel>>() {}.type
+        return Gson().fromJson(jsonString, listCountryType)
+    }
 
     fun showProfileOptionsView(mView: View) {
         val cx = mView.width / 2

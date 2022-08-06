@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "POS Live",
+    "icon": 0
+  },
+  {
+    "id": 2,
+    "title": "POS Closing Sales",
+    "icon": 0
+  },
+  {
+    "id": 3,
+    "title": "Day Sales/Recon",
+    "icon": 0
+  },
+  {
+    "id": 4,
+    "title": "Transactions",
+    "icon": 0
+  },
+  {
+    "id": 5,
+    "title": "Fuel Price",
+    "icon": 0
+  },
+  {
+    "id": 6,
+    "title": "Fuel Inventory",
+    "icon": 0
+  },
+  {
+    "id": 7,
+    "title": "Account",
+    "icon": 0
+  },
+  {
+    "id": 8,
+    "title": "Inventory",
+    "icon": 0
+  },
+  {
+    "id": 9,
+    "title": "Lottery",
+    "icon": 0
+  },
+  {
+    "id": 10,
+    "title": "Financials",
+    "icon": 0
+  },
+  {
+    "id": 11,
+    "title": "Purchases",
+    "icon": 0
+  },
+  {
+    "id": 12,
+    "title": "Groups",
+    "icon": 0
+  },
+  {
+    "id": 13,
+    "title": "Order",
+    "icon": 0
+  },
+  {
+    "id": 14,
+    "title": "Check In/Out",
+    "icon": 0
+  },
+  {
+    "id": 15,
+    "title": "Send to POS",
+    "icon": 0
+  }
+]
