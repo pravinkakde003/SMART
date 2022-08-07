@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/black_dot.xml" value="0.247" />
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/dot_indicator.xml" value="0.1685" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.1685" />
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2135" />
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2135" />
         <entry key="..\:/SMART_GIT/app/src/main/res/drawable/ic_password.xml" value="0.2135" />
@@ -15,6 +16,7 @@
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_login_singup_info.xml" value="0.2421875" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_onboarding.xml" value="0.2421875" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_search_store.xml" value="0.19880290722530997" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_select_store..xml" value="0.2421875" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_select_store.xml" value="0.264" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
@@ -25,6 +27,8 @@
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/fragment_onboarding_page.xml" value="0.2421875" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/item_menu.xml" value="0.264" />
         <entry key="..\:/SMART_GIT/app/src/main/res/layout/profile_menu_items.xml" value="0.536" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/search_store_activity.xml" value="0.19880290722530997" />
+        <entry key="..\:/SMART_GIT/app/src/main/res/layout/search_store_list_item.xml" value="0.264" />
       </map>
     </option>
   </component>

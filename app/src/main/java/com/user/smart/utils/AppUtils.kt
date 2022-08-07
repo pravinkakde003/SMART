@@ -10,12 +10,13 @@ import androidx.annotation.RawRes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.user.smart.models.DashboardMenuModel
+import com.user.smart.models.StoreListModelItem
 import java.io.IOException
 import kotlin.math.hypot
 
 object AppUtils {
 
-    fun getArrayListFromJson(context: Context,@RawRes resourceId: Int): List<DashboardMenuModel> {
+    fun getArrayListFromJson(context: Context, @RawRes resourceId: Int): String {
         lateinit var jsonString: String
         try {
             jsonString =
@@ -25,9 +26,17 @@ object AppUtils {
         } catch (ioException: IOException) {
             Log.e("AppUtils", ioException.toString())
         }
+        return jsonString
+    }
 
-        val listCountryType = object : TypeToken<List<DashboardMenuModel>>() {}.type
-        return Gson().fromJson(jsonString, listCountryType)
+    fun getDashboardMenuList(jsonString: String): List<DashboardMenuModel> {
+        val listType = object : TypeToken<List<DashboardMenuModel>>() {}.type
+        return Gson().fromJson(jsonString, listType)
+    }
+
+    fun getStoreList(jsonString: String): List<StoreListModelItem> {
+        val listType = object : TypeToken<List<StoreListModelItem>>() {}.type
+        return Gson().fromJson(jsonString, listType)
     }
 
     fun showProfileOptionsView(mView: View) {

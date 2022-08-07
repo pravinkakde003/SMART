@@ -22,13 +22,8 @@ class DashboardMenuListAdapter(var context: Context) :
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var title: MaterialTextView
-        var image: ShapeableImageView
-
-        init {
-            title = itemView.findViewById(R.id.txtMenuName)
-            image = itemView.findViewById(R.id.imageViewMenu)
-        }
+        var title: MaterialTextView = itemView.findViewById(R.id.txtMenuName)
+        var image: ShapeableImageView = itemView.findViewById(R.id.imageViewMenu)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
