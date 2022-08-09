@@ -1,7 +1,6 @@
 package com.user.smart.models
 
 data class StoreListModelItem(
-    val __v: Int,
     val _id: String,
     val additional_store_email: String,
     val additional_store_phone: String,

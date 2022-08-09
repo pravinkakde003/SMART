@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -42,6 +43,10 @@ ext {
     appcompatVersion = '1.4.2'
     constraintlayoutVersion = '2.1.4'
     gsonVersion = '2.9.1'
+    room_version = '2.4.3'
+    lifecycle_version = '2.5.1'
+    coroutines_version = '1.6.4'
+    retrofit2_version = '2.9.0'
 }
 
 dependencies {
@@ -53,7 +58,17 @@ dependencies {
             "androidx.core:core-ktx:$kotlinVersion",
             "androidx.appcompat:appcompat:$appcompatVersion",
             "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
-            "com.google.code.gson:gson:$gsonVersion"
+            "com.google.code.gson:gson:$gsonVersion",
+            "androidx.room:room-runtime:$room_version",
+            "androidx.room:room-ktx:$room_version",
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
+            "com.squareup.retrofit2:retrofit:$retrofit2_version",
+            "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    kapt("androidx.room:room-compiler:$room_version")
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
