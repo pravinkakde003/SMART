@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "POS Live",
-    "imageRes": "ic_baseline_local_play_24"
+    "imageRes": "ic_pos"
   },
   {
     "id": 2,
@@ -12,47 +12,47 @@
   {
     "id": 3,
     "title": "Day Sales/Recon",
-    "imageRes": 0
+    "imageRes": "ic_day_sales"
   },
   {
     "id": 4,
     "title": "Transactions",
-    "imageRes": 0
+    "imageRes": "ic_transaction"
   },
   {
     "id": 5,
     "title": "Fuel Price",
-    "imageRes": 0
+    "imageRes": "ic_fuel_price"
   },
   {
     "id": 6,
     "title": "Fuel Inventory",
-    "imageRes": 0
+    "imageRes": "ic_fuel_inventory"
   },
   {
     "id": 7,
     "title": "Account",
-    "imageRes": 0
+    "imageRes": "ic_accounts"
   },
   {
     "id": 8,
     "title": "Inventory",
-    "imageRes": 0
+    "imageRes": "ic_inventory"
   },
   {
     "id": 9,
     "title": "Lottery",
-    "imageRes": "ic_baseline_local_play_24"
+    "imageRes": "ic_lottery"
   },
   {
     "id": 10,
     "title": "Financials",
-    "imageRes": 0
+    "imageRes": "ic_financial"
   },
   {
     "id": 11,
     "title": "Purchases",
-    "imageRes": 0
+    "imageRes": "ic_purchases"
   },
   {
     "id": 12,
@@ -62,12 +62,12 @@
   {
     "id": 13,
     "title": "Order",
-    "imageRes": 0
+    "imageRes": "ic_order"
   },
   {
     "id": 14,
     "title": "Check In/Out",
-    "imageRes": 0
+    "imageRes": "ic_check_in_out"
   },
   {
     "id": 15,
