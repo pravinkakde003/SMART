@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SMART"
         tools:targetApi="31">
         <activity
-            android:name=".views.activity.DashboardActivity"
+            android:name=".views.activity.SplashActivity"
             android:exported="true"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".views.activity.SplashActivity"
+            android:name=".views.activity.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/DashboardActivityTheme" />
 
