@@ -13,6 +13,7 @@ import com.user.smart.api.ApiService
 import com.user.smart.api.RetrofitHelper
 import com.user.smart.databinding.ActivityLoginBinding
 import com.user.smart.repository.LoginRepository
+import com.user.smart.repository.NetworkResult
 import com.user.smart.views.viewmodel.LoginViewModel
 import com.user.smart.views.viewmodel.LoginViewModelFactory
 
@@ -39,7 +40,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.loginButton.setOnClickListener(this)
 
         loginViewModel.loginLiveData.observe(this, Observer {
-            Log.e("TAGG", it.token)
+            when (it) {
+                is NetworkResult.Loading -> {}
+                is NetworkResult.Error -> {
+                    Log.e("TAGG", "Error" + it.errorMessage.toString())
+                }
+                is NetworkResult.Success -> {
+                    it.data?.let {
+                        Log.e("TAGG", "Success " + it.displayName)
+                    }
+                }
+            }
         })
     }
 
@@ -56,8 +67,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 //                startActivity(intent)
 //                finish()
 //                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-
-                loginViewModel.callLoginAPI("milind.mahajan@mindpooltech.net", "Milind@123")
+                loginViewModel.callLoginAPI(
+                    binding.emailTextField.editText?.text.toString(),
+                    binding.passwordTextField.editText?.text.toString())
             }
         }
     }

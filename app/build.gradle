@@ -47,6 +47,7 @@ ext {
     lifecycle_version = '2.5.1'
     coroutines_version = '1.6.4'
     retrofit2_version = '2.9.0'
+    loggingInterceptor_version = '4.10.0'
 }
 
 dependencies {
@@ -66,7 +67,8 @@ dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
             "com.squareup.retrofit2:retrofit:$retrofit2_version",
-            "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+            "com.squareup.retrofit2:converter-gson:$retrofit2_version",
+            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor_version"
 
     kapt("androidx.room:room-compiler:$room_version")
 

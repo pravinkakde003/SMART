@@ -7,16 +7,15 @@ import com.user.smart.utils.ApiConstants.PASSWORD_KEY
 import com.user.smart.utils.ApiConstants.STORE_LIST_END_POINT
 import com.user.smart.utils.ApiConstants.USERNAME_KEY
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
+    @FormUrlEncoded
     @POST(LOGIN_END_POINT)
     suspend fun login(
-        @Query(USERNAME_KEY) username: String,
-        @Query(PASSWORD_KEY) password: String
+        @Field(USERNAME_KEY) username: String,
+        @Field(PASSWORD_KEY) password: String
     ): Response<UserModel>
 
     @GET(STORE_LIST_END_POINT)

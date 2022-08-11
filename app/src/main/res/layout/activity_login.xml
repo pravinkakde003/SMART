@@ -71,6 +71,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:text="milind.mahajan@mindpooltech.net"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +94,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Milind@123"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -1,6 +1,7 @@
 package com.user.smart.models
 
 data class UserModel(
+    val __v: Int,
     val _id: String,
     val createdAt: String,
     val displayName: String,

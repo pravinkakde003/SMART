@@ -5,7 +5,6 @@ data class StoreListModelItem(
     val additional_store_email: String,
     val additional_store_phone: String,
     val createdAt: String,
-    val `null`: String,
     val store_address: String,
     val store_city: String,
     val store_contact_no: String,
