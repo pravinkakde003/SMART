@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.user.smart.R
 import com.user.smart.databinding.ActivitySplashBinding
 import com.user.smart.utils.AppConstant.SPLASH_SCREEN_DELAY
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity(){
     private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)

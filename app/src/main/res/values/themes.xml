@@ -35,6 +35,13 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/app_background_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_screen_bg</item>
+        <item name="windowSplashScreenAnimationDuration">100</item>
+        <item name="postSplashScreenTheme">@style/AppFullScreenTheme</item>
+    </style>
+
     <style name="AppFullScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>

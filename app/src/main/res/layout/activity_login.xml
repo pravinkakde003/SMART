@@ -30,7 +30,7 @@
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/loginDescription"
@@ -71,8 +71,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:text="milind.mahajan@mindpooltech.net"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="milind.mahajan@mindpooltech.net" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,20 +95,22 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Milind@123"
-                android:inputType="textPassword" />
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:text="Milind@123" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textSize="14sp"
             android:buttonTint="@color/primary_color"
             android:checked="true"
             android:fontFamily="@font/product_sans_regular"
             android:text="@string/remember_me"
             android:textColor="@color/gray_variant"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordTextField" />
 
