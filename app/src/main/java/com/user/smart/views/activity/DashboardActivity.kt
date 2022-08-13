@@ -1,11 +1,9 @@
 package com.user.smart.views.activity
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.user.smart.R
@@ -13,7 +11,7 @@ import com.user.smart.databinding.ActivityDashboardBinding
 import com.user.smart.utils.AppUtils
 import com.user.smart.views.adapters.DashboardMenuListAdapter
 
-class DashboardActivity : AppCompatActivity(), View.OnClickListener {
+class DashboardActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDashboardBinding
     var isProfileMenuVisible = false
 
@@ -31,6 +29,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         mAdapter.setLisData(dashboardMenuList)
         binding.recyclerviewDashboard.adapter = mAdapter
 
+
     }
 
     private var resultLauncher = registerForActivityResult(
@@ -45,9 +44,12 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.toolbar.imageViewSelectStore -> {
-                val intent = Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
-                resultLauncher.launch(intent)
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                AppUtils.showInternetAlertDialog(this)
+
+
+//                val intent = Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
+//                resultLauncher.launch(intent)
+//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
             binding.toolbar.imageViewProfile -> {
                 isProfileMenuVisible = if (isProfileMenuVisible) {
@@ -72,4 +74,6 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
+
 }

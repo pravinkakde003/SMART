@@ -14,7 +14,7 @@ import com.user.smart.databinding.ActivityOnboardingBinding
 import com.user.smart.models.OnBoardingModel
 import com.user.smart.views.fragments.OnBoardingPageFragment
 
-class OnBoardingActivity : AppCompatActivity() {
+class OnBoardingActivity : BaseActivity() {
     lateinit var onBoardingPages: ArrayList<OnBoardingModel>
     lateinit var slideInAnimRegister: Animation
     private lateinit var binding: ActivityOnboardingBinding

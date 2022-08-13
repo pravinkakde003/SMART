@@ -10,7 +10,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySelectStoreBinding
 import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
 
-class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
+class SelectStoreActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivitySelectStoreBinding
     var isFromLoginScreen = false

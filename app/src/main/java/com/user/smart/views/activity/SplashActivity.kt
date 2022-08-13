@@ -10,7 +10,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySplashBinding
 import com.user.smart.utils.AppConstant.SPLASH_SCREEN_DELAY
 
-class SplashActivity : AppCompatActivity(){
+class SplashActivity : BaseActivity(){
 
     private lateinit var binding: ActivitySplashBinding
 
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity(){
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, OnBoardingActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

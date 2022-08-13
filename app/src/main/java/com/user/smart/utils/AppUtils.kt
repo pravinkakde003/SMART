@@ -9,6 +9,7 @@ import android.view.ViewAnimationUtils
 import androidx.annotation.RawRes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
 import com.user.smart.models.StoreListModelItem
 import java.io.IOException
@@ -61,4 +62,14 @@ object AppUtils {
         })
         anim.start()
     }
+
+    fun showInternetAlertDialog(context: Context) {
+        context.showAlertDialog {
+            setTitle(context.resources.getString(R.string.internet_alert_title))
+            setMessage(context.resources.getString(R.string.internet_alert_message))
+            positiveButtonClick(context.resources.getString(R.string.ok)) { }
+        }
+    }
+
+
 }

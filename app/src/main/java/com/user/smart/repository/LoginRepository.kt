@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.user.smart.api.ApiService
+import com.user.smart.models.ErrorModel
 import com.user.smart.models.UserModel
+
 
 class LoginRepository(private val apiService: ApiService) {
     private val loginResponseLiveData = MutableLiveData<NetworkResult<UserModel>>()
@@ -15,11 +17,12 @@ class LoginRepository(private val apiService: ApiService) {
 
     suspend fun login(username: String, password: String) {
         val result = apiService.login(username = username, password = password)
-        if (result?.body() != null) {
+        if (result.body() != null) {
             Log.e("Response : ", result.body().toString())
             loginResponseLiveData.postValue(NetworkResult.Success(result.body()))
         } else {
-            loginResponseLiveData.postValue(NetworkResult.Error("Error"))
+            val errorModel = Gson().fromJson(result.errorBody()?.string(), ErrorModel::class.java)
+            loginResponseLiveData.postValue(NetworkResult.Error(errorModel))
         }
     }
 }

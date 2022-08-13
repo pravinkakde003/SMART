@@ -12,7 +12,7 @@ import com.user.smart.utils.AppUtils
 import com.user.smart.views.adapters.SearchStoreListAdapter
 
 
-class SearchStoreListingActivity : AppCompatActivity() {
+class SearchStoreListingActivity : BaseActivity() {
     private lateinit var binding: ActivitySearchStoreBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

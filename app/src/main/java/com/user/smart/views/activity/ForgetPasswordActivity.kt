@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.user.smart.R
 import com.user.smart.databinding.ActivityForgetPasswordBinding
 
-class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
+class ForgetPasswordActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityForgetPasswordBinding
 

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.user.smart.R
@@ -14,10 +13,14 @@ import com.user.smart.api.RetrofitHelper
 import com.user.smart.databinding.ActivityLoginBinding
 import com.user.smart.repository.LoginRepository
 import com.user.smart.repository.NetworkResult
+import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
+import com.user.smart.utils.AppUtils
+import com.user.smart.utils.positiveButtonClick
+import com.user.smart.utils.showAlertDialog
 import com.user.smart.views.viewmodel.LoginViewModel
 import com.user.smart.views.viewmodel.LoginViewModelFactory
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var loginViewModel: LoginViewModel
@@ -43,11 +46,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             when (it) {
                 is NetworkResult.Loading -> {}
                 is NetworkResult.Error -> {
-                    Log.e("TAGG", "Error" + it.errorMessage.toString())
+                    showAlertDialog {
+                        setTitle(context.resources.getString(R.string.error))
+                        setMessage(it.errorMessage?.message)
+                        positiveButtonClick(context.resources.getString(R.string.ok)) { }
+                    }
                 }
                 is NetworkResult.Success -> {
                     it.data?.let {
-                        Log.e("TAGG", "Success " + it.displayName)
+                        val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
+                        intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)
+                        startActivity(intent)
+                        finish()
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                     }
                 }
             }
@@ -62,14 +73,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
             binding.loginButton -> {
-//                val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
-//                intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)
-//                startActivity(intent)
-//                finish()
-//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                loginViewModel.callLoginAPI(
-                    binding.emailTextField.editText?.text.toString(),
-                    binding.passwordTextField.editText?.text.toString())
+                if (isInternetAvailable()) {
+                    loginViewModel.callLoginAPI(
+                        binding.emailTextField.editText?.text.toString(),
+                        binding.passwordTextField.editText?.text.toString()
+                    )
+                } else {
+                    AppUtils.showInternetAlertDialog(this)
+                }
             }
         }
     }
