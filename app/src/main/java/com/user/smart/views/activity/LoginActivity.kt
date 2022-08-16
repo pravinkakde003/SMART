@@ -3,7 +3,6 @@ package com.user.smart.views.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -44,8 +43,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         loginViewModel.loginLiveData.observe(this, Observer {
             when (it) {
-                is NetworkResult.Loading -> {}
+                is NetworkResult.Loading -> {
+                    showProgressDialog()
+                }
                 is NetworkResult.Error -> {
+                    hideProgressDialog()
                     showAlertDialog {
                         setTitle(context.resources.getString(R.string.error))
                         setMessage(it.errorMessage?.message)
@@ -53,6 +55,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     }
                 }
                 is NetworkResult.Success -> {
+                    hideProgressDialog()
                     it.data?.let {
                         val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
                         intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)

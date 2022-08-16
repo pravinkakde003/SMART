@@ -16,13 +16,16 @@ class LoginRepository(private val apiService: ApiService) {
         get() = loginResponseLiveData
 
     suspend fun login(username: String, password: String) {
-        val result = apiService.login(username = username, password = password)
-        if (result.body() != null) {
-            Log.e("Response : ", result.body().toString())
-            loginResponseLiveData.postValue(NetworkResult.Success(result.body()))
-        } else {
-            val errorModel = Gson().fromJson(result.errorBody()?.string(), ErrorModel::class.java)
+        loginResponseLiveData.postValue(NetworkResult.Loading())
+        val response = apiService.login(username = username, password = password)
+        Log.e("Response : ", response.body().toString())
+        if (response.isSuccessful && response.body() != null) {
+            loginResponseLiveData.postValue(NetworkResult.Success(response.body()))
+        } else if (response.errorBody() != null) {
+            val errorModel = Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
             loginResponseLiveData.postValue(NetworkResult.Error(errorModel))
+        } else {
+            loginResponseLiveData.postValue(NetworkResult.Error(ErrorModel("ssss", 10)))
         }
     }
 }
