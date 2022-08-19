@@ -7,9 +7,10 @@ import com.google.gson.Gson
 import com.user.smart.api.ApiService
 import com.user.smart.models.ErrorModel
 import com.user.smart.models.UserModel
+import javax.inject.Inject
 
 
-class LoginRepository(private val apiService: ApiService) {
+class LoginRepository @Inject constructor(private val apiService: ApiService) {
     private val loginResponseLiveData = MutableLiveData<NetworkResult<UserModel>>()
 
     val loginLiveData: LiveData<NetworkResult<UserModel>>

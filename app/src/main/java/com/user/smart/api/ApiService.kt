@@ -17,7 +17,4 @@ interface ApiService {
         @Field(USERNAME_KEY) username: String,
         @Field(PASSWORD_KEY) password: String
     ): Response<UserModel>
-
-    @GET(STORE_LIST_END_POINT)
-    suspend fun getStoreList(): Response<StoreListModelItem>
 }

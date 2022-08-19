@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -48,6 +49,8 @@ ext {
     coroutines_version = '1.6.4'
     retrofit2_version = '2.9.0'
     loggingInterceptor_version = '4.10.0'
+    daggerHilt_version = '2.38.1'
+    splashScreen_version = '1.0.0-beta02'
 }
 
 dependencies {
@@ -68,11 +71,15 @@ dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
             "com.squareup.retrofit2:retrofit:$retrofit2_version",
             "com.squareup.retrofit2:converter-gson:$retrofit2_version",
-            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor_version"
+            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor_version",
+            "com.google.dagger:hilt-android:$daggerHilt_version",
+            "androidx.core:core-splashscreen:$splashScreen_version"
 
-    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
-
+    kapt("com.google.dagger:hilt-android-compiler:$daggerHilt_version")
     kapt("androidx.room:room-compiler:$room_version")
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

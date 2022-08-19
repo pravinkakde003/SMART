@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.user.smart.databinding.SearchStoreListItemBinding
-import com.user.smart.models.StoreListModelItem
+import com.user.smart.models.StoreListResponseItem
 
 
 class SearchStoreListAdapter(
-    private var storeList: List<StoreListModelItem>,
-    private var onItemClicked: ((dataItem: StoreListModelItem) -> Unit)
+    private var storeList: List<StoreListResponseItem>,
+    private var onItemClicked: ((dataItem: StoreListResponseItem) -> Unit)
 ) : RecyclerView.Adapter<SearchStoreListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +25,7 @@ class SearchStoreListAdapter(
     inner class ViewHolder(private val binding: SearchStoreListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(dataItem: StoreListModelItem) = binding.apply {
+        fun bind(dataItem: StoreListResponseItem) = binding.apply {
             if (!dataItem.store_name.isNullOrBlank()) {
                 txtStoreName.text = dataItem.store_name
             }

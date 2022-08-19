@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken
 import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
 import com.user.smart.models.StoreListModelItem
+import com.user.smart.models.StoreListResponseItem
 import java.io.IOException
 import kotlin.math.hypot
 
@@ -35,8 +36,8 @@ object AppUtils {
         return Gson().fromJson(jsonString, listType)
     }
 
-    fun getStoreList(jsonString: String): List<StoreListModelItem> {
-        val listType = object : TypeToken<List<StoreListModelItem>>() {}.type
+    fun getStoreList(jsonString: String): List<StoreListResponseItem> {
+        val listType = object : TypeToken<List<StoreListResponseItem>>() {}.type
         return Gson().fromJson(jsonString, listType)
     }
 

@@ -2,18 +2,30 @@ package com.user.smart.views.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import com.user.smart.R
+import com.user.smart.api.ApiService
+import com.user.smart.api.StoreApiServices
 import com.user.smart.databinding.ActivitySelectStoreBinding
 import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SelectStoreActivity : BaseActivity(), View.OnClickListener {
+@AndroidEntryPoint
+class SelectStoreActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivitySelectStoreBinding
     var isFromLoginScreen = false
+
+    @Inject
+    lateinit var apiService: StoreApiServices
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +46,11 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
         )
         val adapter = ArrayAdapter(this, R.layout.dropdown_list_item, items)
         (binding.textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = apiService.getStoreList()
+            Log.e("DashboardActivity", response.body().toString())
+        }
     }
 
     override fun onBackPressed() {

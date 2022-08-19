@@ -4,50 +4,45 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.user.smart.R
-import com.user.smart.api.ApiService
-import com.user.smart.api.RetrofitHelper
 import com.user.smart.databinding.ActivityLoginBinding
-import com.user.smart.repository.LoginRepository
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
 import com.user.smart.utils.AppUtils
+import com.user.smart.utils.PreferenceManager
 import com.user.smart.utils.positiveButtonClick
 import com.user.smart.utils.showAlertDialog
 import com.user.smart.views.viewmodel.LoginViewModel
-import com.user.smart.views.viewmodel.LoginViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
-    lateinit var loginViewModel: LoginViewModel
+    private val loginViewModel: LoginViewModel by viewModels()
+
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val apiService = RetrofitHelper.getInstance().create(ApiService::class.java)
-        val loginRepository = LoginRepository(apiService)
-        loginViewModel = ViewModelProvider(
-            this,
-            LoginViewModelFactory(loginRepository)
-        )[LoginViewModel::class.java]
-
         binding.txtPolicy.movementMethod = LinkMovementMethod.getInstance()
         binding.txtPolicy.setOnClickListener(this)
         binding.forgotPasswordButton.setOnClickListener(this)
         binding.loginButton.setOnClickListener(this)
 
-        loginViewModel.loginLiveData.observe(this, Observer {
+        loginViewModel.loginLiveData.observe(this) {
+            hideProgressDialog()
             when (it) {
                 is NetworkResult.Loading -> {
                     showProgressDialog()
                 }
                 is NetworkResult.Error -> {
-                    hideProgressDialog()
                     showAlertDialog {
                         setTitle(context.resources.getString(R.string.error))
                         setMessage(it.errorMessage?.message)
@@ -55,8 +50,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     }
                 }
                 is NetworkResult.Success -> {
-                    hideProgressDialog()
-                    it.data?.let {
+                    it.data?.let { userResponse ->
+                        preferenceManager.saveToken(userResponse.token)
                         val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
                         intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)
                         startActivity(intent)
@@ -65,7 +60,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     }
                 }
             }
-        })
+        }
     }
 
     override fun onClick(view: View?) {
