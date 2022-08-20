@@ -11,14 +11,19 @@ import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
 
 
-class DashboardMenuListAdapter(var context: Context) :
+class DashboardMenuListAdapter(
+    var context: Context,
+    dataList: List<DashboardMenuModel>,
+    private val onClickListener: (View, DashboardMenuModel) -> Unit
+) :
     RecyclerView.Adapter<DashboardMenuListAdapter.ViewHolder>() {
 
     private var dataList = emptyList<DashboardMenuModel>()
     var mContext: Context = context
 
-    fun setLisData(dataList: List<DashboardMenuModel>) {
+    init {
         this.dataList = dataList
+        this.mContext = context
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -41,6 +46,9 @@ class DashboardMenuListAdapter(var context: Context) :
             if (resourceId != 0) {
                 holder.image.setImageResource(resourceId)
             }
+        }
+        holder.itemView.setOnClickListener { view ->
+            onClickListener.invoke(view, data)
         }
     }
 

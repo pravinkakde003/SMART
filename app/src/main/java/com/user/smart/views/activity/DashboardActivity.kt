@@ -2,13 +2,13 @@ package com.user.smart.views.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.ActivityDashboardBinding
-import com.user.smart.utils.AppUtils
-import com.user.smart.utils.PreferenceManager
+import com.user.smart.utils.*
 import com.user.smart.views.adapters.DashboardMenuListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -27,15 +27,18 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
         setContentView(binding.root)
         binding.toolbar.imageViewSelectStore.setOnClickListener(this)
         binding.toolbar.imageViewProfile.setOnClickListener(this)
+        binding.menuProfile.logoutLayout.setOnClickListener(this)
         val dashboardMenuList =
             AppUtils.getDashboardMenuList(AppUtils.getArrayListFromJson(this, R.raw.dashboard))
 
         binding.recyclerviewDashboard.layoutManager = GridLayoutManager(this, 3)
-        var mAdapter = DashboardMenuListAdapter(this)
-        mAdapter.setLisData(dashboardMenuList)
+        var mAdapter = DashboardMenuListAdapter(this, dashboardMenuList) { view, item ->
+            val intent = Intent(this@DashboardActivity, DetailsActivity::class.java)
+            intent.putExtra(AppConstant.SELECTED_DASHBOARD_ITEM_KEY, item.id)
+            startActivity(intent)
+            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out)
+        }
         binding.recyclerviewDashboard.adapter = mAdapter
-
-
     }
 
     override fun onResume() {
@@ -53,7 +56,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     val intent =
                         Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
                     startActivity(intent)
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                    overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out)
                 } else {
                     AppUtils.showInternetAlertDialog(this)
                 }
@@ -79,8 +82,24 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     true
                 }
             }
+            binding.menuProfile.logoutLayout -> {
+                if (isInternetAvailable()) {
+                    showAlertDialog {
+                        setTitle(context.resources.getString(R.string.logout_alert_title))
+                        setMessage(context.resources.getString(R.string.logout_alert_message))
+                        positiveButtonClick(context.resources.getString(R.string.ok)) {
+                            preferenceManager.clearAllData()
+                            val intent = Intent(this@DashboardActivity, LoginActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                        }
+                        negativeButtonClick(context.resources.getString(R.string.cancel)) {}
+                    }
+                } else {
+                    AppUtils.showInternetAlertDialog(this)
+                }
+            }
         }
     }
-
-
 }

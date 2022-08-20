@@ -35,4 +35,9 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
         val stringObject = preferences.getString(SELECTED_SORE_KEY, null)
         return Gson().fromJson(stringObject, StoreListResponseItem::class.java)
     }
+
+    fun clearAllData() {
+        val editor = preferences.edit()
+        editor.clear().apply()
+    }
 }

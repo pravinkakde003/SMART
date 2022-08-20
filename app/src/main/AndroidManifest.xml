@@ -57,7 +57,12 @@
         <activity
             android:name=".views.activity.SearchStoreListingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppFullScreenTheme" />
+            android:theme="@style/DashboardActivityTheme" />
+
+        <activity
+            android:name=".views.activity.DetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DashboardActivityTheme" />
     </application>
 
 </manifest>

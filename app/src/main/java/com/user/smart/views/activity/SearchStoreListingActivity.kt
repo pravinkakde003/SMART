@@ -47,7 +47,6 @@ class SearchStoreListingActivity : BaseActivity() {
                 }
                 is NetworkResult.Success -> {
                     responseData.data?.let {
-
                         val storeList = responseData.data
                         if (storeList.size > 0) {
                             setAdapter(storeList)
@@ -86,6 +85,6 @@ class SearchStoreListingActivity : BaseActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
     }
 }
