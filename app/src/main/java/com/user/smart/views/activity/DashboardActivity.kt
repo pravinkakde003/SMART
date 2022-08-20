@@ -3,27 +3,19 @@ package com.user.smart.views.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.user.smart.R
-import com.user.smart.api.ApiService
 import com.user.smart.databinding.ActivityDashboardBinding
 import com.user.smart.utils.AppUtils
 import com.user.smart.views.adapters.DashboardMenuListAdapter
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 class DashboardActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDashboardBinding
     var isProfileMenuVisible = false
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +33,6 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
         binding.recyclerviewDashboard.adapter = mAdapter
 
 
-
     }
 
     private var resultLauncher = registerForActivityResult(
@@ -56,9 +47,14 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.toolbar.imageViewSelectStore -> {
-                val intent = Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
-                resultLauncher.launch(intent)
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                if (isInternetAvailable()) {
+                    val intent =
+                        Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
+                    resultLauncher.launch(intent)
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                } else {
+                    AppUtils.showInternetAlertDialog(this)
+                }
             }
             binding.toolbar.imageViewProfile -> {
                 isProfileMenuVisible = if (isProfileMenuVisible) {
