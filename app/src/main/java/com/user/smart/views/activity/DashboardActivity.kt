@@ -1,22 +1,25 @@
 package com.user.smart.views.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.ActivityDashboardBinding
 import com.user.smart.utils.AppUtils
+import com.user.smart.utils.PreferenceManager
 import com.user.smart.views.adapters.DashboardMenuListAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class DashboardActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDashboardBinding
     var isProfileMenuVisible = false
 
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +38,11 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
 
     }
 
-    private var resultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val value = result.data?.getStringExtra("STORE_NAME")
-            binding.txtStoreName.text = value
+    override fun onResume() {
+        super.onResume()
+        val selectedStoreObject = preferenceManager.getSelectedStoreObject()
+        if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
+            binding.txtStoreName.text = selectedStoreObject.store_name
         }
     }
 
@@ -50,7 +52,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                 if (isInternetAvailable()) {
                     val intent =
                         Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
-                    resultLauncher.launch(intent)
+                    startActivity(intent)
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 } else {
                     AppUtils.showInternetAlertDialog(this)

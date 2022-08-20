@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import com.user.smart.R
 import com.user.smart.databinding.ActivityLoginBinding
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
 import com.user.smart.utils.AppUtils
 import com.user.smart.utils.PreferenceManager
 import com.user.smart.utils.positiveButtonClick
@@ -53,7 +52,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     it.data?.let { userResponse ->
                         preferenceManager.saveToken(userResponse.token)
                         val intent = Intent(this@LoginActivity, SelectStoreActivity::class.java)
-                        intent.putExtra(FROM_LOGIN_SCREEN_KEY, true)
                         startActivity(intent)
                         finish()
                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

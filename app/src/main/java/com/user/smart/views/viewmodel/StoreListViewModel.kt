@@ -1,9 +1,11 @@
 package com.user.smart.views.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.user.smart.models.GetStoreListResponse
+import com.user.smart.models.StoreListResponseItem
 import com.user.smart.repository.NetworkResult
 import com.user.smart.repository.StoreListingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

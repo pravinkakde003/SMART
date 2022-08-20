@@ -15,4 +15,9 @@ data class StoreListResponseItem(
     val store_state: String,
     val store_zip: String,
     val updatedAt: String
-)
+){
+
+    override fun toString(): String {
+        return store_name
+    }
+}

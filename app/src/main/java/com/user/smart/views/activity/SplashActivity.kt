@@ -30,14 +30,26 @@ class SplashActivity : BaseActivity() {
 
     private fun checkNavigation() {
         Handler(Looper.getMainLooper()).postDelayed({
-            var intent = if (preferenceManager.getToken() != null) {
-                Intent(this, DashboardActivity::class.java)
-            } else {
-                Intent(this, LoginActivity::class.java)
-            }
+            var intent = getNavigationIntent()
             startActivity(intent)
             finish()
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }, SPLASH_SCREEN_DELAY.toLong())
+    }
+
+    private fun getNavigationIntent() = when {
+        preferenceManager.getToken() != null -> {
+            when {
+                preferenceManager.getSelectedStoreObject() != null -> {
+                    Intent(this, DashboardActivity::class.java)
+                }
+                else -> {
+                    Intent(this, SelectStoreActivity::class.java)
+                }
+            }
+        }
+        else -> {
+            Intent(this, LoginActivity::class.java)
+        }
     }
 }

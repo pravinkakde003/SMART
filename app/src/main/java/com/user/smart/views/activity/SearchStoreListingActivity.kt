@@ -1,6 +1,5 @@
 package com.user.smart.views.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -10,12 +9,13 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySearchStoreBinding
 import com.user.smart.models.GetStoreListResponse
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.AppUtils
+import com.user.smart.utils.PreferenceManager
 import com.user.smart.utils.positiveButtonClick
 import com.user.smart.utils.showAlertDialog
 import com.user.smart.views.adapters.SearchStoreListAdapter
 import com.user.smart.views.viewmodel.StoreListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchStoreListingActivity : BaseActivity() {
@@ -23,6 +23,8 @@ class SearchStoreListingActivity : BaseActivity() {
     private lateinit var binding: ActivitySearchStoreBinding
     private val storeListViewModel: StoreListViewModel by viewModels()
 
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchStoreBinding.inflate(layoutInflater)
@@ -54,14 +56,9 @@ class SearchStoreListingActivity : BaseActivity() {
                 }
             }
         }
-
-
     }
 
     private fun setAdapter(storeList: GetStoreListResponse) {
-//        val storeList =
-//            AppUtils.getStoreList(AppUtils.getArrayListFromJson(this, R.raw.store_list))
-
         binding.storeListRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.storeListRecyclerView.setHasFixedSize(true)
         binding.storeListRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -72,9 +69,7 @@ class SearchStoreListingActivity : BaseActivity() {
             )
         )
         var mAdapter = SearchStoreListAdapter(storeList) {
-            val resultIntent = Intent()
-            resultIntent.putExtra("STORE_NAME", it.store_name)
-            setResult(RESULT_OK, resultIntent)
+            preferenceManager.saveSelectedStoreObject(it)
             onBackPressed()
         }
         binding.storeListRecyclerView.adapter = mAdapter

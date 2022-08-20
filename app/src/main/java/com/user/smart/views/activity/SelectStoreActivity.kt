@@ -8,27 +8,28 @@ import android.widget.AutoCompleteTextView
 import androidx.activity.viewModels
 import com.user.smart.R
 import com.user.smart.databinding.ActivitySelectStoreBinding
+import com.user.smart.models.StoreListResponseItem
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.AppConstant.FROM_LOGIN_SCREEN_KEY
+import com.user.smart.utils.PreferenceManager
 import com.user.smart.utils.positiveButtonClick
 import com.user.smart.utils.showAlertDialog
 import com.user.smart.views.viewmodel.StoreListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SelectStoreActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivitySelectStoreBinding
-    var isFromLoginScreen = false
     private val storeListViewModel: StoreListViewModel by viewModels()
+
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if (null != intent && intent.hasExtra(FROM_LOGIN_SCREEN_KEY)) {
-            isFromLoginScreen = intent.getBooleanExtra(FROM_LOGIN_SCREEN_KEY, false)
-        }
         binding.nextButton.setOnClickListener(this)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
@@ -53,12 +54,22 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
 
                         val storeList = responseData.data
                         if (storeList.size > 0) {
-                            val itemList = mutableListOf<String>()
-                            for (item in storeList) {
-                                itemList.add(item.store_name)
+                            val adapter = ArrayAdapter(
+                                this,
+                                R.layout.dropdown_list_item,
+                                storeList
+                            )
+
+                            (binding.textField.editText as? AutoCompleteTextView)?.setAdapter(
+                                adapter
+                            )
+                            (binding.textField.editText as? AutoCompleteTextView)?.setOnItemClickListener { _, _, position, _ ->
+                                binding.nextButton.isEnabled = true
+                                val selectedTeam: StoreListResponseItem? = adapter.getItem(position)
+                                val mObject: StoreListResponseItem? =
+                                    storeList.singleOrNull { it.store_name == selectedTeam.toString() }
+                                preferenceManager.saveSelectedStoreObject(mObject)
                             }
-                            val adapter = ArrayAdapter(this, R.layout.dropdown_list_item, itemList)
-                            (binding.textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
                         }
                     }
                 }
@@ -75,13 +86,10 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.nextButton -> {
-                when {
-                    isFromLoginScreen -> {
-                        val intent = Intent(this@SelectStoreActivity, DashboardActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
-                onBackPressed()
+                val intent = Intent(this@SelectStoreActivity, DashboardActivity::class.java)
+                startActivity(intent)
+                finish()
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
         }
     }
