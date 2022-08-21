@@ -10,6 +10,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySelectStoreBinding
 import com.user.smart.models.StoreListResponseItem
 import com.user.smart.repository.NetworkResult
+import com.user.smart.utils.CustomProgressDialog
 import com.user.smart.utils.PreferenceManager
 import com.user.smart.utils.positiveButtonClick
 import com.user.smart.utils.showAlertDialog
@@ -22,6 +23,9 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivitySelectStoreBinding
     private val storeListViewModel: StoreListViewModel by viewModels()
+
+    @Inject
+    lateinit var progressDialog: CustomProgressDialog
 
     @Inject
     lateinit var preferenceManager: PreferenceManager
@@ -37,10 +41,10 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
         storeListViewModel.callGetStoreListAPI()
 
         storeListViewModel.storeListLiveData.observe(this) { responseData ->
-            hideProgressDialog()
+            progressDialog.hide()
             when (responseData) {
                 is NetworkResult.Loading -> {
-                    showProgressDialog()
+                    progressDialog.show()
                 }
                 is NetworkResult.Error -> {
                     showAlertDialog {

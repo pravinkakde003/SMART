@@ -8,10 +8,7 @@ import androidx.activity.viewModels
 import com.user.smart.R
 import com.user.smart.databinding.ActivityLoginBinding
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.AppUtils
-import com.user.smart.utils.PreferenceManager
-import com.user.smart.utils.positiveButtonClick
-import com.user.smart.utils.showAlertDialog
+import com.user.smart.utils.*
 import com.user.smart.views.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -25,6 +22,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     @Inject
     lateinit var preferenceManager: PreferenceManager
 
+    @Inject
+    lateinit var progressDialog: CustomProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -36,10 +36,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         binding.loginButton.setOnClickListener(this)
 
         loginViewModel.loginLiveData.observe(this) {
-            hideProgressDialog()
+            progressDialog.hide()
             when (it) {
                 is NetworkResult.Loading -> {
-                    showProgressDialog()
+                    progressDialog.show()
                 }
                 is NetworkResult.Error -> {
                     showAlertDialog {

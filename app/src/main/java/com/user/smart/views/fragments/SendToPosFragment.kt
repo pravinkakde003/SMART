@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.user.smart.R
-import com.user.smart.databinding.FragmentPosClosingSalesBinding
+import com.user.smart.databinding.FragmentSendToPosBinding
 
-class POSClosingSalesFragment : Fragment() {
+class SendToPosFragment : Fragment() {
 
-    private var _binding: FragmentPosClosingSalesBinding? = null
+    private var _binding: FragmentSendToPosBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,7 +19,7 @@ class POSClosingSalesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPosClosingSalesBinding.inflate(inflater, container, false)
+        _binding = FragmentSendToPosBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,7 +38,7 @@ class POSClosingSalesFragment : Fragment() {
         binding.toolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.pos_closing_sales)
+        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.send_to_pos)
     }
 
     override fun onDestroyView() {

@@ -5,12 +5,14 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textview.MaterialTextView
 import com.user.smart.R
+import dagger.hilt.android.qualifiers.ActivityContext
+import javax.inject.Inject
 
-
-class CustomProgressDialog(context: Context) {
+class CustomProgressDialog @Inject constructor(@ActivityContext context: Context) {
 
     private var dialog: Dialog
     private var progressViewTitle: MaterialTextView
@@ -24,7 +26,6 @@ class CustomProgressDialog(context: Context) {
     fun hide() {
         dialog.dismiss()
     }
-
 
     init {
         val inflater = (context as Activity).layoutInflater

@@ -2,7 +2,6 @@ package com.user.smart.views.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,6 +24,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.toolbar.imageViewSelectStore.visibility = View.VISIBLE
         binding.toolbar.imageViewSelectStore.setOnClickListener(this)
         binding.toolbar.imageViewProfile.setOnClickListener(this)
         binding.menuProfile.logoutLayout.setOnClickListener(this)

@@ -54,4 +54,20 @@
     <string name="error">Error</string>
     <string name="cancel">Cancel</string>
 
+    <string name="pos_live">POS Live</string>
+    <string name="pos_closing_sales">POS Closing Sales</string>
+    <string name="day_sales">Day Sales/Recon</string>
+    <string name="transactions">Transactions</string>
+    <string name="fuel_price">Fuel Price</string>
+    <string name="fuel_inventory">Fuel Inventory</string>
+    <string name="account">Account</string>
+    <string name="inventory">Inventory</string>
+    <string name="lottery">Lottery</string>
+    <string name="financials">Financials</string>
+    <string name="purchases">Purchases</string>
+    <string name="groups">Groups</string>
+    <string name="order">Order</string>
+    <string name="check_in_out">Check In/Out</string>
+    <string name="send_to_pos">Send to POS</string>
+
 </resources>
