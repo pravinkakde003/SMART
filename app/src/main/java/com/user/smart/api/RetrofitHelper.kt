@@ -1,6 +1,6 @@
 package com.user.smart.api
 
-import com.user.smart.utils.ApiConstants.BASE_URL
+import com.user.smart.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,7 +10,7 @@ object RetrofitHelper {
 
     fun getInstance(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClient())
             .build()

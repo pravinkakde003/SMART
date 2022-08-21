@@ -1,5 +1,6 @@
 package com.user.smart.di
 
+import com.user.smart.BuildConfig
 import com.user.smart.api.ApiService
 import com.user.smart.api.AuthInterceptor
 import com.user.smart.api.StoreApiServices
@@ -21,7 +22,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun providesRetrofit(): Retrofit.Builder {
-        return Retrofit.Builder().baseUrl(ApiConstants.BASE_URL)
+        return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
     }
 
