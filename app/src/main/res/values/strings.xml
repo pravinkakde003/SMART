@@ -70,4 +70,8 @@
     <string name="check_in_out">Check In/Out</string>
     <string name="send_to_pos">Send to POS</string>
 
+    <string name="date_from">Date From</string>
+    <string name="date_to">Date To</string>
+
+
 </resources>
