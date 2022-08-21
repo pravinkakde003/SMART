@@ -39,6 +39,7 @@ class SendToPosFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.send_to_pos)
+        binding.toolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

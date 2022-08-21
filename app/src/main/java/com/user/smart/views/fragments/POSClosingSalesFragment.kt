@@ -39,6 +39,7 @@ class POSClosingSalesFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.pos_closing_sales)
+        binding.toolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

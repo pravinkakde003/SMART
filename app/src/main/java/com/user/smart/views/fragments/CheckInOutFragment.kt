@@ -39,6 +39,7 @@ class CheckInOutFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.check_in_out)
+        binding.toolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

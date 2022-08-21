@@ -39,6 +39,7 @@ class DaySalesReconFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.day_sales)
+        binding.toolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

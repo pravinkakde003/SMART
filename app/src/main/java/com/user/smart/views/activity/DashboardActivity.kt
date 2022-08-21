@@ -24,10 +24,19 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setClickListeners()
+        setMenuRecyclerView()
+    }
+
+    private fun setClickListeners() {
+        binding.toolbar.toolbarParentCardView.elevation = 0f
         binding.toolbar.imageViewSelectStore.visibility = View.VISIBLE
         binding.toolbar.imageViewSelectStore.setOnClickListener(this)
         binding.toolbar.imageViewProfile.setOnClickListener(this)
         binding.menuProfile.logoutLayout.setOnClickListener(this)
+    }
+
+    private fun setMenuRecyclerView() {
         val dashboardMenuList =
             AppUtils.getDashboardMenuList(AppUtils.getArrayListFromJson(this, R.raw.dashboard))
 

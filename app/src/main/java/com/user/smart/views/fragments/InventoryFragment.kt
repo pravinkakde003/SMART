@@ -39,6 +39,7 @@ class InventoryFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.inventory)
+        binding.toolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {
