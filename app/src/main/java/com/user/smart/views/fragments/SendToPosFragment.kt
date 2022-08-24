@@ -38,7 +38,7 @@ class SendToPosFragment : Fragment() {
         )
         binding.toolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
-            if (binding.dateSelectorView.getStartDate().isNullOrEmpty()) {
+            if (binding.dateSelectorView.getStartDateText().isNullOrEmpty()) {
                 Log.e("TAGG", "EMPTY DATE")
             }
         }
