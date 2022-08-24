@@ -7,6 +7,7 @@ import com.user.smart.api.ApiService
 import com.user.smart.models.ErrorModel
 import com.user.smart.models.UserModel
 import retrofit2.Response
+import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 
@@ -17,9 +18,31 @@ class LoginRepository @Inject constructor(private val apiService: ApiService) {
         get() = loginResponseLiveData
 
     suspend fun login(username: String, password: String) {
-        loginResponseLiveData.postValue(NetworkResult.Loading())
-        val response = apiService.login(username = username, password = password)
-        handleResponse(response)
+        try {
+            loginResponseLiveData.postValue(NetworkResult.Loading())
+            val response = apiService.login(username = username, password = password)
+            handleResponse(response)
+        } catch (exception: Exception) {
+            if (exception is SocketTimeoutException) {
+                loginResponseLiveData.postValue(
+                    NetworkResult.Error(
+                        ErrorModel(
+                            "SocketTimeoutException",
+                            10
+                        )
+                    )
+                )
+            } else {
+                loginResponseLiveData.postValue(
+                    NetworkResult.Error(
+                        ErrorModel(
+                            "Network Exception",
+                            10
+                        )
+                    )
+                )
+            }
+        }
     }
 
     private fun handleResponse(response: Response<UserModel>) {
