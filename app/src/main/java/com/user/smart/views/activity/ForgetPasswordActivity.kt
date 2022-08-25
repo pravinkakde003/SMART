@@ -2,13 +2,18 @@ package com.user.smart.views.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import com.user.smart.R
 import com.user.smart.databinding.ActivityForgetPasswordBinding
+import com.user.smart.utils.AppUtils
+import com.user.smart.utils.positiveButtonClick
+import com.user.smart.utils.showAlertDialog
+import com.user.smart.views.viewmodel.ForgetPasswordModel
 
 class ForgetPasswordActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityForgetPasswordBinding
+    private val forgetPasswordViewModel: ForgetPasswordModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +33,27 @@ class ForgetPasswordActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.sendButton -> {
+                val validationResult = validateUserInput()
+                if (validationResult.first) {
+                    if (isInternetAvailable()) {
+
+                    } else {
+                        AppUtils.showInternetAlertDialog(this)
+                    }
+                } else {
+                    showAlertDialog {
+                        setTitle(context.resources.getString(R.string.error))
+                        setMessage(validationResult.second)
+                        positiveButtonClick(context.resources.getString(R.string.ok)) { }
+                    }
+                }
             }
         }
+    }
+
+    private fun validateUserInput(): Pair<Boolean, String> {
+        val emailAddress = binding.emailTextField.editText?.text.toString()
+        return forgetPasswordViewModel.validateCredentials(emailAddress)
     }
 
 }

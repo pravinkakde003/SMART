@@ -10,10 +10,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySelectStoreBinding
 import com.user.smart.models.StoreListResponseItem
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.CustomProgressDialog
-import com.user.smart.utils.PreferenceManager
-import com.user.smart.utils.positiveButtonClick
-import com.user.smart.utils.showAlertDialog
+import com.user.smart.utils.*
 import com.user.smart.views.viewmodel.StoreListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -34,12 +31,27 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initView()
+    }
+
+    private fun initView() {
         binding.nextButton.setOnClickListener(this)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-        storeListViewModel.callGetStoreListAPI()
+        callStoreListingAPI()
+        observeBinding()
+    }
 
+    private fun callStoreListingAPI() {
+        if (isInternetAvailable()) {
+            storeListViewModel.callGetStoreListAPI()
+        } else {
+            AppUtils.showInternetAlertDialog(this)
+        }
+    }
+
+    private fun observeBinding() {
         storeListViewModel.storeListLiveData.observe(this) { responseData ->
             progressDialog.hide()
             when (responseData) {

@@ -69,15 +69,30 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
             binding.loginButton -> {
-                if (isInternetAvailable()) {
-                    loginViewModel.callLoginAPI(
-                        binding.emailTextField.editText?.text.toString(),
-                        binding.passwordTextField.editText?.text.toString()
-                    )
+                val validationResult = validateUserInput()
+                if (validationResult.first) {
+                    if (isInternetAvailable()) {
+                        loginViewModel.callLoginAPI(
+                            binding.emailTextField.editText?.text.toString(),
+                            binding.passwordTextField.editText?.text.toString()
+                        )
+                    } else {
+                        AppUtils.showInternetAlertDialog(this)
+                    }
                 } else {
-                    AppUtils.showInternetAlertDialog(this)
+                    showAlertDialog {
+                        setTitle(context.resources.getString(R.string.error))
+                        setMessage(validationResult.second)
+                        positiveButtonClick(context.resources.getString(R.string.ok)) { }
+                    }
                 }
             }
         }
+    }
+
+    private fun validateUserInput(): Pair<Boolean, String> {
+        val emailAddress = binding.emailTextField.editText?.text.toString()
+        val password = binding.passwordTextField.editText?.text.toString()
+        return loginViewModel.validateCredentials(emailAddress, password)
     }
 }

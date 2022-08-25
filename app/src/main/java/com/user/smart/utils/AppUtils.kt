@@ -3,9 +3,12 @@ package com.user.smart.utils
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.view.ViewAnimationUtils
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.RawRes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -68,6 +71,20 @@ object AppUtils {
             setTitle(context.resources.getString(R.string.internet_alert_title))
             setMessage(context.resources.getString(R.string.internet_alert_message))
             positiveButtonClick(context.resources.getString(R.string.ok)) { }
+        }
+    }
+
+    fun isValidEmail(email: String): Boolean {
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    fun hideKeyboard(view: View) {
+        try {
+            val imm =
+                view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }
