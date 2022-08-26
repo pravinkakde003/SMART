@@ -39,16 +39,8 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-        callStoreListingAPI()
         observeBinding()
-    }
-
-    private fun callStoreListingAPI() {
-        if (isInternetAvailable()) {
-            storeListViewModel.callGetStoreListAPI()
-        } else {
-            AppUtils.showInternetAlertDialog(this)
-        }
+        storeListViewModel.callGetStoreListAPI()
     }
 
     private fun observeBinding() {

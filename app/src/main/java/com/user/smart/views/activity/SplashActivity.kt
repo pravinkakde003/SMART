@@ -49,7 +49,7 @@ class SplashActivity : BaseActivity() {
             }
         }
         else -> {
-            Intent(this, LoginActivity::class.java)
+            Intent(this, OnBoardingActivity::class.java)
         }
     }
 }
