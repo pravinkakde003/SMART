@@ -42,7 +42,8 @@
         <activity
             android:name=".views.activity.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppFullScreenTheme" />
+            android:theme="@style/AppFullScreenTheme"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".views.activity.ForgetPasswordActivity"
