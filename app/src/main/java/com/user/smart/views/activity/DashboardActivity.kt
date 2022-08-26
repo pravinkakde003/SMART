@@ -15,7 +15,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class DashboardActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDashboardBinding
-    var isProfileMenuVisible = false
+    private var isProfileMenuVisible = false
 
     @Inject
     lateinit var preferenceManager: PreferenceManager
@@ -33,7 +33,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
         binding.toolbar.imageViewSelectStore.visibility = View.VISIBLE
         binding.toolbar.imageViewSelectStore.setOnClickListener(this)
         binding.toolbar.imageViewProfile.setOnClickListener(this)
-        binding.menuProfile.logoutLayout.setOnClickListener(this)
+        binding.profileMenuLayout.logoutLayout.setOnClickListener(this)
     }
 
     private fun setMenuRecyclerView() {
@@ -41,7 +41,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
             AppUtils.getDashboardMenuList(AppUtils.getArrayListFromJson(this, R.raw.dashboard))
 
         binding.recyclerviewDashboard.layoutManager = GridLayoutManager(this, 3)
-        var mAdapter = DashboardMenuListAdapter(this, dashboardMenuList) { view, item ->
+        val mAdapter = DashboardMenuListAdapter(this, dashboardMenuList) { _, item ->
             val intent = Intent(this@DashboardActivity, DetailsActivity::class.java)
             intent.putExtra(AppConstant.SELECTED_DASHBOARD_ITEM_KEY, item.id)
             startActivity(intent)
@@ -72,7 +72,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
             }
             binding.toolbar.imageViewProfile -> {
                 isProfileMenuVisible = if (isProfileMenuVisible) {
-                    AppUtils.hideProfileOptionsView(binding.profileMenuLayout)
+                    AppUtils.hideProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
                     binding.toolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
@@ -81,7 +81,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     )
                     false
                 } else {
-                    AppUtils.showProfileOptionsView(binding.profileMenuLayout)
+                    AppUtils.showProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
                     binding.toolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
@@ -91,7 +91,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     true
                 }
             }
-            binding.menuProfile.logoutLayout -> {
+            binding.profileMenuLayout.logoutLayout -> {
                 if (isInternetAvailable()) {
                     showAlertDialog {
                         setTitle(context.resources.getString(R.string.logout_alert_title))

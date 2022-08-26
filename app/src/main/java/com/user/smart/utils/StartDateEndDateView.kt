@@ -10,6 +10,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.user.smart.databinding.DateRangeViewLayoutBinding
+import dagger.hilt.android.internal.managers.FragmentComponentManager
 import java.util.*
 
 
@@ -28,7 +29,7 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
                 startDateCalender.time = Date(it)
             }
             datePicker.show(
-                (context as FragmentActivity).supportFragmentManager,
+                getFragmentActivityContext(mBinding.startDateCalenderView).supportFragmentManager,
                 "StartDateEndDateView"
             )
         }
@@ -43,7 +44,7 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
                     mBinding.endDateTextView.text = datePicker.headerText.toString()
                 }
                 datePicker.show(
-                    (context as FragmentActivity).supportFragmentManager,
+                    getFragmentActivityContext(mBinding.endDateCalenderView).supportFragmentManager,
                     "endDateCalenderView"
                 )
             } else {
@@ -51,6 +52,9 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
             }
         }
     }
+
+    private fun getFragmentActivityContext(view: ConstraintLayout) =
+        FragmentComponentManager.findActivity(view.context) as FragmentActivity
 
     private fun getMaterialDatePicker(constraintsBuilder: CalendarConstraints.Builder): MaterialDatePicker<Long> {
         return MaterialDatePicker.Builder.datePicker()

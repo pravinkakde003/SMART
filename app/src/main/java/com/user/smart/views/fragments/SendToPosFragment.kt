@@ -1,7 +1,6 @@
 package com.user.smart.views.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,9 +37,6 @@ class SendToPosFragment : Fragment() {
         )
         binding.toolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
-            if (binding.dateSelectorView.getStartDateText().isNullOrEmpty()) {
-                Log.e("TAGG", "EMPTY DATE")
-            }
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.send_to_pos)
         binding.toolbar.toolbarParentCardView.elevation = 8f
