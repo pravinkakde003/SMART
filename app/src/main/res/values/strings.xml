@@ -51,6 +51,7 @@
     <string name="logout_alert_title">LOGOUT</string>
     <string name="logout_alert_message">Are you sure you want to logout?</string>
 
+    <string name="success">Success</string>
     <string name="error">Error</string>
     <string name="cancel">Cancel</string>
 

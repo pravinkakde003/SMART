@@ -29,12 +29,18 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setClickListener()
+        observeLiveData()
+    }
 
+    private fun setClickListener() {
         binding.txtPolicy.movementMethod = LinkMovementMethod.getInstance()
         binding.txtPolicy.setOnClickListener(this)
         binding.forgotPasswordButton.setOnClickListener(this)
         binding.loginButton.setOnClickListener(this)
+    }
 
+    private fun observeLiveData() {
         loginViewModel.loginLiveData.observe(this) {
             progressDialog.hide()
             when (it) {
@@ -69,6 +75,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
             binding.loginButton -> {
+                AppUtils.hideKeyboard(binding.root)
                 val validationResult = validateUserInput()
                 if (validationResult.first) {
                     if (isInternetAvailable()) {
