@@ -9,6 +9,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivityLoginBinding
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
+import com.user.smart.utils.AppUtils.isNetworkAvailable
 import com.user.smart.views.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -78,7 +79,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 AppUtils.hideKeyboard(binding.root)
                 val validationResult = validateUserInput()
                 if (validationResult.first) {
-                    if (isInternetAvailable()) {
+                    if (isNetworkAvailable(this)) {
                         loginViewModel.callLoginAPI(
                             binding.emailTextField.editText?.text.toString(),
                             binding.passwordTextField.editText?.text.toString()

@@ -9,10 +9,7 @@ import com.user.smart.R
 import com.user.smart.databinding.ActivitySearchStoreBinding
 import com.user.smart.models.GetStoreListResponse
 import com.user.smart.repository.NetworkResult
-import com.user.smart.utils.CustomProgressDialog
-import com.user.smart.utils.PreferenceManager
-import com.user.smart.utils.positiveButtonClick
-import com.user.smart.utils.showAlertDialog
+import com.user.smart.utils.*
 import com.user.smart.views.adapters.SearchStoreListAdapter
 import com.user.smart.views.viewmodel.StoreListViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,8 +31,11 @@ class SearchStoreListingActivity : BaseActivity() {
         binding = ActivitySearchStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setToolbar()
-        storeListViewModel.callGetStoreListAPI()
+        callGetStoreAPI()
+        observeBinding()
+    }
 
+    private fun observeBinding() {
         storeListViewModel.storeListLiveData.observe(this) { responseData ->
             progressDialog.hide()
             when (responseData) {
@@ -58,6 +58,14 @@ class SearchStoreListingActivity : BaseActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private fun callGetStoreAPI() {
+        if (AppUtils.isNetworkAvailable(this)) {
+            storeListViewModel.callGetStoreListAPI()
+        } else {
+            AppUtils.showInternetAlertDialog(this)
         }
     }
 

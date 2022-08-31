@@ -51,7 +51,7 @@ class ForgetPasswordActivity : BaseActivity(), View.OnClickListener {
                 AppUtils.hideKeyboard(binding.root)
                 val validationResult = validateUserInput()
                 if (validationResult.first) {
-                    if (isInternetAvailable()) {
+                    if (AppUtils.isNetworkAvailable(this)) {
                         forgetPasswordViewModel.forgetPasswordAPI(
                             binding.emailTextField.editText?.text.toString(),
                         )

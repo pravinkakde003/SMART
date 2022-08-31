@@ -40,7 +40,15 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
             onBackPressed()
         }
         observeBinding()
-        storeListViewModel.callGetStoreListAPI()
+        callGetStoreAPI()
+    }
+
+    private fun callGetStoreAPI() {
+        if (AppUtils.isNetworkAvailable(this)) {
+            storeListViewModel.callGetStoreListAPI()
+        } else {
+            AppUtils.showInternetAlertDialog(this)
+        }
     }
 
     private fun observeBinding() {

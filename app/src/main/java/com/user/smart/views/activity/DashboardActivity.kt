@@ -61,7 +61,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.toolbar.imageViewSelectStore -> {
-                if (isInternetAvailable()) {
+                if (AppUtils.isNetworkAvailable(this)) {
                     val intent =
                         Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
                     startActivity(intent)
@@ -92,7 +92,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                 }
             }
             binding.profileMenuLayout.logoutLayout -> {
-                if (isInternetAvailable()) {
+                if (AppUtils.isNetworkAvailable(this)) {
                     showAlertDialog {
                         setTitle(context.resources.getString(R.string.logout_alert_title))
                         setMessage(context.resources.getString(R.string.logout_alert_message))
