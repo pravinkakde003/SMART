@@ -74,6 +74,11 @@
     <string name="date_from">Date From</string>
     <string name="date_to">Date To</string>
     <string name="select_date">Select date</string>
+    <string name="trans_date">Trans Date :</string>
+    <string name="dash">-</string>
+    <string name="trans_type">Trans Type :</string>
+    <string name="amount">Amount :</string>
+    <string name="cashier">Cashier :</string>
 
 
 </resources>
