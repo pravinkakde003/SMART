@@ -6,9 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.user.smart.R
 import com.user.smart.databinding.FragmentPosLiveBinding
-import com.user.smart.utils.CustomProgressDialog
+import com.user.smart.repository.NetworkResult
+import com.user.smart.utils.*
+import com.user.smart.utils.AppUtils.getCurrentDate
+import com.user.smart.views.viewmodel.PosLiveDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,6 +23,11 @@ class POSLiveFragment : Fragment() {
 
     @Inject
     lateinit var progressDialog: CustomProgressDialog
+
+    private val posLiveDataViewModel: PosLiveDataViewModel by viewModels()
+
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,10 +40,9 @@ class POSLiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupToolbar()
-
-
+        callGetPOSLiveDataAPI()
+        observeBinding()
         binding.textView.setOnClickListener {
 //            requireActivity().supportFragmentManager.beginTransaction()
 //                .setCustomAnimations(
@@ -61,6 +69,47 @@ class POSLiveFragment : Fragment() {
         }
         binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.pos_live)
         binding.toolbar.toolbarParentCardView.elevation = 8f
+    }
+
+    private fun callGetPOSLiveDataAPI() {
+        val selectedStoreObject = preferenceManager.getSelectedStoreObject()
+        if (AppUtils.isNetworkAvailable(requireContext())) {
+            posLiveDataViewModel.callGetPOSLiveDataListAPI(
+                posLiveDataViewModel.getStoreID(selectedStoreObject),
+                getCurrentDate()
+            )
+        } else {
+            AppUtils.showInternetAlertDialog(requireContext())
+        }
+    }
+
+    private fun observeBinding() {
+        posLiveDataViewModel.posLiveDataListLiveData.observe(requireActivity()) { responseData ->
+            progressDialog.hide()
+            when (responseData) {
+                is NetworkResult.Loading -> {
+                    progressDialog.show()
+                }
+                is NetworkResult.Error -> {
+                    activity?.showAlertDialog {
+                        setTitle(context.resources.getString(R.string.error))
+                        setMessage(responseData.errorMessage?.message)
+                        positiveButtonClick(context.resources.getString(R.string.ok)) { }
+                    }
+                }
+                is NetworkResult.Success -> {
+                    responseData.data?.let {
+                        val posLiveDataList = responseData.data
+                        if (posLiveDataList.size > 0) {
+                            binding.textView.text = "Record Found : " + posLiveDataList.size
+                        } else {
+                            binding.textView.visibility = View.GONE
+                            binding.noDataLayout.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

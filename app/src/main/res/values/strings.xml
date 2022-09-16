@@ -79,6 +79,7 @@
     <string name="trans_type">Trans Type :</string>
     <string name="amount">Amount :</string>
     <string name="cashier">Cashier :</string>
+    <string name="no_result_found">No result found</string>
 
 
 </resources>

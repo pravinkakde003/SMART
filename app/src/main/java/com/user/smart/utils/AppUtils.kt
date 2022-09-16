@@ -18,7 +18,10 @@ import com.google.gson.reflect.TypeToken
 import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
 import com.user.smart.models.StoreListResponseItem
+import com.user.smart.utils.AppConstant.APP_DATE_FORMAT
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.hypot
 
 object AppUtils {
@@ -110,5 +113,9 @@ object AppUtils {
             val nwInfo = connectivityManager.activeNetworkInfo ?: return false
             return nwInfo.isConnected
         }
+    }
+
+    fun getCurrentDate(): String {
+        return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
     }
 }
