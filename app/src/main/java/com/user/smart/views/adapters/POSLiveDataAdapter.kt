@@ -1,9 +1,11 @@
 package com.user.smart.views.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.user.smart.databinding.TransactionLayoutItemBinding
+import com.user.smart.models.FuelLine
 import com.user.smart.models.POSLiveDataResponseItem
 
 class POSLiveDataAdapter(
@@ -29,9 +31,15 @@ class POSLiveDataAdapter(
                 val transactionDate = "${dataItem.EventEndDate} ${dataItem.EventEndTime}"
                 txtTransactionDate.text = transactionDate
             }
-            if (dataItem.TransactionLine[0].FuelLine.Description.isNotBlank()) {
-                txtTransactionType.text = dataItem.TransactionLine[0].FuelLine.Description
+
+            val dataItemPresent = dataItem.TransactionLine.any { it.FuelLine is FuelLine }
+            if (dataItemPresent) {
+                val itemFuelLine = dataItem.TransactionLine.find { it.FuelLine is FuelLine }
+                if (!itemFuelLine?.FuelLine?.Description.isNullOrBlank()) {
+                    txtTransactionType.text = itemFuelLine?.FuelLine?.Description
+                }
             }
+
             if (dataItem.TransactionTotalGrossAmount.isNotBlank()) {
                 val dollarAppendedAmount = "$" + dataItem.TransactionTotalGrossAmount
                 txtAmount.text = dollarAppendedAmount
@@ -48,5 +56,9 @@ class POSLiveDataAdapter(
 
     override fun getItemCount(): Int {
         return transactionsItemList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 }
