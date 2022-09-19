@@ -31,7 +31,7 @@ class PosLiveDataViewModel @Inject constructor(private val posLiveDataRepository
         }
     }
 
-    fun getStoreID(selectedStoreObject: StoreListResponseItem?) :String{
+    fun getStoreID(selectedStoreObject: StoreListResponseItem?): String {
         return if (null != selectedStoreObject && selectedStoreObject._id.isNotEmpty()) return selectedStoreObject._id else ""
     }
 }

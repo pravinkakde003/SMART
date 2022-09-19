@@ -72,7 +72,6 @@ class SearchStoreListingActivity : BaseActivity() {
     private fun setAdapter(storeList: GetStoreListResponse) {
         binding.storeListRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.storeListRecyclerView.setHasFixedSize(true)
-        binding.storeListRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.storeListRecyclerView.addItemDecoration(
             DividerItemDecoration(
                 binding.storeListRecyclerView.context,

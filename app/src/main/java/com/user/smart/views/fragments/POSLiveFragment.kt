@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.FragmentPosLiveBinding
+import com.user.smart.models.POSLiveDataResponse
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
-import com.user.smart.utils.AppUtils.getCurrentDate
+import com.user.smart.views.adapters.POSLiveDataAdapter
 import com.user.smart.views.viewmodel.PosLiveDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -43,7 +46,7 @@ class POSLiveFragment : Fragment() {
         setupToolbar()
         callGetPOSLiveDataAPI()
         observeBinding()
-        binding.textView.setOnClickListener {
+//        binding.textView.setOnClickListener {
 //            requireActivity().supportFragmentManager.beginTransaction()
 //                .setCustomAnimations(
 //                    R.anim.trans_left_in,
@@ -54,7 +57,7 @@ class POSLiveFragment : Fragment() {
 //                .setReorderingAllowed(true)
 //                .addToBackStack("POSClosingSalesFragment")
 //                .commit()
-        }
+//        }
     }
 
     private fun setupToolbar() {
@@ -76,7 +79,7 @@ class POSLiveFragment : Fragment() {
         if (AppUtils.isNetworkAvailable(requireContext())) {
             posLiveDataViewModel.callGetPOSLiveDataListAPI(
                 posLiveDataViewModel.getStoreID(selectedStoreObject),
-                getCurrentDate()
+                "2022_09_18"
             )
         } else {
             AppUtils.showInternetAlertDialog(requireContext())
@@ -101,15 +104,24 @@ class POSLiveFragment : Fragment() {
                     responseData.data?.let {
                         val posLiveDataList = responseData.data
                         if (posLiveDataList.size > 0) {
-                            binding.textView.text = "Record Found : " + posLiveDataList.size
+                            setAdapter(posLiveDataList)
                         } else {
-                            binding.textView.visibility = View.GONE
+                            binding.withDataLayout.visibility = View.GONE
                             binding.noDataLayout.visibility = View.VISIBLE
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun setAdapter(posLiveDataList: POSLiveDataResponse) {
+        binding.posLiveDataRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        binding.posLiveDataRecyclerView.setHasFixedSize(true)
+        var mAdapter = POSLiveDataAdapter(posLiveDataList) {
+//            preferenceManager.saveSelectedStoreObject(it)
+        }
+        binding.posLiveDataRecyclerView.adapter = mAdapter
     }
 
     override fun onDestroyView() {

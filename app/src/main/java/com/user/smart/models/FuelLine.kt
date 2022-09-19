@@ -1,15 +1,17 @@
 package com.user.smart.models
 
-data class ItemLine(
+data class FuelLine(
     val ActualSalesPrice: String,
     val Description: String,
     val EntryMethod: EntryMethod,
-    val ItemCode: ItemCode,
+    val FuelGradeID: String,
+    val FuelPositionID: String,
     val ItemTax: ItemTax,
     val MerchandiseCode: String,
+    val PriceTierCode: String,
     val RegularSellPrice: String,
     val SalesAmount: String,
     val SalesQuantity: String,
-    val SalesRestriction: SalesRestriction,
-    val SellingUnits: String
+    val ServiceLevelCode: String,
+    val TimeTierCode: String
 )
