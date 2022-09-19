@@ -14,6 +14,7 @@ import com.user.smart.models.POSLiveDataResponse
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
 import com.user.smart.utils.AppUtils.getCurrentDate
+import com.user.smart.utils.AppUtils.showToast
 import com.user.smart.views.adapters.POSLiveDataAdapter
 import com.user.smart.views.viewmodel.PosLiveDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,18 +47,6 @@ class POSLiveFragment : Fragment() {
         setupToolbar()
         callGetPOSLiveDataAPI()
         observeBinding()
-//        binding.textView.setOnClickListener {
-//            requireActivity().supportFragmentManager.beginTransaction()
-//                .setCustomAnimations(
-//                    R.anim.trans_left_in,
-//                    R.anim.trans_right_out,
-//                    R.anim.trans_right_in, R.anim.trans_right_out
-//                )
-//                .add(R.id.fragmentContainer, POSClosingSalesFragment())
-//                .setReorderingAllowed(true)
-//                .addToBackStack("POSClosingSalesFragment")
-//                .commit()
-//        }
     }
 
     private fun setupToolbar() {
@@ -119,7 +108,24 @@ class POSLiveFragment : Fragment() {
         binding.posLiveDataRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
         binding.posLiveDataRecyclerView.setHasFixedSize(true)
         var mAdapter = POSLiveDataAdapter(posLiveDataList) {
-//            preferenceManager.saveSelectedStoreObject(it)
+            if (it.TransactionTotalGrossAmount != "0") {
+                val bundle = Bundle()
+                bundle.putParcelable(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY, it)
+                val targetFragment = POSLiveTransactionDetailsFragment()
+                targetFragment.arguments = bundle
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.trans_left_in,
+                        R.anim.trans_right_out,
+                        R.anim.trans_right_in, R.anim.trans_right_out
+                    )
+                    .add(R.id.fragmentContainer, targetFragment)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("POSLiveTransactionDetailsFragment")
+                    .commit()
+            } else {
+                requireContext().showToast("Nothing to show")
+            }
         }
         binding.posLiveDataRecyclerView.adapter = mAdapter
     }

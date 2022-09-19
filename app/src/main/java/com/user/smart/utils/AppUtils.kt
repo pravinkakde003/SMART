@@ -12,6 +12,7 @@ import android.util.Patterns
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.annotation.RawRes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -118,4 +119,7 @@ object AppUtils {
     fun getCurrentDate(): String {
         return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
     }
+
+    fun Context.showToast(message: CharSequence) =
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

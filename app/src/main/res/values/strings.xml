@@ -78,8 +78,11 @@
     <string name="dash">-</string>
     <string name="trans_type">Trans Type :</string>
     <string name="amount">Amount :</string>
-    <string name="cashier">Cashier :</string>
+    <string name="cashier_with_dots">Cashier :</string>
     <string name="no_result_found">No result found</string>
+    <string name="cashier">Cashier</string>
 
-
+    <string name="transactions_details">Transactions details</string>
+    <string name="total">Total</string>
+    <string name="tax">Tax</string>
 </resources>

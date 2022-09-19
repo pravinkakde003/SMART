@@ -7,6 +7,7 @@ object AppConstant {
 
     const val USER_TOKEN = "UserToken"
     const val SELECTED_SORE_KEY = "selectedStore"
+    const val POS_LIVE_DATA_RESPONSE_ITEM_KEY ="POSLiveDataResponseItemKey"
     const val SELECTED_DASHBOARD_ITEM_KEY = "itemID"
     const val SPLASH_SCREEN_DELAY = 1000
 }
