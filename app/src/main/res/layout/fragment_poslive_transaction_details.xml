@@ -77,18 +77,57 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSubTotalLabel"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/subtotal"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
 
-            <!-- Transaction Type -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSubTotalAmount"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="8dp"
+                android:text="3000"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtSubTotalLabel"
+                app:layout_constraintTop_toTopOf="@id/txtSubTotalLabel"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <View
+                android:id="@+id/dividerViewOne"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSubTotalLabel" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txtTaxLabel"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="@string/tax"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerViewOne"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
@@ -98,7 +137,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="@string/dash"
+                android:padding="8dp"
+                android:text="3000"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,8 +151,8 @@
                 android:id="@+id/dividerView"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginVertical="6dp"
                 android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/txtTotalLabel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtTaxLabel" />
 
@@ -122,9 +162,12 @@
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="@string/total"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/dividerView"
                 app:layout_constraintWidth_default="percent"
@@ -136,9 +179,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="@string/dash"
+                android:padding="8dp"
+                android:text="50000"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txtTotalLabel"
                 app:layout_constraintTop_toTopOf="@id/txtTotalLabel"

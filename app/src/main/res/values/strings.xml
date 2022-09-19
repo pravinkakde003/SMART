@@ -85,4 +85,5 @@
     <string name="transactions_details">Transactions details</string>
     <string name="total">Total</string>
     <string name="tax">Tax</string>
+    <string name="subtotal">Sub Total</string>
 </resources>
