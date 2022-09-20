@@ -44,14 +44,11 @@ class POSLiveTransactionDetailsFragment : Fragment() {
     private fun setDataToView(posLiveDataResponseItem: POSLiveDataResponseItem?) {
         val selectedStoreObject = preferenceManager.getSelectedStoreObject()
         if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
-            binding.txtStoreNameDate.text = selectedStoreObject.store_name
+            binding.txtStoreName.text = selectedStoreObject.store_name
         }
         if (null != posLiveDataResponseItem) {
-            var storeName = binding.txtStoreNameDate.text.toString()
-            var dateTime =
-                "${posLiveDataResponseItem.EventEndDate}  ${posLiveDataResponseItem.EventEndTime}"
-            val finalText = storeName + "\n" + dateTime
-            binding.txtStoreNameDate.text = finalText
+            var dateTime = "${posLiveDataResponseItem.EventEndDate}  ${posLiveDataResponseItem.EventEndTime}"
+            binding.txtDateTime.text = dateTime
         } else {
             Log.e("POSLiveTransactionDetailsFragment", "Data not received")
         }

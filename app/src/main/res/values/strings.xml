@@ -86,4 +86,9 @@
     <string name="total">Total</string>
     <string name="tax">Tax</string>
     <string name="subtotal">Sub Total</string>
+
+    <string name="quantity">Qty :</string>
+    <string name="upc">UPC :</string>
+    <string name="dept">Dept :</string>
+    <string name="desc">Desc :</string>
 </resources>

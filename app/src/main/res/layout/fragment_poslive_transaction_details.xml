@@ -13,19 +13,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtStoreNameDate"
-        style="@style/AppSmallTextStyle"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/storeNameAndDateLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center_horizontal"
-        android:paddingVertical="16dp"
-        android:textColor="@color/gray_variant"
-        android:textStyle="bold"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtStoreName"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="sdasdasdas"
+            android:textColor="@color/primary_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDateTime"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            android:text="sdasdasdas"
+            android:textColor="@color/gray_variant"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtStoreName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTopView"
@@ -40,7 +64,7 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtStoreNameDate">
+        app:layout_constraintTop_toBottomOf="@id/storeNameAndDateLayout">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtCashier"
@@ -56,6 +80,20 @@
             app:layout_constraintStart_toStartOf="parent" />
     </com.google.android.material.card.MaterialCardView>
 
+    <include
+        android:id="@+id/dummyview"
+        layout="@layout/transaction_details_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView"
+
+        />
+
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardBottomView"
         style="@style/BottomCarCornerStyle"
@@ -69,7 +107,7 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+        app:layout_constraintTop_toBottomOf="@id/dummyview">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dataLayout"
@@ -113,7 +151,7 @@
             <View
                 android:id="@+id/dividerViewOne"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1.5dp"
                 android:background="@color/gray_variant2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtSubTotalLabel" />
@@ -151,7 +189,7 @@
             <View
                 android:id="@+id/dividerView"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1.5dp"
                 android:background="@color/gray_variant2"
                 app:layout_constraintBottom_toTopOf="@id/txtTotalLabel"
                 app:layout_constraintStart_toStartOf="parent"

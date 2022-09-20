@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintEnd_toStartOf="@id/imageViewMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Quantity Date -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelQuantity"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtQuantity"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtLabelQuantity"
+            app:layout_constraintTop_toTopOf="@id/txtLabelQuantity"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6" />
+
+        <!-- UPC  -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelUPC"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/upc"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelQuantity"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtUpc"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtLabelQuantity"
+            app:layout_constraintTop_toTopOf="@id/txtLabelUPC"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6" />
+
+        <!-- Dept -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelDept"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/dept"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelUPC"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDept"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtLabelUPC"
+            app:layout_constraintTop_toTopOf="@id/txtLabelDept"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6" />
+
+        <!-- Desc -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelDesc"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/desc"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelDept"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDesc"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtLabelDept"
+            app:layout_constraintTop_toTopOf="@id/txtLabelDesc"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6" />
+
+        <!-- Amount -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLabelAmount"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/amount"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLabelDesc"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtAmount"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtLabelDesc"
+            app:layout_constraintTop_toTopOf="@id/txtLabelAmount"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+
+
