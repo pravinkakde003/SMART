@@ -1,0 +1,102 @@
+[
+  {
+    "EventType": "SaleEvent",
+    "EventEndDate": "2022-09-20",
+    "EventEndTime": "08:52:51",
+    "TransactionTotalNetAmount": "8.21",
+    "CashierID": "7",
+    "RegisterID": "1",
+    "TransactionID": "6852",
+    "TransactionLine": [
+      {
+        "@status": "normal",
+        "ItemLine": {
+          "ItemCode": {
+            "POSCodeFormat": {
+              "@format": "upcA"
+            },
+            "POSCode": "049000006346",
+            "POSCodeModifier": {
+              "@name": "pc",
+              "#text": "1"
+            }
+          },
+          "Description": "Coke Classic 12 Oz Can",
+          "EntryMethod": {
+            "@method": "scan"
+          },
+          "ActualSalesPrice": ".99",
+          "MerchandiseCode": "60",
+          "SellingUnits": "1",
+          "RegularSellPrice": ".99",
+          "SalesQuantity": "1",
+          "SalesAmount": ".99",
+          "ItemTax": {
+            "TaxLevelID": "101"
+          },
+          "SalesRestriction": {
+            "SalesRestrictFlag": {
+              "@value": "no",
+              "@type": "other"
+            }
+          }
+        }
+      },
+      {
+        "@status": "normal",
+        "ItemLine": {
+          "ItemCode": {
+            "POSCodeFormat": {
+              "@format": "upcA"
+            },
+            "POSCode": "028200009548",
+            "POSCodeModifier": {
+              "@name": "pc",
+              "#text": "1"
+            }
+          },
+          "Description": "Marlboro Black Menthol Box",
+          "EntryMethod": {
+            "@method": "scan"
+          },
+          "ActualSalesPrice": "6.47",
+          "MerchandiseCode": "55",
+          "SellingUnits": "1",
+          "RegularSellPrice": "6.47",
+          "SalesQuantity": "1",
+          "SalesAmount": "6.47",
+          "ItemTax": {
+            "TaxLevelID": "101"
+          },
+          "SalesRestriction": {
+            "SalesRestrictFlag": {
+              "@value": "no",
+              "@type": "other"
+            }
+          },
+          "RestrictedSalesDetail": {
+            "ItemID": null,
+            "MerchandiseCode": null,
+            "SalesRestrictCode": null,
+            "CustomerID": {
+              "CashierBypassedFlag": {
+                "@value": "yes"
+              },
+              "EntryMethod": {
+                "@method": "other"
+              },
+              "PersonalID": {
+                "@idType": "driversLicense"
+              },
+              "IDExpirationDate": null,
+              "IDIssuingAuthority": null,
+              "BirthDate": "2003-09-20"
+            }
+          }
+        }
+      }
+    ],
+    "TransactionTotalGrossAmount": "7.46",
+    "TransactionTotalTaxNetAmount": ".75"
+  }
+]

@@ -18,6 +18,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
+import com.user.smart.models.POSLiveDataResponseItem
 import com.user.smart.models.StoreListResponseItem
 import com.user.smart.utils.AppConstant.APP_DATE_FORMAT
 import java.io.IOException
@@ -42,6 +43,11 @@ object AppUtils {
 
     fun getDashboardMenuList(jsonString: String): List<DashboardMenuModel> {
         val listType = object : TypeToken<List<DashboardMenuModel>>() {}.type
+        return Gson().fromJson(jsonString, listType)
+    }
+
+    fun getDummyTransactionList(jsonString: String): List<POSLiveDataResponseItem> {
+        val listType = object : TypeToken<List<POSLiveDataResponseItem>>() {}.type
         return Gson().fromJson(jsonString, listType)
     }
 

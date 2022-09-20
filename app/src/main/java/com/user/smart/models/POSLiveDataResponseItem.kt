@@ -1,8 +1,8 @@
 package com.user.smart.models
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class POSLiveDataResponseItem(
@@ -16,4 +16,4 @@ data class POSLiveDataResponseItem(
     val TransactionTotalGrossAmount: String,
     val TransactionTotalNetAmount: String,
     val TransactionTotalTaxNetAmount: String
-): Parcelable
+) : Parcelable

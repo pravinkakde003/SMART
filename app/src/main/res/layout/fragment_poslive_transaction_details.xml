@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="sdasdasdas"
+            android:text="-"
             android:textColor="@color/primary_color"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center_horizontal"
-            android:text="sdasdasdas"
+            android:text="-"
             android:textColor="@color/gray_variant"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
         android:id="@+id/cardTopView"
         style="@style/TopCarCornerStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
@@ -80,25 +80,23 @@
             app:layout_constraintStart_toStartOf="parent" />
     </com.google.android.material.card.MaterialCardView>
 
-    <include
-        android:id="@+id/dummyview"
-        layout="@layout/transaction_details_item"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/posTransactionDetailRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardTopView"
-
-        />
-
+        app:layout_constraintBottom_toTopOf="@id/cardBottomView"/>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardBottomView"
         style="@style/BottomCarCornerStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         app:cardBackgroundColor="@color/white"
@@ -107,7 +105,7 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dummyview">
+        app:layout_constraintTop_toBottomOf="@id/posTransactionDetailRecyclerView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dataLayout"
@@ -138,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:padding="8dp"
-                android:text="3000"
+                android:text="-"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -171,13 +169,13 @@
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTransactionAmount"
+                android:id="@+id/txtTaxAmount"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:padding="8dp"
-                android:text="3000"
+                android:text="-"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"

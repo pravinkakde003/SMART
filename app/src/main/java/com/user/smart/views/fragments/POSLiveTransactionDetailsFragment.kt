@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.FragmentPosliveTransactionDetailsBinding
-import com.user.smart.models.POSLiveDataResponseItem
+import com.user.smart.models.*
 import com.user.smart.utils.AppConstant
 import com.user.smart.utils.PreferenceManager
+import com.user.smart.views.adapters.POSTransactionDetailsDataAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -22,7 +25,6 @@ class POSLiveTransactionDetailsFragment : Fragment() {
 
     @Inject
     lateinit var preferenceManager: PreferenceManager
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,12 +49,97 @@ class POSLiveTransactionDetailsFragment : Fragment() {
             binding.txtStoreName.text = selectedStoreObject.store_name
         }
         if (null != posLiveDataResponseItem) {
-            var dateTime = "${posLiveDataResponseItem.EventEndDate}  ${posLiveDataResponseItem.EventEndTime}"
+            var dateTime =
+                "${posLiveDataResponseItem.EventEndDate}  ${posLiveDataResponseItem.EventEndTime}"
             binding.txtDateTime.text = dateTime
+
+            prepareDataList(posLiveDataResponseItem)
+
         } else {
             Log.e("POSLiveTransactionDetailsFragment", "Data not received")
         }
     }
+
+    private fun prepareDataList(posLiveDataResponseItem: POSLiveDataResponseItem) {
+
+        val posDetailsListItem = ArrayList<POSDetailsListItem>()
+
+        val itemLinePresent =
+            posLiveDataResponseItem.TransactionLine.any { it.ItemLine is ItemLine }
+        if (itemLinePresent) {
+            val itemLineList: List<TransactionLine> =
+                posLiveDataResponseItem.TransactionLine.filter { it.ItemLine is ItemLine }
+            itemLineList.forEach {
+                posDetailsListItem.add(
+                    POSDetailsListItem(
+                        quantity = it.ItemLine.SalesQuantity,
+                        upc = "",
+                        dept = "",
+                        description = it.ItemLine.Description,
+                        amount = it.ItemLine.SalesAmount
+                    )
+                )
+            }
+        }
+
+
+        val fuelLinePresent =
+            posLiveDataResponseItem.TransactionLine.any { it.FuelLine is FuelLine }
+        if (fuelLinePresent) {
+            val itemLineList: List<TransactionLine> =
+                posLiveDataResponseItem.TransactionLine.filter { it.FuelLine is FuelLine }
+            itemLineList.forEach {
+                posDetailsListItem.add(
+                    POSDetailsListItem(
+                        quantity = it.FuelLine.SalesQuantity,
+                        upc = "",
+                        dept = "",
+                        description = it.FuelLine.Description,
+                        amount = it.FuelLine.SalesAmount
+                    )
+                )
+            }
+        }
+
+
+        val fuelPrepayLinePresent =
+            posLiveDataResponseItem.TransactionLine.any { it.FuelPrepayLine is FuelPrepayLine }
+        if (fuelPrepayLinePresent) {
+            val itemLineList: List<TransactionLine> =
+                posLiveDataResponseItem.TransactionLine.filter { it.FuelPrepayLine is FuelPrepayLine }
+            itemLineList.forEach {
+                posDetailsListItem.add(
+                    POSDetailsListItem(
+                        quantity = "",
+                        upc = "",
+                        dept = "",
+                        description = "",
+                        amount = it.FuelPrepayLine.SalesAmount
+                    )
+                )
+            }
+        }
+
+        binding.txtSubTotalAmount.text = "$${posLiveDataResponseItem.TransactionTotalGrossAmount}"
+        binding.txtTaxAmount.text = "$${posLiveDataResponseItem.TransactionTotalTaxNetAmount}"
+        binding.txtTotalAmount.text = "$${posLiveDataResponseItem.TransactionTotalNetAmount}"
+        setAdapter(posDetailsListItem)
+    }
+
+    private fun setAdapter(posDetailsListItem: ArrayList<POSDetailsListItem>) {
+        binding.posTransactionDetailRecyclerView.layoutManager =
+            LinearLayoutManager(requireActivity())
+        binding.posTransactionDetailRecyclerView.setHasFixedSize(true)
+        var mAdapter = POSTransactionDetailsDataAdapter(posDetailsListItem)
+        binding.posTransactionDetailRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                binding.posTransactionDetailRecyclerView.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        binding.posTransactionDetailRecyclerView.adapter = mAdapter
+    }
+
 
     private fun setupToolbar() {
         binding.toolbar.profileImage.setImageDrawable(
