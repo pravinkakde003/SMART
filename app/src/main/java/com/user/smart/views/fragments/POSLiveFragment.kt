@@ -13,6 +13,7 @@ import com.user.smart.databinding.FragmentPosLiveBinding
 import com.user.smart.models.POSLiveDataResponse
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
+import com.user.smart.utils.AppUtils.getCurrentDate
 import com.user.smart.utils.AppUtils.showToast
 import com.user.smart.views.adapters.POSLiveDataAdapter
 import com.user.smart.views.viewmodel.PosLiveDataViewModel
@@ -67,8 +68,7 @@ class POSLiveFragment : Fragment() {
         if (AppUtils.isNetworkAvailable(requireContext())) {
             posLiveDataViewModel.callGetPOSLiveDataListAPI(
                 posLiveDataViewModel.getStoreID(selectedStoreObject),
-                "2022_09_20"
-//                getCurrentDate()
+                getCurrentDate()
             )
         } else {
             AppUtils.showInternetAlertDialog(requireContext())

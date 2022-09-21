@@ -82,7 +82,6 @@ class POSLiveTransactionDetailsFragment : Fragment() {
             }
         }
 
-
         val fuelLinePresent =
             posLiveDataResponseItem.TransactionLine.any { it.FuelLine is FuelLine }
         if (fuelLinePresent) {
