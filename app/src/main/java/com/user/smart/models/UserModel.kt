@@ -1,5 +1,7 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class UserModel(
     val __v: Int,
     val _id: String,
@@ -12,4 +14,4 @@ data class UserModel(
     val registrationId: String,
     val token: String,
     val updatedAt: String
-)
+) : Serializable

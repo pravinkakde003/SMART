@@ -29,17 +29,17 @@ class OrdersFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.ordersToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.ordersToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.order)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.ordersToolbar.txtDashboardTitle.text = resources.getString(R.string.order)
+        binding.ordersToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

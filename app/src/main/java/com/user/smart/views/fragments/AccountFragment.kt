@@ -29,17 +29,18 @@ class AccountFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.accountFragmentToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.accountFragmentToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.account)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.accountFragmentToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.account)
+        binding.accountFragmentToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

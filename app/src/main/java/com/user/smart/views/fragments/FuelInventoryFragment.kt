@@ -29,17 +29,18 @@ class FuelInventoryFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.fuelInventoryToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.fuelInventoryToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.fuel_inventory)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.fuelInventoryToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.fuel_inventory)
+        binding.fuelInventoryToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

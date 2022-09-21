@@ -36,7 +36,7 @@ class SelectStoreActivity : BaseActivity(), View.OnClickListener {
 
     private fun initView() {
         binding.nextButton.setOnClickListener(this)
-        binding.toolbar.setNavigationOnClickListener {
+        binding.selectStoreToolbar.setNavigationOnClickListener {
             onBackPressed()
         }
         observeBinding()

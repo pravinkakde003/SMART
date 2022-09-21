@@ -29,17 +29,17 @@ class SendToPosFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.sendToPosToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.sendToPosToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.send_to_pos)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.sendToPosToolbar.txtDashboardTitle.text = resources.getString(R.string.send_to_pos)
+        binding.sendToPosToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

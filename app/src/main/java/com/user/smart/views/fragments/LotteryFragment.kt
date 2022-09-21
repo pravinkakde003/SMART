@@ -29,17 +29,17 @@ class LotteryFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.lotteryToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.lotteryToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.lottery)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.lotteryToolbar.txtDashboardTitle.text = resources.getString(R.string.lottery)
+        binding.lotteryToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

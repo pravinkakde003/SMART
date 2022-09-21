@@ -29,17 +29,18 @@ class DaySalesReconFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.daySalesReconToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.daySalesReconToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.day_sales)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.daySalesReconToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.day_sales)
+        binding.daySalesReconToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

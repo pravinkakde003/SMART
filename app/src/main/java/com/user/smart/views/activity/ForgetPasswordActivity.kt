@@ -33,7 +33,7 @@ class ForgetPasswordActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setClickListener() {
-        binding.toolbar.setNavigationOnClickListener {
+        binding.forgetPasswordToolbar.setNavigationOnClickListener {
             onBackPressed()
         }
         binding.sendButton.setOnClickListener(this)

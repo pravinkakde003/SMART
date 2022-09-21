@@ -29,17 +29,17 @@ class FuelPriceFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.fuelPriceToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.fuelPriceToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.fuel_price)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.fuelPriceToolbar.txtDashboardTitle.text = resources.getString(R.string.fuel_price)
+        binding.fuelPriceToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

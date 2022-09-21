@@ -39,7 +39,7 @@ class POSLiveTransactionDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         val posLiveDataResponseItem =
-            arguments?.getParcelable<POSLiveDataResponseItem>(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY)
+            arguments?.getSerializable(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY) as POSLiveDataResponseItem
         setDataToView(posLiveDataResponseItem)
     }
 
@@ -142,17 +142,18 @@ class POSLiveTransactionDetailsFragment : Fragment() {
 
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.transactionDetailsToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.transactionDetailsToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.transactions_details)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.transactionDetailsToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.transactions_details)
+        binding.transactionDetailsToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

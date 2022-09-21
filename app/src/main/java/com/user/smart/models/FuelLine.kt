@@ -1,5 +1,7 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class FuelLine(
     val ActualSalesPrice: String,
     val Description: String,
@@ -14,4 +16,4 @@ data class FuelLine(
     val SalesQuantity: String,
     val ServiceLevelCode: String,
     val TimeTierCode: String
-)
+) : Serializable

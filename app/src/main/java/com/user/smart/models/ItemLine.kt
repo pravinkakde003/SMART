@@ -1,5 +1,7 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class ItemLine(
     val ActualSalesPrice: String,
     val Description: String,
@@ -12,4 +14,4 @@ data class ItemLine(
     val SalesQuantity: String,
     val SalesRestriction: SalesRestriction,
     val SellingUnits: String
-)
+) : Serializable

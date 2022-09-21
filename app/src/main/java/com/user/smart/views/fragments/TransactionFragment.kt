@@ -36,17 +36,17 @@ class TransactionFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.transactionToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.transactionToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.transactions)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.transactionToolbar.txtDashboardTitle.text = resources.getString(R.string.transactions)
+        binding.transactionToolbar.toolbarParentCardView.elevation = 8f
 
         val selectedStoreObject = preferenceManager.getSelectedStoreObject()
         if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {

@@ -1,5 +1,7 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class StoreListModelItem(
     val _id: String,
     val additional_store_email: String,
@@ -23,4 +25,4 @@ data class StoreListModelItem(
     val store_zip: String,
     val updatedAt: String,
     val use_same_contact_notification: String
-)
+) : Serializable

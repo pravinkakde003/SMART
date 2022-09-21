@@ -29,17 +29,18 @@ class POSClosingSalesFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.posClosingSalesToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.posClosingSalesToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.pos_closing_sales)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.posClosingSalesToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.pos_closing_sales)
+        binding.posClosingSalesToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

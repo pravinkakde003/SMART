@@ -49,17 +49,17 @@ class POSLiveFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.posLiveToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.posLiveToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.pos_live)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.posLiveToolbar.txtDashboardTitle.text = resources.getString(R.string.pos_live)
+        binding.posLiveToolbar.toolbarParentCardView.elevation = 8f
     }
 
     private fun callGetPOSLiveDataAPI() {
@@ -110,7 +110,7 @@ class POSLiveFragment : Fragment() {
         var mAdapter = POSLiveDataAdapter(posLiveDataList) {
             if (it.TransactionTotalGrossAmount != "0") {
                 val bundle = Bundle()
-                bundle.putParcelable(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY, it)
+                bundle.putSerializable(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY, it)
                 val targetFragment = POSLiveTransactionDetailsFragment()
                 targetFragment.arguments = bundle
                 requireActivity().supportFragmentManager.beginTransaction()

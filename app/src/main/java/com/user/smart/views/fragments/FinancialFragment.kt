@@ -29,17 +29,17 @@ class FinancialFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.financialsToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.financialsToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.financials)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.financialsToolbar.txtDashboardTitle.text = resources.getString(R.string.financials)
+        binding.financialsToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

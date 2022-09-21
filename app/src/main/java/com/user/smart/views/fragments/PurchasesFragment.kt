@@ -29,17 +29,17 @@ class PurchasesFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.profileImage.setImageDrawable(
+        binding.purchasesToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_baseline_arrow_back_24 // Drawable
             )
         )
-        binding.toolbar.imageViewProfile.setOnClickListener {
+        binding.purchasesToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.toolbar.txtDashboardTitle.text = resources.getString(R.string.purchases)
-        binding.toolbar.toolbarParentCardView.elevation = 8f
+        binding.purchasesToolbar.txtDashboardTitle.text = resources.getString(R.string.purchases)
+        binding.purchasesToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {

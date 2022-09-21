@@ -29,10 +29,10 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setClickListeners() {
-        binding.toolbar.toolbarParentCardView.elevation = 0f
-        binding.toolbar.imageViewSelectStore.visibility = View.VISIBLE
-        binding.toolbar.imageViewSelectStore.setOnClickListener(this)
-        binding.toolbar.imageViewProfile.setOnClickListener(this)
+        binding.dasboardToolbar.toolbarParentCardView.elevation = 0f
+        binding.dasboardToolbar.imageViewSelectStore.visibility = View.VISIBLE
+        binding.dasboardToolbar.imageViewSelectStore.setOnClickListener(this)
+        binding.dasboardToolbar.imageViewProfile.setOnClickListener(this)
         binding.profileMenuLayout.logoutLayout.setOnClickListener(this)
     }
 
@@ -60,7 +60,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.toolbar.imageViewSelectStore -> {
+            binding.dasboardToolbar.imageViewSelectStore -> {
                 if (AppUtils.isNetworkAvailable(this)) {
                     val intent =
                         Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
@@ -70,10 +70,10 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     AppUtils.showInternetAlertDialog(this)
                 }
             }
-            binding.toolbar.imageViewProfile -> {
+            binding.dasboardToolbar.imageViewProfile -> {
                 isProfileMenuVisible = if (isProfileMenuVisible) {
                     AppUtils.hideProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
-                    binding.toolbar.profileImage.setImageDrawable(
+                    binding.dasboardToolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
                             R.drawable.ic_baseline_person_24
@@ -82,7 +82,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     false
                 } else {
                     AppUtils.showProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
-                    binding.toolbar.profileImage.setImageDrawable(
+                    binding.dasboardToolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
                             R.drawable.ic_baseline_close_24

@@ -1,5 +1,7 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class StoreListResponseItem(
     val __v: Int,
     val _id: String,
@@ -15,7 +17,7 @@ data class StoreListResponseItem(
     val store_state: String,
     val store_zip: String,
     val updatedAt: String
-){
+) : Serializable {
 
     override fun toString(): String {
         return store_name

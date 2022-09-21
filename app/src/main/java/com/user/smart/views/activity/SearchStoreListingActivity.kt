@@ -86,9 +86,14 @@ class SearchStoreListingActivity : BaseActivity() {
     }
 
     private fun setToolbar() {
-        binding.toolbar.title = resources.getString(R.string.select_store)
-        binding.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.primary_color))
-        binding.toolbar.setNavigationOnClickListener {
+        binding.searchStoreToolbar.title = resources.getString(R.string.select_store)
+        binding.searchStoreToolbar.setTitleTextColor(
+            ContextCompat.getColor(
+                this,
+                R.color.primary_color
+            )
+        )
+        binding.searchStoreToolbar.setNavigationOnClickListener {
             onBackPressed()
         }
     }
