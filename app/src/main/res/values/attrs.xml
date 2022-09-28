@@ -54,4 +54,11 @@
             <flag name="end" value="0x00800005"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="ClickablePieChart">
+        <attr name="popupText" format="string" />
+        <attr name="centerColor" format="color" />
+        <attr name="showPopup" format="boolean" />
+        <attr name="showPercentage" format="boolean" />
+        <attr name="animationDuration" format="integer" />
+    </declare-styleable>
 </resources>
