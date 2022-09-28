@@ -91,4 +91,7 @@
     <string name="upc">UPC :</string>
     <string name="dept">Dept :</string>
     <string name="desc">Desc :</string>
+
+    <string name="merchandiseSalesButtonText">Merchandise Sales</string>
+    <string name="fuelSalesButtonText">Fuel Sales</string>
 </resources>
