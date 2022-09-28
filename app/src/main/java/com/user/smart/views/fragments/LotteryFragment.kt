@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.user.smart.R
 import com.user.smart.databinding.FragmentLotteryBinding
+import com.user.smart.views.adapters.LotteryViewPagerAdapter
 
 class LotteryFragment : Fragment() {
 
@@ -26,6 +27,16 @@ class LotteryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        setTabBar()
+    }
+
+    private fun setTabBar() {
+        val adapter = LotteryViewPagerAdapter(childFragmentManager)
+        adapter.addFragment(LotteryConfirmFragment(), "Confirm")
+        adapter.addFragment(LotteryActiveFragment(), "Active")
+        adapter.addFragment(LotterySalesFragment(), "Sales")
+        binding.viewPager.adapter = adapter
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
     }
 
     private fun setupToolbar() {

@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
     </style>
 
 
@@ -174,5 +175,15 @@
         <item name="cornerSizeBottomLeft">8dp</item>
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
+    </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/product_sans_bold</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
     </style>
 </resources>
