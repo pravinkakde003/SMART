@@ -46,8 +46,8 @@
 
     <com.user.smart.utils.piechartutils.ClickablePieChart
         android:id="@+id/fuelChart"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
         app:animationDuration="1000"
         app:centerColor="@color/white"

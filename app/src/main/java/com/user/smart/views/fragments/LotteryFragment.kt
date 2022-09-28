@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.user.smart.R
 import com.user.smart.databinding.FragmentLotteryBinding
 import com.user.smart.utils.PreferenceManager
@@ -18,6 +19,7 @@ class LotteryFragment : Fragment() {
 
     private var _binding: FragmentLotteryBinding? = null
     private val binding get() = _binding!!
+
     @Inject
     lateinit var preferenceManager: PreferenceManager
 
@@ -37,12 +39,14 @@ class LotteryFragment : Fragment() {
     }
 
     private fun setTabBar() {
-        val adapter = LotteryViewPagerAdapter(childFragmentManager)
-        adapter.addFragment(LotteryConfirmFragment(), "Confirm")
-        adapter.addFragment(LotteryActiveFragment(), "Active")
-        adapter.addFragment(LotterySalesFragment(), "Sales")
-        binding.viewPager.adapter = adapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        val lotteryTabTitleList = resources.getStringArray(R.array.lottery_tab_title_array)
+        var fragmentList: ArrayList<Fragment> =
+            arrayListOf(LotteryConfirmFragment(), LotteryActiveFragment(), LotterySalesFragment())
+        val adapter = LotteryViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
+        binding.viewPager2.adapter = adapter
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+            tab.text = lotteryTabTitleList[position]
+        }.attach()
     }
 
     private fun setupToolbar() {

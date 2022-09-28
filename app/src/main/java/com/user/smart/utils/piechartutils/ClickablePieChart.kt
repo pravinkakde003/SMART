@@ -129,8 +129,8 @@ class ClickablePieChart @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        val centerX = (measuredWidth / 2).toFloat()
-        val centerY = (measuredHeight / 2).toFloat()
+        val centerX = 0f
+        val centerY = 0f
         val radius = centerX.coerceAtMost(centerY)
 
         if (slices.isNullOrEmpty().not()) {

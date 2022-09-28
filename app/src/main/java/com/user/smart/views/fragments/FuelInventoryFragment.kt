@@ -37,7 +37,7 @@ class FuelInventoryFragment : Fragment() {
         setupToolbar()
 
         val pieChart = PieChart(
-            slices = provideSlices(), clickListener = null, sliceStartPoint = 0f, sliceWidth = 350f
+            slices = provideSlices(), clickListener = null, sliceStartPoint = 0f, sliceWidth = 0f
         ).build()
 
         binding.fuelChart.setPieChart(pieChart)

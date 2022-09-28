@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.user.smart.R
 import com.user.smart.databinding.FragmentInventoryBinding
+import com.user.smart.views.adapters.LotteryViewPagerAdapter
 
 class InventoryFragment : Fragment() {
 
@@ -26,6 +28,18 @@ class InventoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        setTabBar()
+    }
+
+    private fun setTabBar() {
+        val lotteryTabTitleList = resources.getStringArray(R.array.inventory_tab_title_array)
+        var fragmentList: ArrayList<Fragment> =
+            arrayListOf(InventoryAdjustmentFragment(), InventoryCountFragment())
+        val adapter = LotteryViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
+        binding.viewPager2.adapter = adapter
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+            tab.text = lotteryTabTitleList[position]
+        }.attach()
     }
 
     private fun setupToolbar() {

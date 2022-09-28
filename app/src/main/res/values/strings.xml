@@ -94,4 +94,22 @@
 
     <string name="merchandiseSalesButtonText">Merchandise Sales</string>
     <string name="fuelSalesButtonText">Fuel Sales</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="active">Active</string>
+    <string name="sales">Sales</string>
+
+    <string name="adjustment">Adjustment</string>
+    <string name="inventory_count">Inv. Count</string>
+
+    <string-array name="lottery_tab_title_array">
+        <item>@string/confirm</item>
+        <item>@string/active</item>
+        <item>@string/sales</item>
+    </string-array>
+
+    <string-array name="inventory_tab_title_array">
+        <item>@string/adjustment</item>
+        <item>@string/inventory_count</item>
+    </string-array>
 </resources>
