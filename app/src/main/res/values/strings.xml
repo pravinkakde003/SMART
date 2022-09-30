@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">S.M.A.R.T.</string>
+    <string name="app_name">Cstore Gurus</string>
 
     <string name="app_tag_text">Discover &amp; connect with great\nlocal business</string>
     <string name="lets_get_started">Let\'s get started</string>
@@ -9,9 +9,9 @@
     <string name="onBoarding_title_2">Smart Office</string>
     <string name="onBoarding_title_3">Smart Office</string>
 
-    <string name="onBoarding_desc_1">Welcome to the\nS.M.A.R.T. Office.</string>
-    <string name="onBoarding_desc_2">Welcome to the\nS.M.A.R.T. Office.</string>
-    <string name="onBoarding_desc_3">Welcome to the\nS.M.A.R.T. Office.</string>
+    <string name="onBoarding_desc_1">Welcome to the\nCstore Gurus Office.</string>
+    <string name="onBoarding_desc_2">Welcome to the\nCstore Gurus Office.</string>
+    <string name="onBoarding_desc_3">Welcome to the\nCstore Gurus Office.</string>
 
 
     <string name="close">Close</string>
