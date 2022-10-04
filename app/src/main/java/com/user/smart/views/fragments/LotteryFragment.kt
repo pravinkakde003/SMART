@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.user.smart.R
 import com.user.smart.databinding.FragmentLotteryBinding
 import com.user.smart.utils.PreferenceManager
-import com.user.smart.views.adapters.LotteryViewPagerAdapter
+import com.user.smart.views.adapters.TabViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -42,7 +42,7 @@ class LotteryFragment : Fragment() {
         val lotteryTabTitleList = resources.getStringArray(R.array.lottery_tab_title_array)
         var fragmentList: ArrayList<Fragment> =
             arrayListOf(LotteryConfirmFragment(), LotteryActiveFragment(), LotterySalesFragment())
-        val adapter = LotteryViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
+        val adapter = TabViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
             tab.text = lotteryTabTitleList[position]

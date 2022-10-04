@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class LotteryViewPagerAdapter(
+class TabViewPagerAdapter(
     private val listFragment: ArrayList<Fragment>,
     supportFragmentManager: FragmentManager,
     lifecycle: Lifecycle

@@ -102,6 +102,9 @@
     <string name="adjustment">Adjustment</string>
     <string name="inventory_count">Inv. Count</string>
 
+    <string name="profit_loss">Profit &amp; Loss</string>
+    <string name="balance_sheet">Balance Sheet</string>
+
     <string-array name="lottery_tab_title_array">
         <item>@string/confirm</item>
         <item>@string/active</item>
@@ -111,5 +114,10 @@
     <string-array name="inventory_tab_title_array">
         <item>@string/adjustment</item>
         <item>@string/inventory_count</item>
+    </string-array>
+
+    <string-array name="financials_tab_title_array">
+        <item>@string/profit_loss</item>
+        <item>@string/balance_sheet</item>
     </string-array>
 </resources>
