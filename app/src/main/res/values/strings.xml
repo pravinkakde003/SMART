@@ -94,7 +94,7 @@
 
     <string name="merchandiseSalesButtonText">Merchandise Sales</string>
     <string name="fuelSalesButtonText">Fuel Sales</string>
-
+    <string name="addNewPurchasesButtonText">Add New Purchases</string>
     <string name="confirm">Confirm</string>
     <string name="active">Active</string>
     <string name="sales">Sales</string>
@@ -104,6 +104,16 @@
 
     <string name="profit_loss">Profit &amp; Loss</string>
     <string name="balance_sheet">Balance Sheet</string>
+
+    <string name="un_retailed">Un-Retailed</string>
+
+    <string name="item_wise">Item-wise</string>
+    <string name="scan_multiple_items">Scan multiple item</string>
+
+    <string-array name="add_purchases_tab_title_array">
+        <item>@string/item_wise</item>
+        <item>@string/scan_multiple_items</item>
+    </string-array>
 
     <string-array name="lottery_tab_title_array">
         <item>@string/confirm</item>
@@ -119,5 +129,11 @@
     <string-array name="financials_tab_title_array">
         <item>@string/profit_loss</item>
         <item>@string/balance_sheet</item>
+    </string-array>
+
+
+    <string-array name="purchases_tab_title_array">
+        <item>@string/un_retailed</item>
+        <item>@string/purchases</item>
     </string-array>
 </resources>

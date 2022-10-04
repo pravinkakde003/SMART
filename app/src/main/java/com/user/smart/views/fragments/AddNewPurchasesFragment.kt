@@ -8,26 +8,20 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.user.smart.R
-import com.user.smart.databinding.FragmentPurchasesBinding
-import com.user.smart.utils.PreferenceManager
+import com.user.smart.databinding.FragmentAddNewPurchasesBinding
 import com.user.smart.views.adapters.TabViewPagerAdapter
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
-class PurchasesFragment : Fragment() {
+class AddNewPurchasesFragment : Fragment() {
 
-    private var _binding: FragmentPurchasesBinding? = null
+    private var _binding: FragmentAddNewPurchasesBinding? = null
     private val binding get() = _binding!!
 
-    @Inject
-    lateinit var preferenceManager: PreferenceManager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPurchasesBinding.inflate(inflater, container, false)
+        _binding = FragmentAddNewPurchasesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,9 +32,9 @@ class PurchasesFragment : Fragment() {
     }
 
     private fun setTabBar() {
-        val lotteryTabTitleList = resources.getStringArray(R.array.purchases_tab_title_array)
+        val lotteryTabTitleList = resources.getStringArray(R.array.add_purchases_tab_title_array)
         var fragmentList: ArrayList<Fragment> =
-            arrayListOf(UnRetailedFragment(), PurchasesTabFragment())
+            arrayListOf(ItemwisePurchaseFragment(), ScanMultipleItemPurchaseFragment())
         val adapter = TabViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
@@ -48,24 +42,19 @@ class PurchasesFragment : Fragment() {
         }.attach()
     }
 
-
     private fun setupToolbar() {
-        binding.purchasesToolbar.profileImage.setImageDrawable(
+        binding.checkInOutToolbar.profileImage.setImageDrawable(
             ContextCompat.getDrawable(
                 requireContext(),
-                R.drawable.ic_baseline_arrow_back_24 // Drawable
+                R.drawable.ic_baseline_arrow_back_24
             )
         )
-        binding.purchasesToolbar.imageViewProfile.setOnClickListener {
+        binding.checkInOutToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.purchasesToolbar.txtDashboardTitle.text = resources.getString(R.string.purchases)
-        binding.purchasesToolbar.toolbarParentCardView.elevation = 8f
-
-        val selectedStoreObject = preferenceManager.getSelectedStoreObject()
-        if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
-            binding.txtStoreName.text = selectedStoreObject.store_name
-        }
+        binding.checkInOutToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.purchases)
+        binding.checkInOutToolbar.toolbarParentCardView.elevation = 8f
     }
 
     override fun onDestroyView() {
