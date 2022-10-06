@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentScanMultipleItemsBinding
+import com.user.smart.databinding.FragmentTabScanMultipleItemsBinding
 
 class ScanMultipleItemPurchaseFragment : Fragment() {
 
-    private var _binding: FragmentScanMultipleItemsBinding? = null
+    private var _binding: FragmentTabScanMultipleItemsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class ScanMultipleItemPurchaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentScanMultipleItemsBinding.inflate(inflater, container, false)
+        _binding = FragmentTabScanMultipleItemsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

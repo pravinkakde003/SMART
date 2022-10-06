@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentLotteryConfirmBinding
+import com.user.smart.databinding.FragmentTabLotteryConfirmBinding
 
 class LotteryConfirmFragment : Fragment() {
 
-    private var _binding: FragmentLotteryConfirmBinding? = null
+    private var _binding: FragmentTabLotteryConfirmBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class LotteryConfirmFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLotteryConfirmBinding.inflate(inflater, container, false)
+        _binding = FragmentTabLotteryConfirmBinding.inflate(inflater, container, false)
         return binding.root
     }
 

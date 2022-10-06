@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.user.smart.R
-import com.user.smart.databinding.FragmentPurchasesTabBinding
+import com.user.smart.databinding.FragmentTabPurchasesTabBinding
 
 class PurchasesTabFragment : Fragment(), View.OnClickListener {
 
-    private var _binding: FragmentPurchasesTabBinding? = null
+    private var _binding: FragmentTabPurchasesTabBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class PurchasesTabFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPurchasesTabBinding.inflate(inflater, container, false)
+        _binding = FragmentTabPurchasesTabBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -110,6 +110,14 @@
     <string name="item_wise">Item-wise</string>
     <string name="scan_multiple_items">Scan multiple item</string>
 
+    <string name="price_tab">Price</string>
+    <string name="promo_tab">Promo</string>
+
+    <string-array name="groups_tab_title_array">
+        <item>@string/price_tab</item>
+        <item>@string/promo_tab</item>
+    </string-array>
+
     <string-array name="add_purchases_tab_title_array">
         <item>@string/item_wise</item>
         <item>@string/scan_multiple_items</item>

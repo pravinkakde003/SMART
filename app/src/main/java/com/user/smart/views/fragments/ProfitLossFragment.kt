@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentProfitLossBinding
+import com.user.smart.databinding.FragmentTabProfitLossBinding
 
 class ProfitLossFragment : Fragment() {
 
-    private var _binding: FragmentProfitLossBinding? = null
+    private var _binding: FragmentTabProfitLossBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class ProfitLossFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfitLossBinding.inflate(inflater, container, false)
+        _binding = FragmentTabProfitLossBinding.inflate(inflater, container, false)
         return binding.root
     }
 

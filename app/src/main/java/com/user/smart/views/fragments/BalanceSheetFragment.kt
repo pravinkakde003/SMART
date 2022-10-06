@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.user.smart.databinding.FragmentBalanceSheetBinding
+import com.user.smart.databinding.FragmentTabBalanceSheetBinding
 import java.util.*
 
 class BalanceSheetFragment : Fragment(), View.OnClickListener {
 
-    private var _binding: FragmentBalanceSheetBinding? = null
+    private var _binding: FragmentTabBalanceSheetBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,7 +20,7 @@ class BalanceSheetFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBalanceSheetBinding.inflate(inflater, container, false)
+        _binding = FragmentTabBalanceSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 

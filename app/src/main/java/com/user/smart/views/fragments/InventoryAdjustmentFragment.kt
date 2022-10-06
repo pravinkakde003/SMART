@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentInventoryAdjustmentBinding
+import com.user.smart.databinding.FragmentTabInventoryAdjustmentBinding
 
 class InventoryAdjustmentFragment : Fragment() {
 
-    private var _binding: FragmentInventoryAdjustmentBinding? = null
+    private var _binding: FragmentTabInventoryAdjustmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class InventoryAdjustmentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentInventoryAdjustmentBinding.inflate(inflater, container, false)
+        _binding = FragmentTabInventoryAdjustmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentTabInventoryCountBinding
+import com.user.smart.databinding.FragmentTabPriceBinding
 
-class InventoryCountFragment : Fragment() {
+class PriceTabFragment : Fragment() {
 
-    private var _binding: FragmentTabInventoryCountBinding? = null
+    private var _binding: FragmentTabPriceBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class InventoryCountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTabInventoryCountBinding.inflate(inflater, container, false)
+        _binding = FragmentTabPriceBinding.inflate(inflater, container, false)
         return binding.root
     }
 

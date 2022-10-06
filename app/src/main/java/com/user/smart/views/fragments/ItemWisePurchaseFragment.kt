@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentItemWisePurchaseBinding
+import com.user.smart.databinding.FragmentTabItemWisePurchaseBinding
 
-class ItemwisePurchaseFragment : Fragment() {
+class ItemWisePurchaseFragment : Fragment() {
 
-    private var _binding: FragmentItemWisePurchaseBinding? = null
+    private var _binding: FragmentTabItemWisePurchaseBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class ItemwisePurchaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentItemWisePurchaseBinding.inflate(inflater, container, false)
+        _binding = FragmentTabItemWisePurchaseBinding.inflate(inflater, container, false)
         return binding.root
     }
 

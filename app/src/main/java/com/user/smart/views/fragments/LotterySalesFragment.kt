@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.user.smart.databinding.FragmentLotterySalesBinding
+import com.user.smart.databinding.FragmentTabLotterySalesBinding
 
 class LotterySalesFragment : Fragment() {
 
-    private var _binding: FragmentLotterySalesBinding? = null
+    private var _binding: FragmentTabLotterySalesBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class LotterySalesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLotterySalesBinding.inflate(inflater, container, false)
+        _binding = FragmentTabLotterySalesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
