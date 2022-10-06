@@ -24,7 +24,7 @@
     <string name="sign_in">Sign In</string>
     <string name="welcome">Welcome</string>
     <string name="txt_continue">Continue</string>
-    <string name="content_description_end_icon">username icon description</string>
+    <string name="content_description_end_icon">icon description</string>
     <string name="new_member">New member? Sign Up</string>
     <string name="already_member">Already a member? Sign In</string>
     <string name="name">Name</string>
@@ -38,7 +38,7 @@
     <string name="send">Send</string>
     <string name="privacy_policy"><a href="https://prawindroid.blogspot.com/">Privacy Policy</a>  and  <a href="https://prawindroid.blogspot.com/">Terms and conditions</a> </string>
     <string name="select_store">Select store</string>
-
+    <string name="forgot_password_link">Forgot password\nreset link</string>
     <string name="dashboard">Dashboard</string>
     <string name="profile">Profile</string>
     <string name="setting">Setting</string>
@@ -98,7 +98,7 @@
     <string name="confirm">Confirm</string>
     <string name="active">Active</string>
     <string name="sales">Sales</string>
-
+    <string name="newPriceGroupButtonText">Create new price group</string>
     <string name="adjustment">Adjustment</string>
     <string name="inventory_count">Inv. Count</string>
 
@@ -112,7 +112,10 @@
 
     <string name="price_tab">Price</string>
     <string name="promo_tab">Promo</string>
-
+    <string name="search_text">Search here</string>
+    <string name="create_new_promo_group">Create new promo group</string>
+    <string name="enter_group_name">Enter group name</string>
+    <string name="submit">Submit</string>
     <string-array name="groups_tab_title_array">
         <item>@string/price_tab</item>
         <item>@string/promo_tab</item>
