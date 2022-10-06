@@ -4,7 +4,21 @@ import android.os.Bundle
 import com.user.smart.R
 import com.user.smart.databinding.ActivityDetailsBinding
 import com.user.smart.utils.AppConstant
-import com.user.smart.views.fragments.*
+import com.user.smart.views.fragments.account.AccountFragment
+import com.user.smart.views.fragments.checkinout.CheckInOutFragment
+import com.user.smart.views.fragments.daysalesrecon.DaySalesReconFragment
+import com.user.smart.views.fragments.financials.FinancialFragment
+import com.user.smart.views.fragments.fuelinventory.FuelInventoryFragment
+import com.user.smart.views.fragments.fuelprice.FuelPriceFragment
+import com.user.smart.views.fragments.groups.GroupsFragment
+import com.user.smart.views.fragments.inventory.InventoryFragment
+import com.user.smart.views.fragments.lottery.LotteryFragment
+import com.user.smart.views.fragments.order.OrdersFragment
+import com.user.smart.views.fragments.posclosingsales.POSClosingSalesFragment
+import com.user.smart.views.fragments.poslive.POSLiveFragment
+import com.user.smart.views.fragments.purchases.PurchasesFragment
+import com.user.smart.views.fragments.sendtopos.SendToPosFragment
+import com.user.smart.views.fragments.transactions.TransactionFragment
 
 class DetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailsBinding
