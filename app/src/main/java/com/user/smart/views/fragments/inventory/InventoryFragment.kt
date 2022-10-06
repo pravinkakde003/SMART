@@ -1,4 +1,4 @@
-package com.user.smart.views.fragments
+package com.user.smart.views.fragments.inventory
 
 import android.os.Bundle
 import android.view.LayoutInflater
