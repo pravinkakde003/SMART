@@ -16,6 +16,7 @@
         app:endIconContentDescription="@string/content_description_end_icon"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
         app:endIconMode="custom"
+        app:endIconTint="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
