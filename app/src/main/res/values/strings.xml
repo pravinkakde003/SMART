@@ -120,6 +120,9 @@
     <string name="date">Date</string>
     <string name="scan_code">Scan code</string>
     <string name="current_quantity">Current quantity</string>
+    <string name="save">Save</string>
+    <string name="view_count">View count</string>
+    <string name="reset">Reset</string>
     <string-array name="groups_tab_title_array">
         <item>@string/price_tab</item>
         <item>@string/promo_tab</item>

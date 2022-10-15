@@ -143,7 +143,7 @@
                 app:layout_constraintTop_toBottomOf="@id/EditTextQuantity" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/EditTextCurrentQuantity"
+                android:id="@+id/editTextCurrentQuantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -154,10 +154,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textCurrentQuantity" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/resetButton"
+                style="@style/ButtonStyleRoundedFilledRed"
+                android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/reset"
+                app:layout_constraintEnd_toStartOf="@id/saveButton"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveButton"
+                style="@style/ButtonStyleRoundedFilled"
+                android:layout_width="0dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/resetButton"
+                app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
+                app:layout_constraintWidth_percent=".4" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.core.widget.NestedScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
