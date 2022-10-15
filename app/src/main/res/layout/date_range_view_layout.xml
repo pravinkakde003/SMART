@@ -48,7 +48,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_baseline_calendar_today_24"
-            android:tint="@color/grey_variant5"
+            android:tint="@color/grey_variant3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -97,7 +97,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_baseline_calendar_today_24"
-            android:tint="@color/grey_variant5"
+            android:tint="@color/grey_variant3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
