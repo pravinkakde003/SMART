@@ -101,7 +101,7 @@
     <string name="newPriceGroupButtonText">Create new price group</string>
     <string name="adjustment">Adjustment</string>
     <string name="inventory_count">Inv. Count</string>
-
+    <string name="quantity_text">Quantity</string>
     <string name="profit_loss">Profit &amp; Loss</string>
     <string name="balance_sheet">Balance Sheet</string>
 
@@ -116,6 +116,10 @@
     <string name="create_new_promo_group">Create new promo group</string>
     <string name="enter_group_name">Enter group name</string>
     <string name="submit">Submit</string>
+    <string name="scan">Scan</string>
+    <string name="date">Date</string>
+    <string name="scan_code">Scan code</string>
+    <string name="current_quantity">Current quantity</string>
     <string-array name="groups_tab_title_array">
         <item>@string/price_tab</item>
         <item>@string/promo_tab</item>

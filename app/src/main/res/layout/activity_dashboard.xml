@@ -6,7 +6,7 @@
     android:background="@color/app_background_blue">
 
     <include
-        android:id="@+id/dasboardToolbar"
+        android:id="@+id/dashboardToolbar"
         layout="@layout/toolbar_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dasboardToolbar" />
+        app:layout_constraintTop_toBottomOf="@id/dashboardToolbar" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txtStoreName"

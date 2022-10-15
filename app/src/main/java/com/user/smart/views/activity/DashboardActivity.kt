@@ -29,10 +29,10 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun setClickListeners() {
-        binding.dasboardToolbar.toolbarParentCardView.elevation = 0f
-        binding.dasboardToolbar.imageViewSelectStore.visibility = View.VISIBLE
-        binding.dasboardToolbar.imageViewSelectStore.setOnClickListener(this)
-        binding.dasboardToolbar.imageViewProfile.setOnClickListener(this)
+        binding.dashboardToolbar.toolbarParentCardView.elevation = 0f
+        binding.dashboardToolbar.imageViewSelectStore.visibility = View.VISIBLE
+        binding.dashboardToolbar.imageViewSelectStore.setOnClickListener(this)
+        binding.dashboardToolbar.imageViewProfile.setOnClickListener(this)
         binding.profileMenuLayout.logoutLayout.setOnClickListener(this)
     }
 
@@ -60,7 +60,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.dasboardToolbar.imageViewSelectStore -> {
+            binding.dashboardToolbar.imageViewSelectStore -> {
                 if (AppUtils.isNetworkAvailable(this)) {
                     val intent =
                         Intent(this@DashboardActivity, SearchStoreListingActivity::class.java)
@@ -70,10 +70,10 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     AppUtils.showInternetAlertDialog(this)
                 }
             }
-            binding.dasboardToolbar.imageViewProfile -> {
+            binding.dashboardToolbar.imageViewProfile -> {
                 isProfileMenuVisible = if (isProfileMenuVisible) {
                     AppUtils.hideProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
-                    binding.dasboardToolbar.profileImage.setImageDrawable(
+                    binding.dashboardToolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
                             R.drawable.ic_baseline_person_24
@@ -82,7 +82,7 @@ class DashboardActivity : BaseActivity(), View.OnClickListener {
                     false
                 } else {
                     AppUtils.showProfileOptionsView(binding.profileMenuLayout.menuParentLayout)
-                    binding.dasboardToolbar.profileImage.setImageDrawable(
+                    binding.dashboardToolbar.profileImage.setImageDrawable(
                         ContextCompat.getDrawable(
                             this,
                             R.drawable.ic_baseline_close_24
