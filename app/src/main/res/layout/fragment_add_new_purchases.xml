@@ -33,6 +33,15 @@
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/gray_variant" />
 
+        <View
+            android:id="@+id/dividerView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/semiGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"
@@ -40,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@id/dividerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -154,4 +154,13 @@
         <item>@string/un_retailed</item>
         <item>@string/purchases</item>
     </string-array>
+
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+
+    <string-array name="merchandise_sales_dropdown_array">
+        <item>@string/sales</item>
+        <item>@string/daily</item>
+        <item>@string/monthly</item>
+    </string-array>
 </resources>

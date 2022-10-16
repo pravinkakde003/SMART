@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:background="@color/app_background_blue">
 
     <include
@@ -12,14 +13,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/OnBoardingDescriptionTextStyle"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtStoreName"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/merchandiseSalesButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="16dp"
+        android:textColor="@color/gray_variant"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/merchandiseSalesToolbar" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dropDownView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:boxStrokeWidth="2dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtStoreName">
+
+        <AutoCompleteTextView
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"
+            android:textColor="@color/primary_color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.user.smart.utils.StartDateEndDateView
+        android:id="@+id/dateSelectorView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dropDownView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
