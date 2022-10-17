@@ -1,5 +1,6 @@
 package com.user.smart.api
 
+import com.user.smart.models.FuelPriceAPIResponse
 import com.user.smart.models.GetStoreListResponse
 import com.user.smart.models.POSLiveDataResponse
 import com.user.smart.utils.ApiConstants
@@ -18,4 +19,10 @@ interface StoreApiServices {
         @Path("storeID") storeID: String,
         @Path("date") date: String
     ): Response<POSLiveDataResponse>
+
+
+    @GET(ApiConstants.FUEL_PRICE_API_END_POINT + "{storeID}")
+    suspend fun getFuelPriceData(
+        @Path("storeID") storeID: String
+    ): Response<FuelPriceAPIResponse>
 }

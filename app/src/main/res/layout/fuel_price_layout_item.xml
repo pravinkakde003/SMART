@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dataLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:layout_constraintEnd_toStartOf="@id/imageViewMenu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Fuel grade no -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelFuelGradeNo"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fuel_grade_no"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFuelGradeNo"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintTop_toTopOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <!-- Fuel grade name -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelFuelGradeName"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/fuel_grade_name"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFuelGradeName"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintTop_toTopOf="@id/txtLabelFuelGradeName"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <!-- Fuel department -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelFuelDepartment"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/fuel_department"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelFuelGradeName"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFuelDepartment"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeName"
+                app:layout_constraintTop_toTopOf="@id/txtLabelFuelDepartment"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+
+            <!-- Tank Size -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelTankSize"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/tank_size"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelFuelDepartment"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTankSize"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelFuelDepartment"
+                app:layout_constraintTop_toTopOf="@id/txtLabelTankSize"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <!-- Tax -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelTax"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/tax_with_dot"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelTankSize"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTax"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelTankSize"
+                app:layout_constraintTop_toTopOf="@id/txtLabelTax"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <!-- Pre-Paid Sales Tax -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelPrePaidSalesTax"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/pre_paid_sales_tax"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelTax"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtPrePaidSalesTax"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelTax"
+                app:layout_constraintTop_toTopOf="@id/txtLabelPrePaidSalesTax"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+
+            <!-- Tax Rate -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelTaxRate"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/tax_rate"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelPrePaidSalesTax"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTaxRate"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelPrePaidSalesTax"
+                app:layout_constraintTop_toTopOf="@id/txtLabelTaxRate"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <!-- UST fees -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLabelUstFee"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/ust_fees"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelTaxRate"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtUstFee"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/dash"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtLabelTaxRate"
+                app:layout_constraintTop_toTopOf="@id/txtLabelUstFee"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewMenu"
+            android:layout_width="18dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:tint="@color/primary_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dataLayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

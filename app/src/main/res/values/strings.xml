@@ -157,6 +157,14 @@
 
     <string name="daily">Daily</string>
     <string name="monthly">Monthly</string>
+    <string name="fuel_grade_no">Fuel grade no :</string>
+    <string name="fuel_grade_name">Fuel grade name :</string>
+    <string name="fuel_department">Fuel department :</string>
+    <string name="tax_with_dot">Tax :</string>
+    <string name="tank_size">Tank size :</string>
+    <string name="pre_paid_sales_tax">Pre-paid sales tax :</string>
+    <string name="tax_rate">Tax rate :</string>
+    <string name="ust_fees">UST fees :</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
