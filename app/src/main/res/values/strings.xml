@@ -81,7 +81,7 @@
     <string name="cashier_with_dots">Cashier :</string>
     <string name="no_result_found">No result found</string>
     <string name="cashier">Cashier</string>
-
+    <string name="amount_without_dot">Amount</string>
     <string name="transactions_details">Transactions details</string>
     <string name="total">Total</string>
     <string name="tax">Tax</string>
@@ -91,7 +91,7 @@
     <string name="upc">UPC :</string>
     <string name="dept">Dept :</string>
     <string name="desc">Desc :</string>
-
+    <string name="description">Description</string>
     <string name="merchandiseSalesButtonText">Merchandise Sales</string>
     <string name="fuelSalesButtonText">Fuel Sales</string>
     <string name="addNewPurchasesButtonText">Add New Purchases</string>
@@ -165,6 +165,10 @@
     <string name="pre_paid_sales_tax">Pre-paid sales tax :</string>
     <string name="tax_rate">Tax rate :</string>
     <string name="ust_fees">UST fees :</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>

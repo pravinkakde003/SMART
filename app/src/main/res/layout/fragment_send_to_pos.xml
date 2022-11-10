@@ -14,11 +14,247 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.user.smart.utils.StartDateEndDateView
-        android:id="@+id/dateSelectorView"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtStoreName"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="16dp"
+        android:textColor="@color/gray_variant"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendToPosToolbar" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTopView"
+        style="@style/TopCarCornerStyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtStoreName">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDescription"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:gravity="start"
+            android:paddingVertical="12dp"
+            android:text="@string/description"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtAmount"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="12dp"
+            android:paddingVertical="12dp"
+            android:text="@string/amount_without_dot"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Transaction Date -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtLabelTransactionDate"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtTransactionDate"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtLabelTransactionDate"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelTransactionDate"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".6" />
+
+                <!-- Transaction Type -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtLabelTransactionType"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtLabelTransactionDate"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtTransactionType"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtLabelTransactionDate"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelTransactionType"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".6" />
+
+                <!-- Amount -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtLabelAmount"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtLabelTransactionType"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtAmount2"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtLabelTransactionType"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelAmount"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".6" />
+
+                <!-- Cashier -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtLabelCashier"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtLabelAmount"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCashier"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtLabelAmount"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelCashier"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelButton"
+                style="@style/ButtonStyleRoundedFilledDisabled"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toStartOf="@id/editButton"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editButton"
+                style="@style/ButtonStyleRoundedFilled"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="@string/edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sendButton"
+        style="@style/ButtonStyleRoundedFilled"
+        android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingVertical="12dp"
+        android:text="@string/send"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sendToPosToolbar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
