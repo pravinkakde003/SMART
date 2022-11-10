@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background_blue"
     android:clickable="true"
-    android:background="@color/app_background_blue">
+    android:focusable="true">
 
     <include
         android:id="@+id/merchandiseSalesToolbar"
@@ -51,14 +52,5 @@
             android:textColor="@color/primary_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.user.smart.utils.StartDateEndDateView
-        android:id="@+id/dateSelectorView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dropDownView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

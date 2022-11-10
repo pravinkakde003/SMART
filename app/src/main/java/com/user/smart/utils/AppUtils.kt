@@ -126,6 +126,13 @@ object AppUtils {
         return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
     }
 
+    fun getYesterdayDate(): String {
+        val dateFormat = SimpleDateFormat(AppConstant.APP_CALENDER_DATE_FORMAT)
+        val cal = Calendar.getInstance()
+        cal.add(Calendar.DATE, -1)
+        return dateFormat.format(cal.time)
+    }
+
     fun Context.showToast(message: CharSequence) =
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

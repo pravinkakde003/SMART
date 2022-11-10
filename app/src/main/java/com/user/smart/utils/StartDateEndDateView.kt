@@ -11,6 +11,7 @@ import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.user.smart.databinding.DateRangeViewLayoutBinding
 import dagger.hilt.android.internal.managers.FragmentComponentManager
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -24,7 +25,14 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
         mBinding.startDateCalenderView.setOnClickListener {
             val datePicker = getMaterialDatePicker(CalendarConstraints.Builder())
             datePicker.addOnPositiveButtonClickListener {
-                mBinding.startDateTextView.text = datePicker.headerText.toString()
+                val simpleFormat = SimpleDateFormat(
+                    AppConstant.APP_CALENDER_DATE_FORMAT,
+                    Locale.US
+                )
+                simpleFormat.timeZone = TimeZone.getTimeZone("UTC")
+                mBinding.startDateTextView.text = simpleFormat.format(Date(it))
+
+//                mBinding.startDateTextView.text = datePicker.headerText.toString()
                 startDateCalender = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
                 startDateCalender.time = Date(it)
             }
@@ -41,7 +49,11 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
                         .setValidator(DateValidatorPointForward.from(startDateCalender.timeInMillis))
                 val datePicker = getMaterialDatePicker(constraintsBuilder)
                 datePicker.addOnPositiveButtonClickListener {
-                    mBinding.endDateTextView.text = datePicker.headerText.toString()
+                    val simpleFormat = SimpleDateFormat(
+                        AppConstant.APP_CALENDER_DATE_FORMAT, Locale.US
+                    )
+                    simpleFormat.timeZone = TimeZone.getTimeZone("UTC")
+                    mBinding.endDateTextView.text = simpleFormat.format(Date(it))
                 }
                 datePicker.show(
                     getFragmentActivityContext(mBinding.endDateCalenderView).supportFragmentManager,
@@ -76,6 +88,16 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
             return mBinding.endDateTextView.text.toString()
         } else {
             ""
+        }
+    }
+
+    public fun setStartDateText(inputString: String) {
+        if (inputString.isNotEmpty()) {
+            startDateCalender = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+            mBinding.startDateTextView.text = inputString
+            val date: Date = SimpleDateFormat(AppConstant.APP_CALENDER_DATE_FORMAT)
+                .parse(inputString)
+            startDateCalender.time = date
         }
     }
 }

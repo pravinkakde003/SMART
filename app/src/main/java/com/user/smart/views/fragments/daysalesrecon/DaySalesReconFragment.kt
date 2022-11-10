@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.user.smart.R
 import com.user.smart.databinding.FragmentDaySalesReconBinding
 import com.user.smart.utils.AppConstant
+import com.user.smart.utils.AppUtils
 import com.user.smart.utils.PreferenceManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -60,6 +61,8 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
         if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
             binding.txtStoreName.text = selectedStoreObject.store_name
         }
+
+        binding.dateSelectorView.setStartDateText(AppUtils.getYesterdayDate())
     }
 
     override fun onDestroyView() {

@@ -5,6 +5,8 @@ object AppConstant {
 
     const val APP_DATE_FORMAT = "yyyy_MM_dd"
 
+    const val APP_CALENDER_DATE_FORMAT = "MMM dd yyyy"
+
     const val USER_TOKEN = "UserToken"
     const val SELECTED_SORE_KEY = "selectedStore"
     const val POS_LIVE_DATA_RESPONSE_ITEM_KEY = "POSLiveDataResponseItemKey"

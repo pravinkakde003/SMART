@@ -47,7 +47,7 @@ class MerchandiseSalesFragment : Fragment() {
         val dropDownArrayList = resources.getStringArray(R.array.merchandise_sales_dropdown_array)
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_item, dropDownArrayList)
         (binding.dropDownView.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-        (binding.dropDownView.editText as? AutoCompleteTextView)?.setText(adapter.getItem(0),false)
+        (binding.dropDownView.editText as? AutoCompleteTextView)?.setText(adapter.getItem(0), false)
         (binding.dropDownView.editText as? AutoCompleteTextView)?.setOnItemClickListener { _, _, position, _ ->
             val selectedTeam = adapter.getItem(position)
             Log.e("TAGG", "" + selectedTeam)
