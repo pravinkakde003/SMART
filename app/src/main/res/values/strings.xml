@@ -169,6 +169,12 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="fuel_type">Fuel Type</string>
+    <string name="gallon_sold">Gallon Sold</string>
+    <string name="current_inve">Current Inve.</string>
+    <string name="regular">Regular</string>
+    <string name="super_fuel">Super</string>
+    <string name="power">Power</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>

@@ -30,8 +30,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtStoreName">
@@ -56,4 +56,339 @@
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
         app:showPercentage="false"
         app:showPopup="true" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTopView"
+        style="@style/TopCarCornerStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="14dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fuelChart">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:layout_constraintEnd_toStartOf="@id/imageViewMenu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFuelType"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fuel_type"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".2" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtGallonSold"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/gallon_sold"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/txtCurrentInv"
+                app:layout_constraintStart_toEndOf="@id/txtFuelType"
+                app:layout_constraintTop_toTopOf="@id/txtFuelType"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtCurrentInv"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/current_inve"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtGallonSold"
+                app:layout_constraintTop_toTopOf="@id/txtGallonSold"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypeSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/super_fuel"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="20.00"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvSuper"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypeSuper"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypeSuper"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.0"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldSuper"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldSuper"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypeRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/regular"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="20.00"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvRegular"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypeRegular"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypeRegular"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.0"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldRegular"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldRegular"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/dividerView2"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout2">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypePower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldPower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="20.00"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvPower"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypePower"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypePower"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvPower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.0"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldPower"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldPower"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/dividerView3"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout3">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtTotal"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldTotal"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="60.00"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvTotal"
+                    app:layout_constraintStart_toEndOf="@id/txtTotal"
+                    app:layout_constraintTop_toTopOf="@id/txtTotal"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvTotal"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="0.0"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldTotal"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldTotal"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
