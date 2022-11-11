@@ -12,12 +12,18 @@ import androidx.fragment.app.Fragment
 import com.user.smart.R
 import com.user.smart.databinding.FragmentFuelSalesBinding
 import com.user.smart.utils.AppConstant
+import com.user.smart.utils.PreferenceManager
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FuelSalesFragment : Fragment() {
 
     private var _binding: FragmentFuelSalesBinding? = null
     private val binding get() = _binding!!
 
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,6 +54,10 @@ class FuelSalesFragment : Fragment() {
         }
         binding.fuelSalesToolbar.txtDashboardTitle.text = toolbarTitle
         binding.fuelSalesToolbar.toolbarParentCardView.elevation = 8f
+        val selectedStoreObject = preferenceManager.getSelectedStoreObject()
+        if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
+            binding.txtStoreName.text = selectedStoreObject.store_name
+        }
     }
 
     private fun setDropDownAdapter() {

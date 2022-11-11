@@ -183,6 +183,9 @@
     <string name="paid_out">Paid out</string>
     <string name="paid_in">Paid in</string>
     <string name="show_details">Show details</string>
+    <string name="diesel">Diesel</string>
+    <string name="vol_sold">Vol. sold</string>
+    <string name="profit">Profit</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
