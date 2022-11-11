@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class TransactionFragment : Fragment() {
+class TransactionFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentTransactionBinding? = null
     private val binding get() = _binding!!
@@ -33,6 +33,12 @@ class TransactionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        setClickListener()
+    }
+
+    private fun setClickListener() {
+        binding.layoutOne.dataLayout.setOnClickListener(this)
+        binding.layoutTwo.dataLayout.setOnClickListener(this)
     }
 
     private fun setupToolbar() {
@@ -45,7 +51,8 @@ class TransactionFragment : Fragment() {
         binding.transactionToolbar.imageViewProfile.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.transactionToolbar.txtDashboardTitle.text = resources.getString(R.string.transactions)
+        binding.transactionToolbar.txtDashboardTitle.text =
+            resources.getString(R.string.transactions)
         binding.transactionToolbar.toolbarParentCardView.elevation = 8f
 
         val selectedStoreObject = preferenceManager.getSelectedStoreObject()
@@ -55,6 +62,24 @@ class TransactionFragment : Fragment() {
 //        if (binding.dateSelectorView.getStartDateText().isNullOrEmpty()) {
 //            Log.e("TAGG", "EMPTY DATE")
 //        }
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.layoutOne.dataLayout, binding.layoutTwo.dataLayout -> {
+                val targetFragment = TransactionDetailsFragment()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.trans_left_in,
+                        R.anim.trans_right_out,
+                        R.anim.trans_right_in, R.anim.trans_right_out
+                    )
+                    .add(R.id.fragmentContainer, targetFragment)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("SendToPosDetailsFragment")
+                    .commit()
+            }
+        }
     }
 
     override fun onDestroyView() {

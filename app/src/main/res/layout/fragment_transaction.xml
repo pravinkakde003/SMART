@@ -65,35 +65,14 @@
             android:layout_marginEnd="12dp"
             android:orientation="vertical">
 
-            <include layout="@layout/transaction_layout_item" />
+            <include
+                android:id="@+id/layoutOne"
+                layout="@layout/transaction_layout_item" />
 
-            <include layout="@layout/transaction_layout_item" />
+            <include
+                android:id="@+id/layoutTwo"
+                layout="@layout/transaction_layout_item" />
 
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
-
-            <include layout="@layout/transaction_layout_item" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

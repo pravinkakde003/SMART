@@ -104,7 +104,7 @@
     <string name="quantity_text">Quantity</string>
     <string name="profit_loss">Profit &amp; Loss</string>
     <string name="balance_sheet">Balance Sheet</string>
-
+    <string name="transaction_details">Transaction details</string>
     <string name="un_retailed">Un-Retailed</string>
 
     <string name="item_wise">Item-wise</string>
