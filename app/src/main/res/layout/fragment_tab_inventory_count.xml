@@ -122,26 +122,26 @@
                 app:layout_constraintTop_toBottomOf="@id/textCurrentQuantity" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/viewCountButton"
-                style="@style/ButtonStyleRoundedFilledRed"
+                android:id="@+id/saveButton"
+                style="@style/ButtonStyleRoundedFilled"
                 android:layout_width="0dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/view_count"
-                app:layout_constraintEnd_toStartOf="@id/saveButton"
+                android:text="@string/save"
+                app:layout_constraintEnd_toStartOf="@id/viewCountButton"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/saveButton"
-                style="@style/ButtonStyleRoundedFilled"
+                android:id="@+id/viewCountButton"
+                style="@style/ButtonStyleRoundedFilledRed"
                 android:layout_width="0dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/save"
+                android:text="@string/view_count"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/viewCountButton"
+                app:layout_constraintStart_toEndOf="@id/saveButton"
                 app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
                 app:layout_constraintWidth_percent=".4" />
 

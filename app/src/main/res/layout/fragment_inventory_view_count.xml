@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_blue">
+
+    <include
+        android:id="@+id/accountFragmentToolbar"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtStoreName"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="16dp"
+        android:textColor="@color/gray_variant"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accountFragmentToolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textDate"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/date"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtStoreName" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/square_border"
+        android:clickable="true"
+        android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
+        android:drawableTint="@color/grey_variant3"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDate" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textTransaction"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/reason"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dropDownView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:boxStrokeWidth="2dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTransaction">
+
+        <AutoCompleteTextView
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"
+            android:textColor="@color/primary_color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTopView"
+        style="@style/TopCarCornerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="14dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dropDownView">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtCashier"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingVertical="12dp"
+            android:text="@string/data"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayoutHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelType"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scan_code"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtVolumeSold"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/description"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/txtProfit"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelType"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelType"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtProfit"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/count"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtVolumeSold"
+                    app:layout_constraintTop_toTopOf="@id/txtVolumeSold"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayoutSubHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/floor_color"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayoutHeader">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtSubHeader"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_result_found"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayoutSubHeader">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypeSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvSuper"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypeSuper"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypeSuper"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvSuper"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldSuper"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldSuper"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerView">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypeRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvRegular"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypeRegular"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypeRegular"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvRegular"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldRegular"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldRegular"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/dividerView2"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerView2">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypePower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldPower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvPower"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypePower"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypePower"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvPower"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldPower"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldPower"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/dividerView3"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/dataLayout4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dataLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerView3">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFuelTypeDiesel"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtGallonSoldDiesel"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/txtCurrentInvDisel"
+                    app:layout_constraintStart_toEndOf="@id/txtFuelTypeDiesel"
+                    app:layout_constraintTop_toTopOf="@id/txtFuelTypeDiesel"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCurrentInvDisel"
+                    style="@style/AppSmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/dash"
+                    android:textColor="@color/grey_variant5"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtGallonSoldDiesel"
+                    app:layout_constraintTop_toTopOf="@id/txtGallonSoldDiesel"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/dividerView4"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataLayout4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

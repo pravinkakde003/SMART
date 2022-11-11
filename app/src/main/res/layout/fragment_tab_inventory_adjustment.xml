@@ -6,177 +6,101 @@
     android:background="@color/app_background_blue"
     android:padding="14dp">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.user.smart.utils.EditTextWithLabel
+            android:id="@+id/editTextDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/editTextScan"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.user.smart.utils.EditTextWithLabel
+            android:id="@+id/editTextScan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintLeft_toRightOf="@id/editTextDate"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textDescription"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/description_product_code_upc"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/editTextDate" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textDate"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/date"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/square_border"
+            android:maxLines="1"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDescription" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/dateTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/square_border"
-                android:clickable="true"
-                android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
-                android:drawableTint="@color/grey_variant3"
-                android:ellipsize="end"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:padding="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textDate" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/scanCodeText"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="@string/scan_code"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+        <com.user.smart.utils.EditTextWithLabel
+            android:id="@+id/editTextQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/editTextCurrentQuantity"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/scanLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/square_border"
-                android:padding="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scanCodeText">
+        <com.user.smart.utils.EditTextWithLabel
+            android:id="@+id/editTextCurrentQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintLeft_toRightOf="@id/editTextQuantity"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/scanDataTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:maxLines="1"
-                    app:layout_constraintEnd_toStartOf="@id/scanTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            style="@style/ButtonStyleRoundedFilled"
+            android:layout_width="0dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/save"
+            app:layout_constraintEnd_toStartOf="@id/resetButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextQuantity"
+            app:layout_constraintWidth_percent=".4" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/scanTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:drawableEnd="@drawable/ic_baseline_document_scanner_24"
-                    android:drawablePadding="8dp"
-                    android:drawableTint="@color/grey_variant3"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:text="@string/scan"
-                    android:textColor="@color/grey_variant3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textQuantity"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="@string/quantity_text"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scanLayout" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/EditTextQuantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/square_border"
-                android:inputType="number"
-                android:padding="14dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textQuantity" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textCurrentQuantity"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="@string/current_quantity"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EditTextQuantity" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editTextCurrentQuantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/square_border"
-                android:inputType="number"
-                android:padding="14dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textCurrentQuantity" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/resetButton"
-                style="@style/ButtonStyleRoundedFilledRed"
-                android:layout_width="0dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/reset"
-                app:layout_constraintEnd_toStartOf="@id/saveButton"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
-                app:layout_constraintWidth_percent=".4" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/saveButton"
-                style="@style/ButtonStyleRoundedFilled"
-                android:layout_width="0dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/save"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/resetButton"
-                app:layout_constraintTop_toBottomOf="@id/editTextCurrentQuantity"
-                app:layout_constraintWidth_percent=".4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resetButton"
+            style="@style/ButtonStyleRoundedFilledRed"
+            android:layout_width="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/saveButton"
+            app:layout_constraintTop_toBottomOf="@id/editTextQuantity"
+            app:layout_constraintWidth_percent=".4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

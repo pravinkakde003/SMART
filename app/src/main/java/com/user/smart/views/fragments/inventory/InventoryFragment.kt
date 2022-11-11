@@ -41,7 +41,7 @@ class InventoryFragment : Fragment() {
     private fun setTabBar() {
         val lotteryTabTitleList = resources.getStringArray(R.array.inventory_tab_title_array)
         var fragmentList: ArrayList<Fragment> =
-            arrayListOf(InventoryAdjustmentFragment(), InventoryCountFragment())
+            arrayListOf(InventoryCountFragment(), InventoryAdjustmentFragment())
         val adapter = TabViewPagerAdapter(fragmentList, childFragmentManager, lifecycle)
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->

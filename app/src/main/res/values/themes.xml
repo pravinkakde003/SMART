@@ -98,7 +98,7 @@
         <item name="android:textSize">@dimen/abc_text_size_small_material</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
         <item name="backgroundTint">@color/color_state_material_button</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
     <style name="ButtonStyleRoundedFilledRed" parent="Widget.MaterialComponents.Button.UnelevatedButton">
@@ -109,7 +109,7 @@
         <item name="android:textSize">@dimen/abc_text_size_small_material</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
         <item name="backgroundTint">@color/color_state_material_button_red</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
     <style name="ButtonStyleRoundedFilledDisabled" parent="Widget.MaterialComponents.Button.UnelevatedButton">
@@ -120,7 +120,7 @@
         <item name="android:textSize">@dimen/abc_text_size_small_material</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
         <item name="backgroundTint">@color/color_state_material_button_disabled</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
     <style name="ButtonStyleBorderless" parent="Widget.MaterialComponents.Button.TextButton">
@@ -131,7 +131,7 @@
         <item name="android:textColor">@color/primary_color</item>
         <item name="android:textSize">@dimen/abc_text_size_small_material</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
     <style name="OnBoardingTitleTextStyle" parent="@style/TextAppearance.AppCompat.Display1">

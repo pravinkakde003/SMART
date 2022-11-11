@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.zxing.integration.android.IntentIntegrator
+import com.user.smart.R
 import com.user.smart.databinding.FragmentTabInventoryCountBinding
 
 class InventoryCountFragment : Fragment(), View.OnClickListener {
@@ -34,6 +35,7 @@ class InventoryCountFragment : Fragment(), View.OnClickListener {
 
     private fun setClickListener() {
         binding.scanTextView.setOnClickListener(this)
+        binding.viewCountButton.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -53,6 +55,19 @@ class InventoryCountFragment : Fragment(), View.OnClickListener {
         when (view) {
             binding.scanTextView -> {
                 permissionSetup()
+            }
+            binding.viewCountButton -> {
+                val targetFragment = ViewCountFragment()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.trans_left_in,
+                        R.anim.trans_right_out,
+                        R.anim.trans_right_in, R.anim.trans_right_out
+                    )
+                    .add(R.id.fragmentContainer, targetFragment)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("ViewCountFragment")
+                    .commit()
             }
         }
     }
