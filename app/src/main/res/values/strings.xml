@@ -186,6 +186,9 @@
     <string name="diesel">Diesel</string>
     <string name="vol_sold">Vol. sold</string>
     <string name="profit">Profit</string>
+    <string name="department">Department</string>
+    <string name="net">Net</string>
+    <string name="sales_percentage">Sales(%)</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
