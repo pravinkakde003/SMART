@@ -195,9 +195,21 @@
     <string name="new_credit_price">New credit price</string>
     <string name="last_modified">Last modified</string>
     <string name="edit_fuel_price">Edit fuel price</string>
+    <string name="end_balance">End balance</string>
+    <string name="type_payee">Type/Payee</string>
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
         <item>@string/daily</item>
         <item>@string/monthly</item>
+    </string-array>
+
+    <string name="auto_part">Auto parts</string>
+    <string name="beer">Beer</string>
+    <string name="chips">Chips</string>
+
+    <string-array name="account_dropdown_array">
+        <item>@string/auto_part</item>
+        <item>@string/beer</item>
+        <item>@string/chips</item>
     </string-array>
 </resources>
