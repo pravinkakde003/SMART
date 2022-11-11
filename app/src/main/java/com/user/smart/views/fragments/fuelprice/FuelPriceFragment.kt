@@ -113,7 +113,20 @@ class FuelPriceFragment : Fragment() {
         binding.fuelPriceRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
         binding.fuelPriceRecyclerView.setHasFixedSize(true)
         var mAdapter = FuelPriceAdapter(fuelPriceList) {
-
+            val targetFragment = EditFuelPriceFragment()
+            val bundle = Bundle()
+            bundle.putSerializable(AppConstant.FUEL_PRICE_DATA_KEY, it)
+            targetFragment.arguments = bundle
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.trans_left_in,
+                    R.anim.trans_right_out,
+                    R.anim.trans_right_in, R.anim.trans_right_out
+                )
+                .add(R.id.fragmentContainer, targetFragment)
+                .setReorderingAllowed(true)
+                .addToBackStack("SendToPosDetailsFragment")
+                .commit()
         }
         binding.fuelPriceRecyclerView.adapter = mAdapter
     }

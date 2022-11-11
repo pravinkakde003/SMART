@@ -189,7 +189,12 @@
     <string name="department">Department</string>
     <string name="net">Net</string>
     <string name="sales_percentage">Sales(%)</string>
-
+    <string name="current_cash_price">Current cash price</string>
+    <string name="new_cash_price">New cash price</string>
+    <string name="current_credit_price">Current credit price</string>
+    <string name="new_credit_price">New credit price</string>
+    <string name="last_modified">Last modified</string>
+    <string name="edit_fuel_price">Edit fuel price</string>
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
         <item>@string/daily</item>

@@ -25,38 +25,32 @@ class FuelPriceAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataItem: FuelPriceAPIResponseItem) = binding.apply {
 
-            if (dataItem.store_fuel_grade_id.isNotBlank()) {
-                txtFuelGradeNo.text = dataItem.store_fuel_grade_id
-            }
-
             if (dataItem.store_fuel_grade.isNotBlank()) {
-                txtFuelGradeName.text = dataItem.store_fuel_grade
+                txtFuelGradeName.text = dataItem.store_fuel_grade_display_name
             }
 
-            if (dataItem.store_fuel_department.isNotBlank()) {
-                txtFuelDepartment.text = dataItem.store_fuel_department
+            if (dataItem.old_cash_price.isNotBlank()) {
+                txtCurrentCashPrice.text = dataItem.old_cash_price
             }
 
-            if (dataItem.tank_size.isNotBlank()) {
-                txtTankSize.text = dataItem.tank_size
+            if (dataItem.new_cash_price.isNotBlank()) {
+                txtNewCashPrice.text = dataItem.new_cash_price
             }
 
-            if (dataItem.fueltax.store_fuel_tax_description.isNotBlank()) {
-                txtTax.text = dataItem.fueltax.store_fuel_tax_description
+            if (dataItem.old_credit_price.isNotBlank()) {
+                txtCurrentCreditPrice.text = dataItem.old_credit_price
             }
 
-            if (dataItem.prepaid_sales_tax.isNotBlank()) {
-                txtPrePaidSalesTax.text = dataItem.prepaid_sales_tax
+            if (dataItem.new_credit_price.isNotBlank()) {
+                txtNewCreditPrice.text = dataItem.new_credit_price
             }
 
-            if (dataItem.tax_rate.isNotBlank()) {
-                txtTaxRate.text = dataItem.tax_rate
+            if (dataItem.updatedAt.isNotBlank()) {
+                val convertedDate = dataItem.updatedAt
+                txtLastModified.text = convertedDate
             }
 
-            if (dataItem.ust_fees.isNotBlank()) {
-                txtUstFee.text = dataItem.ust_fees
-            }
-            root.setOnClickListener {
+            editButton.setOnClickListener {
                 onItemClicked(dataItem)
             }
         }

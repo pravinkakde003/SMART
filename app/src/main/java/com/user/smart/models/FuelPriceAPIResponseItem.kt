@@ -1,10 +1,17 @@
 package com.user.smart.models
 
+import java.io.Serializable
+
 data class FuelPriceAPIResponseItem(
     val _id: String,
     val createdAt: String,
     val fueltax: Fueltax,
+    val new_cash_price: String,
+    val new_credit_price: String,
+    val old_cash_price: String,
+    val old_credit_price: String,
     val prepaid_sales_tax: String,
+    val price_changes_date: String,
     val register_mapping: String,
     val store_fuel_department: String,
     val store_fuel_grade: String,
@@ -16,4 +23,4 @@ data class FuelPriceAPIResponseItem(
     val tax_rate: String,
     val updatedAt: String,
     val ust_fees: String
-)
+) : Serializable

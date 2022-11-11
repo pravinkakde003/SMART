@@ -13,4 +13,5 @@ object AppConstant {
     const val SELECTED_DASHBOARD_ITEM_KEY = "itemID"
     const val SPLASH_SCREEN_DELAY = 1000
     const val TOOLBAR_TITLE_KEY = "toolbarTitleKey"
+    const val FUEL_PRICE_DATA_KEY = "FuelPriceDataKey"
 }

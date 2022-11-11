@@ -32,4 +32,6 @@ class FuelPriceViewModel @Inject constructor(private val fuelPriceRepository: Fu
     fun getStoreID(selectedStoreObject: StoreListResponseItem?): String {
         return if (null != selectedStoreObject && selectedStoreObject._id.isNotEmpty()) return selectedStoreObject._id else ""
     }
+
+
 }

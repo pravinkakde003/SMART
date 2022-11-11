@@ -23,35 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Fuel grade no -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelFuelGradeNo"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/fuel_grade_no"
-                android:textColor="@color/grey_variant5"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent=".4" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtFuelGradeNo"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:text="@string/dash"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeNo"
-                app:layout_constraintTop_toTopOf="@id/txtLabelFuelGradeNo"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent=".6" />
-
             <!-- Fuel grade name -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txtLabelFuelGradeName"
@@ -59,11 +30,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/fuel_grade_name"
+                android:text="@string/fuel_type"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
@@ -76,20 +47,21 @@
                 android:text="@string/dash"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeNo"
+                app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeName"
                 app:layout_constraintTop_toTopOf="@id/txtLabelFuelGradeName"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
-            <!-- Fuel department -->
+            <!-- Current Cash Price -->
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelFuelDepartment"
+                android:id="@+id/txtLabelCurrentCashPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/fuel_department"
+                android:text="@string/current_cash_price"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +70,7 @@
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtFuelDepartment"
+                android:id="@+id/txtCurrentCashPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -108,28 +80,27 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeName"
-                app:layout_constraintTop_toTopOf="@id/txtLabelFuelDepartment"
+                app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCashPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
-
-            <!-- Tank Size -->
+            <!-- New Cash Price -->
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelTankSize"
+                android:id="@+id/txtLabelNewCashPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/tank_size"
+                android:text="@string/new_cash_price"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelFuelDepartment"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelCurrentCashPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTankSize"
+                android:id="@+id/txtNewCashPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -138,28 +109,28 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelFuelDepartment"
-                app:layout_constraintTop_toTopOf="@id/txtLabelTankSize"
+                app:layout_constraintStart_toEndOf="@id/txtLabelCurrentCashPrice"
+                app:layout_constraintTop_toTopOf="@id/txtLabelNewCashPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
-            <!-- Tax -->
+            <!-- Current credit price -->
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelTax"
+                android:id="@+id/txtLabelCurrentCreditPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/tax_with_dot"
+                android:text="@string/current_credit_price"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelTankSize"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelNewCashPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTax"
+                android:id="@+id/txtCurrentCreditPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -168,28 +139,28 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelTankSize"
-                app:layout_constraintTop_toTopOf="@id/txtLabelTax"
+                app:layout_constraintStart_toEndOf="@id/txtLabelNewCashPrice"
+                app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCreditPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
-            <!-- Pre-Paid Sales Tax -->
+            <!-- New credit price -->
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelPrePaidSalesTax"
+                android:id="@+id/txtLabelNewCreditPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/pre_paid_sales_tax"
+                android:text="@string/new_credit_price"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelTax"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelCurrentCreditPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtPrePaidSalesTax"
+                android:id="@+id/txtNewCreditPrice"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -198,29 +169,29 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelTax"
-                app:layout_constraintTop_toTopOf="@id/txtLabelPrePaidSalesTax"
+                app:layout_constraintStart_toEndOf="@id/txtLabelCurrentCreditPrice"
+                app:layout_constraintTop_toTopOf="@id/txtLabelNewCreditPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
 
-            <!-- Tax Rate -->
+            <!-- Last modified -->
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelTaxRate"
+                android:id="@+id/txtLabelLastModified"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/tax_rate"
+                android:text="@string/last_modified"
                 android:textColor="@color/grey_variant5"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelPrePaidSalesTax"
+                app:layout_constraintTop_toBottomOf="@id/txtLabelNewCreditPrice"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".4" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTaxRate"
+                android:id="@+id/txtLastModified"
                 style="@style/AppSmallTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -229,40 +200,19 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelPrePaidSalesTax"
-                app:layout_constraintTop_toTopOf="@id/txtLabelTaxRate"
+                app:layout_constraintStart_toEndOf="@id/txtLabelNewCreditPrice"
+                app:layout_constraintTop_toTopOf="@id/txtLabelLastModified"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".6" />
 
-            <!-- UST fees -->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLabelUstFee"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/ust_fees"
-                android:textColor="@color/grey_variant5"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtLabelTaxRate"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent=".4" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtUstFee"
-                style="@style/AppSmallTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:text="@string/dash"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editButton"
+                style="@style/ButtonStyleRoundedFilled"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txtLabelTaxRate"
-                app:layout_constraintTop_toTopOf="@id/txtLabelUstFee"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent=".6" />
+                app:layout_constraintTop_toBottomOf="@id/txtLabelLastModified" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -274,6 +224,7 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_baseline_arrow_forward_ios_24"
             android:tint="@color/primary_color"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/dataLayout"

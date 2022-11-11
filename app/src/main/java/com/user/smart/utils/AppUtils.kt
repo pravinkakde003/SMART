@@ -133,6 +133,7 @@ object AppUtils {
         return dateFormat.format(cal.time)
     }
 
+
     fun Context.showToast(message: CharSequence) =
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
