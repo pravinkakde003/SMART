@@ -175,6 +175,14 @@
     <string name="regular">Regular</string>
     <string name="super_fuel">Super</string>
     <string name="power">Power</string>
+    <string name="fuel_sales">Fuel sales</string>
+    <string name="void_text">Void</string>
+    <string name="line_void">Line void</string>
+    <string name="refund">Refund</string>
+    <string name="safe_drop">Safe drop</string>
+    <string name="paid_out">Paid out</string>
+    <string name="paid_in">Paid in</string>
+    <string name="show_details">Show details</string>
 
     <string-array name="merchandise_sales_dropdown_array">
         <item>@string/sales</item>
