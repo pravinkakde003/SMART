@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background_blue"
-    android:padding="16dp">
+    android:background="@color/app_background_blue">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textFrom"
         style="@style/AppSmallTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
         android:text="@string/date_from"
         android:textColor="@color/black"
         android:textSize="12sp"
@@ -23,7 +25,9 @@
         android:id="@+id/dateCalenderView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/square_border"
         android:clickable="true"
         android:focusable="true"
@@ -53,6 +57,288 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTopView"
+        style="@style/TopCarCornerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateCalenderView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtRevenue"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:paddingVertical="8dp"
+                android:text="@string/assets"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBottomView"
+        style="@style/BottomCarCornerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSubTotalLabel"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/other_assets"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSubTotalAmount"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="8dp"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtSubTotalLabel"
+                app:layout_constraintTop_toTopOf="@id/txtSubTotalLabel"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <View
+                android:id="@+id/dividerViewOne"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSubTotalLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTaxLabel"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/grocery_inventory"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerViewOne"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTaxAmount"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="8dp"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtTaxLabel"
+                app:layout_constraintTop_toTopOf="@id/txtTaxLabel"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/gray_variant2"
+                app:layout_constraintBottom_toTopOf="@id/txtTotalLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTaxLabel" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalLabel"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/floor_color"
+                android:padding="8dp"
+                android:text="@string/grocery_inventory"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerView"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalAmount"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/floor_color"
+                android:gravity="end"
+                android:padding="8dp"
+                android:text="$32.3233"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtTotalLabel"
+                app:layout_constraintTop_toTopOf="@id/txtTotalLabel"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTopView2"
+        style="@style/TopCarCornerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardBottomView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dataLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtOperatingExpanses"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:paddingVertical="8dp"
+                android:text="@string/liabilities"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBottomView2"
+        style="@style/BottomCarCornerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalExpansesLabel"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:padding="8dp"
+                android:text="@string/current_liabilities"
+                android:textColor="@color/grey_variant5"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalExpansesAmount"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:gravity="end"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtTotalExpansesLabel"
+                app:layout_constraintTop_toTopOf="@id/txtTotalExpansesLabel"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

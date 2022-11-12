@@ -214,6 +214,15 @@
     <string name="pack_no">Pack no.</string>
     <string name="game_no">Game no.</string>
     <string name="end_no">End no.</string>
+    <string name="revenue">Revenue</string>
+    <string name="gross_profit">Gross profit</string>
+    <string name="net_income">Net income</string>
+    <string name="assets">Assets</string>
+    <string name="other_assets">Other assets</string>
+    <string name="grocery_inventory">Grocery inventory</string>
+    <string name="operating_expanses">Operating expanses</string>
+    <string name="liabilities">Liabilities</string>
+    <string name="current_liabilities">Current liabilities</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>
