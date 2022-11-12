@@ -210,6 +210,10 @@
     <string name="reason">Reason</string>
     <string name="data">Data</string>
     <string name="count">Count</string>
+    <string name="open_new_day">Open new day</string>
+    <string name="pack_no">Pack no.</string>
+    <string name="game_no">Game no.</string>
+    <string name="end_no">End no.</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>
