@@ -266,6 +266,8 @@
     <string name="bank">Bank</string>
     <string name="existing_order">Existing order</string>
     <string name="item_in_order_0">Item in order: 0</string>
+    <string name="price_group">Price group</string>
+    <string name="items">#Items</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>

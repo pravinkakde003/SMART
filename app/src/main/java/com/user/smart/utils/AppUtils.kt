@@ -18,6 +18,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.user.smart.R
 import com.user.smart.models.DashboardMenuModel
+import com.user.smart.models.GroupsListDataItem
 import com.user.smart.models.POSLiveDataResponseItem
 import com.user.smart.models.StoreListResponseItem
 import com.user.smart.utils.AppConstant.APP_DATE_FORMAT
@@ -43,6 +44,11 @@ object AppUtils {
 
     fun getDashboardMenuList(jsonString: String): List<DashboardMenuModel> {
         val listType = object : TypeToken<List<DashboardMenuModel>>() {}.type
+        return Gson().fromJson(jsonString, listType)
+    }
+
+    fun getGroupsDummyList(jsonString: String): List<GroupsListDataItem> {
+        val listType = object : TypeToken<List<GroupsListDataItem>>() {}.type
         return Gson().fromJson(jsonString, listType)
     }
 
