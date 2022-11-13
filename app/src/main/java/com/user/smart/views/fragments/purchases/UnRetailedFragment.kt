@@ -29,6 +29,8 @@ class UnRetailedFragment : Fragment(), View.OnClickListener {
 
     private fun setClickListener() {
         binding.addNewPurchasesButton.setOnClickListener(this)
+        binding.dateTextView1.setOnClickListener(this)
+        binding.dateTextView2.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -53,6 +55,26 @@ class UnRetailedFragment : Fragment(), View.OnClickListener {
                     .addToBackStack("AddNewPurchasesFragment")
                     .commit()
             }
+            binding.dateTextView1 -> {
+                navigateToDetailFragment()
+            }
+            binding.dateTextView2 -> {
+                navigateToDetailFragment()
+            }
         }
+    }
+
+    private fun navigateToDetailFragment() {
+        val targetFragment = PurchasesDetailsFragment()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.trans_left_in,
+                R.anim.trans_right_out,
+                R.anim.trans_right_in, R.anim.trans_right_out
+            )
+            .add(R.id.fragmentContainer, targetFragment)
+            .setReorderingAllowed(true)
+            .addToBackStack("PurchasesDetailsFragment")
+            .commit()
     }
 }

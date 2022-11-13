@@ -24,7 +24,11 @@ class EditTextWithLabel(context: Context, attrs: AttributeSet? = null) :
     }
 
     fun setEditTextHeader(headerText: String) {
-        mBinding.editTextHeader.text = headerText
+        if (!headerText.isNullOrEmpty()) {
+            mBinding.editTextHeader.text = headerText
+        } else {
+            mBinding.editTextHeader.visibility = View.GONE
+        }
     }
 
     fun setEditTextInputType(inputType: Int) {
@@ -34,6 +38,11 @@ class EditTextWithLabel(context: Context, attrs: AttributeSet? = null) :
     fun setEditTextEnable(isEnable: Boolean) {
         mBinding.editTextData.isEnabled = isEnable
     }
+
+    fun setEditTextHint(hintText: String) {
+        mBinding.editTextData.hint = hintText
+    }
+
 
     fun setEditTextClickable(isClickable: Boolean) {
         mBinding.editTextData.isClickable = isClickable

@@ -1,7 +1,6 @@
 package com.user.smart.views.fragments.purchases
 
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +9,11 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import com.user.smart.R
-import com.user.smart.databinding.FragmentTabItemWisePurchaseBinding
-import com.user.smart.utils.AppConstant
+import com.user.smart.databinding.FragmentTabScanMultipleItemsDetailsBinding
 
-class ItemWisePurchaseFragment : Fragment() {
+class ScanMultipleItemDetailsPurchaseFragment : Fragment() {
 
-    private var _binding: FragmentTabItemWisePurchaseBinding? = null
+    private var _binding: FragmentTabScanMultipleItemsDetailsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,25 +21,13 @@ class ItemWisePurchaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTabItemWisePurchaseBinding.inflate(inflater, container, false)
+        _binding = FragmentTabScanMultipleItemsDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setDropDownAdapter()
-        setupView()
-    }
-
-    private fun setupView() {
-        binding.editTextUnitCase.setEditTextHint(resources.getString(R.string.unit_case))
-        binding.editTextCaseCost.setEditTextHint(resources.getString(R.string.case_cost))
-
-        binding.editTextCaseDisc.setEditTextHint(resources.getString(R.string.case_disc))
-        binding.editTextExtdCost.setEditTextHint(resources.getString(R.string.extd_cost))
-
-        binding.editTextUnitRetail.setEditTextHint(resources.getString(R.string.unit_retail))
-        binding.editTextMargin.setEditTextHint(resources.getString(R.string.margin))
     }
 
     private fun setDropDownAdapter() {
@@ -57,11 +43,31 @@ class ItemWisePurchaseFragment : Fragment() {
 
         // set drop down payee
         val payeeDropDownArrayList = resources.getStringArray(R.array.payee_dropdown_array)
-        val payeeAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_item, payeeDropDownArrayList)
+        val payeeAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown_list_item, payeeDropDownArrayList)
         (binding.dropDownViewPayee.editText as? AutoCompleteTextView)?.setAdapter(payeeAdapter)
-        (binding.dropDownViewPayee.editText as? AutoCompleteTextView)?.setText(payeeAdapter.getItem(0), false)
+        (binding.dropDownViewPayee.editText as? AutoCompleteTextView)?.setText(
+            payeeAdapter.getItem(
+                0
+            ), false
+        )
         (binding.dropDownViewPayee.editText as? AutoCompleteTextView)?.setOnItemClickListener { _, _, position, _ ->
             val selectedTeam = payeeAdapter.getItem(position)
+            Log.e("TAGG", "" + selectedTeam)
+        }
+
+        // set drop down Bank
+        val bankDropDownArrayList = resources.getStringArray(R.array.payee_dropdown_array)
+        val bankDropDownAdapter =
+            ArrayAdapter(requireContext(), R.layout.dropdown_list_item, bankDropDownArrayList)
+        (binding.dropDownViewBank.editText as? AutoCompleteTextView)?.setAdapter(bankDropDownAdapter)
+        (binding.dropDownViewBank.editText as? AutoCompleteTextView)?.setText(
+            bankDropDownAdapter.getItem(
+                0
+            ), false
+        )
+        (binding.dropDownViewBank.editText as? AutoCompleteTextView)?.setOnItemClickListener { _, _, position, _ ->
+            val selectedTeam = bankDropDownAdapter.getItem(position)
             Log.e("TAGG", "" + selectedTeam)
         }
     }

@@ -109,7 +109,12 @@
     <string name="current_quantity_text">Current quantity</string>
     <string name="item_wise">Item-wise</string>
     <string name="scan_multiple_items">Scan multiple item</string>
-
+    <string name="unit_case">Unit/Case</string>
+    <string name="case_cost">Case/Cost</string>
+    <string name="case_disc">Case Disc</string>
+    <string name="extd_cost">Extd cost</string>
+    <string name="unit_retail">Unit retails</string>
+    <string name="margin">Margin</string>
     <string name="price_tab">Price</string>
     <string name="promo_tab">Promo</string>
     <string name="search_text">Search here</string>
@@ -203,6 +208,24 @@
         <item>@string/monthly</item>
     </string-array>
 
+    <string name="payee_item_one">941 tax</string>
+    <string name="payee_item_two">942 tax</string>
+    <string name="payee_item_three">943 tax</string>
+    <string-array name="payee_dropdown_array">
+        <item>@string/payee_item_one</item>
+        <item>@string/payee_item_two</item>
+        <item>@string/payee_item_three</item>
+    </string-array>
+
+    <string name="bank_one">Fuel Bal-FWD</string>
+    <string name="bank_two">Fuel Bal-FWD</string>
+    <string name="bank_three">Fuel Bal-FWD</string>
+    <string-array name="bank_dropdown_array">
+        <item>@string/bank_one</item>
+        <item>@string/bank_two</item>
+        <item>@string/bank_three</item>
+    </string-array>
+
     <string name="auto_part">Auto parts</string>
     <string name="beer">Beer</string>
     <string name="chips">Chips</string>
@@ -223,6 +246,16 @@
     <string name="operating_expanses">Operating expanses</string>
     <string name="liabilities">Liabilities</string>
     <string name="current_liabilities">Current liabilities</string>
+    <string name="add_new_order">Add new order</string>
+    <string name="type">Type</string>
+    <string name="payee">Payee</string>
+    <string name="total_cost">Total cost</string>
+    <string name="add_item">Add item</string>
+    <string name="review">Review</string>
+    <string name="purchases_item">Purchases item</string>
+    <string name="scan_more_than_one_item">Scan more than one item</string>
+    <string name="return_item">Return item</string>
+    <string name="bank">Bank</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>

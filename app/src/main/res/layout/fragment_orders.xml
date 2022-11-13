@@ -12,14 +12,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/OnBoardingDescriptionTextStyle"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dateTextView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/order"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/square_border"
+        android:clickable="true"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:drawableTint="@color/primary_color"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:text="Jul 15 2022"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ordersToolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dateTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/square_border"
+        android:clickable="true"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:drawableTint="@color/primary_color"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:text="Jul 15 2022"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNewOrderButton"
+        style="@style/ButtonStyleRoundedFilled"
+        android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingVertical="12dp"
+        android:text="@string/add_new_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
