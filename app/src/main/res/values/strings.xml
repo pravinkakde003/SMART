@@ -217,6 +217,14 @@
         <item>@string/payee_item_three</item>
     </string-array>
 
+    <string name="new_order">New order</string>
+    <string-array name="order_type">
+        <item>@string/existing_order</item>
+        <item>@string/new_order</item>
+    </string-array>
+
+
+
     <string name="bank_one">Fuel Bal-FWD</string>
     <string name="bank_two">Fuel Bal-FWD</string>
     <string name="bank_three">Fuel Bal-FWD</string>
@@ -256,6 +264,8 @@
     <string name="scan_more_than_one_item">Scan more than one item</string>
     <string name="return_item">Return item</string>
     <string name="bank">Bank</string>
+    <string name="existing_order">Existing order</string>
+    <string name="item_in_order_0">Item in order: 0</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>

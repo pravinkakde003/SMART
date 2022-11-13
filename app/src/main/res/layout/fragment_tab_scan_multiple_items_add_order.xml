@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background_blue">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textPayee"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/payee"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropDownViewPayee"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+            app:boxStrokeWidth="2dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textPayee">
+
+            <AutoCompleteTextView
+                android:id="@+id/editTextPayee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/primary_color" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textOrder"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/existing_order"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dropDownViewPayee" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropDownViewOrder"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+            app:boxStrokeWidth="2dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textOrder">
+
+            <AutoCompleteTextView
+                android:id="@+id/editTextOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/primary_color" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textPurchaseItem"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/scan_code"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dropDownViewOrder" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scanLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/square_border"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textPurchaseItem">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/scanDataTextView"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/scan_more_than_one_item"
+                app:layout_constraintEnd_toStartOf="@id/scanTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/scanTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_baseline_document_scanner_24"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/grey_variant3"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:text="@string/scan"
+                android:textColor="@color/grey_variant3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resetButton"
+            style="@style/ButtonStyleRoundedFilled"
+            android:layout_width="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/reset"
+            app:layout_constraintEnd_toStartOf="@id/reviewButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scanLayout"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reviewButton"
+            style="@style/ButtonStyleRoundedFilledRed"
+            android:layout_width="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/resetButton"
+            app:layout_constraintTop_toBottomOf="@id/scanLayout"
+            app:layout_constraintWidth_percent=".4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

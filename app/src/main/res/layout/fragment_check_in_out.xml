@@ -12,14 +12,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/OnBoardingDescriptionTextStyle"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/countLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/check_in_out"
+        android:layout_margin="18dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextClock
+            android:id="@+id/textClock1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:format12Hour="h:mm:ss a"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:textColor="@color/primary_color"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
