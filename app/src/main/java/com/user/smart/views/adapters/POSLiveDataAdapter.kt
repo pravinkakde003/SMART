@@ -3,17 +3,18 @@ package com.user.smart.views.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.user.smart.databinding.TransactionLayoutItemBinding
+import com.user.smart.databinding.PosLiveListLayoutItemBinding
 import com.user.smart.models.POSLiveDataResponseItem
 
 class POSLiveDataAdapter(
     private var transactionsItemList: List<POSLiveDataResponseItem>,
+    private var storeName: String,
     private var onItemClicked: ((dataItem: POSLiveDataResponseItem) -> Unit)
 ) : RecyclerView.Adapter<POSLiveDataAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            TransactionLayoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            PosLiveListLayoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -21,33 +22,22 @@ class POSLiveDataAdapter(
         holder.bind(transactionsItemList[position])
     }
 
-    inner class ViewHolder(private val binding: TransactionLayoutItemBinding) :
+    inner class ViewHolder(private val binding: PosLiveListLayoutItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataItem: POSLiveDataResponseItem) = binding.apply {
+
+            if (storeName.isNotBlank()) {
+                txtStoreName.text = storeName
+            }
 
             if (dataItem.EventEndDate.isNotBlank() && dataItem.EventEndTime.isNotBlank()) {
                 val transactionDate = "${dataItem.EventEndDate} ${dataItem.EventEndTime}"
                 txtTransactionDate.text = transactionDate
             }
 
-//            val dataItemPresent = dataItem.TransactionLine.any { it.FuelLine is FuelLine }
-//            if (dataItemPresent) {
-//                val itemFuelLine = dataItem.TransactionLine.find { it.FuelLine is FuelLine }
-//                if (!itemFuelLine?.FuelLine?.Description.isNullOrBlank()) {
-//                    txtTransactionType.text = itemFuelLine?.FuelLine?.Description
-//                }
-//            }
-
-            if (dataItem.EventType.isNotBlank()) {
-                txtTransactionType.text = dataItem.EventType
-            }
-
-            if (dataItem.TransactionTotalGrossAmount.isNotBlank()) {
-                val dollarAppendedAmount = "$" + dataItem.TransactionTotalGrossAmount
-                txtAmount.text = dollarAppendedAmount
-            }
-            if (dataItem.CashierID.isNotBlank()) {
-                txtCashier.text = dataItem.CashierID
+            if (dataItem.TransactionTotalNetAmount.isNotBlank()) {
+                val dollarAppendedAmount = "$" + dataItem.TransactionTotalNetAmount
+                txtTransactionAmount.text = dollarAppendedAmount
             }
 
             root.setOnClickListener {

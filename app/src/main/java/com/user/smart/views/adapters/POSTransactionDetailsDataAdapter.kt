@@ -3,7 +3,7 @@ package com.user.smart.views.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.user.smart.databinding.TransactionDetailsItemBinding
+import com.user.smart.databinding.PosTransactionDetailsItemBinding
 import com.user.smart.models.POSDetailsListItem
 
 class POSTransactionDetailsDataAdapter(
@@ -12,7 +12,7 @@ class POSTransactionDetailsDataAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            TransactionDetailsItemBinding.inflate(
+            PosTransactionDetailsItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -24,24 +24,16 @@ class POSTransactionDetailsDataAdapter(
         holder.bind(transactionsItemList[position])
     }
 
-    inner class ViewHolder(private val binding: TransactionDetailsItemBinding) :
+    inner class ViewHolder(private val binding: PosTransactionDetailsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataItem: POSDetailsListItem) = binding.apply {
 
+            if (dataItem.description.isNotBlank()) {
+                txtDescription.text = dataItem.description
+            }
+
             if (dataItem.quantity.isNotBlank()) {
                 txtQuantity.text = dataItem.quantity
-            }
-
-            if (dataItem.upc.isNotBlank()) {
-                txtUpc.text = dataItem.upc
-            }
-
-            if (dataItem.dept.isNotBlank()) {
-                txtDept.text = dataItem.dept
-            }
-
-            if (dataItem.description.isNotBlank()) {
-                txtDesc.text = dataItem.description
             }
 
             if (dataItem.amount.isNotBlank()) {

@@ -3,7 +3,7 @@ package com.user.smart.utils
 object AppConstant {
     const val PREFERENCE_FILE = "SMART_PREFERENCE"
 
-    const val APP_DATE_FORMAT = "yyyy_MM_dd"
+    const val APP_DATE_FORMAT = "yyyy-MM-dd"
 
     const val APP_CALENDER_DATE_FORMAT = "MMM dd yyyy"
 

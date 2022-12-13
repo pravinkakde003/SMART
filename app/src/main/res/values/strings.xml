@@ -268,6 +268,7 @@
     <string name="item_in_order_0">Item in order: 0</string>
     <string name="price_group">Price group</string>
     <string name="items">#Items</string>
+    <string name="nothing_to_show">Nothing to show</string>
 
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>

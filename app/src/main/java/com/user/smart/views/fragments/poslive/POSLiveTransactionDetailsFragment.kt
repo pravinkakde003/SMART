@@ -53,6 +53,22 @@ class POSLiveTransactionDetailsFragment : Fragment() {
                 "${posLiveDataResponseItem.EventEndDate}  ${posLiveDataResponseItem.EventEndTime}"
             binding.txtDateTime.text = dateTime
 
+            if (!posLiveDataResponseItem.CashierID.isNullOrEmpty()) {
+                var empID = "Employee: ${posLiveDataResponseItem.CashierID}"
+                binding.txtEmpID.text = empID
+            } else {
+                binding.txtEmpID.text = "Employee: -"
+            }
+
+            if (!posLiveDataResponseItem.RegisterID.isNullOrEmpty()) {
+                var stationID = "Station: ${posLiveDataResponseItem.RegisterID}"
+                binding.txtStation.text = stationID
+            } else {
+                binding.txtStation.text = "Station: -"
+            }
+
+
+
             prepareDataList(posLiveDataResponseItem)
 
         } else {
@@ -72,9 +88,7 @@ class POSLiveTransactionDetailsFragment : Fragment() {
             itemLineList.forEach {
                 posDetailsListItem.add(
                     POSDetailsListItem(
-                        quantity = it.ItemLine.SalesQuantity,
-                        upc = "",
-                        dept = "",
+                        quantity = "x ${it.ItemLine.SalesQuantity.toFloat().toInt()}",
                         description = it.ItemLine.Description,
                         amount = it.ItemLine.SalesAmount
                     )
@@ -91,8 +105,6 @@ class POSLiveTransactionDetailsFragment : Fragment() {
                 posDetailsListItem.add(
                     POSDetailsListItem(
                         quantity = it.FuelLine.SalesQuantity,
-                        upc = "",
-                        dept = "",
                         description = it.FuelLine.Description,
                         amount = it.FuelLine.SalesAmount
                     )
@@ -101,23 +113,23 @@ class POSLiveTransactionDetailsFragment : Fragment() {
         }
 
 
-        val fuelPrepayLinePresent =
-            posLiveDataResponseItem.TransactionLine.any { it.FuelPrepayLine is FuelPrepayLine }
-        if (fuelPrepayLinePresent) {
-            val itemLineList: List<TransactionLine> =
-                posLiveDataResponseItem.TransactionLine.filter { it.FuelPrepayLine is FuelPrepayLine }
-            itemLineList.forEach {
-                posDetailsListItem.add(
-                    POSDetailsListItem(
-                        quantity = "",
-                        upc = "",
-                        dept = "",
-                        description = "",
-                        amount = it.FuelPrepayLine.SalesAmount
-                    )
-                )
-            }
-        }
+//        val fuelPrepayLinePresent =
+//            posLiveDataResponseItem.TransactionLine.any { it.FuelPrepayLine is FuelPrepayLine }
+//        if (fuelPrepayLinePresent) {
+//            val itemLineList: List<TransactionLine> =
+//                posLiveDataResponseItem.TransactionLine.filter { it.FuelPrepayLine is FuelPrepayLine }
+//            itemLineList.forEach {
+//                posDetailsListItem.add(
+//                    POSDetailsListItem(
+//                        quantity = "",
+//                        upc = "",
+//                        dept = "",
+//                        description = "",
+//                        amount = it.FuelPrepayLine.SalesAmount
+//                    )
+//                )
+//            }
+//        }
 
         binding.txtSubTotalAmount.text = "$${posLiveDataResponseItem.TransactionTotalGrossAmount}"
         binding.txtTaxAmount.text = "$${posLiveDataResponseItem.TransactionTotalTaxNetAmount}"

@@ -13,44 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/storeNameAndDateLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transactionDetailsToolbar">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtStoreName"
-            style="@style/AppSmallTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="-"
-            android:textColor="@color/primary_color"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtDateTime"
-            style="@style/AppSmallTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:gravity="center_horizontal"
-            android:text="-"
-            android:textColor="@color/gray_variant"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtStoreName" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTopView"
         style="@style/TopCarCornerStyle"
@@ -64,22 +26,96 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storeNameAndDateLayout">
+        app:layout_constraintTop_toBottomOf="@id/transactionDetailsToolbar">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtCashier"
-            style="@style/AppSmallTextStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/storeNameAndDateLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingVertical="12dp"
-            android:text="@string/cashier"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transactionDetailsToolbar">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtStoreName"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDateTime"
+                style="@style/AppSmallTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_horizontal"
+                android:text="-"
+                android:textColor="@color/white_variant"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtStoreName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/employeeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:background="@color/floor_color"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtEmpID"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".5" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtStation"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtEmpID"
+            app:layout_constraintTop_toTopOf="@id/txtEmpID"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/dividerViewTwo"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginHorizontal="12dp"
+        android:background="@color/gray_variant2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/employeeLayout" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -87,7 +123,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardTopView">
+        app:layout_constraintTop_toBottomOf="@id/dividerViewTwo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

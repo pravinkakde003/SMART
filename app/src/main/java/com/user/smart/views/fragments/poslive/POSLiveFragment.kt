@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.FragmentPosLiveBinding
 import com.user.smart.models.POSLiveDataResponse
+import com.user.smart.models.POSLiveDataResponseItem
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
 import com.user.smart.utils.AppUtils.getCurrentDate
@@ -24,6 +25,7 @@ import javax.inject.Inject
 class POSLiveFragment : Fragment() {
     private var _binding: FragmentPosLiveBinding? = null
     private val binding get() = _binding!!
+    private var storeName: String = ""
 
     @Inject
     lateinit var progressDialog: CustomProgressDialog
@@ -65,6 +67,9 @@ class POSLiveFragment : Fragment() {
 
     private fun callGetPOSLiveDataAPI() {
         val selectedStoreObject = preferenceManager.getSelectedStoreObject()
+        if (null != selectedStoreObject && !selectedStoreObject.store_name.isNullOrEmpty()) {
+            storeName = selectedStoreObject.store_name
+        }
         if (AppUtils.isNetworkAvailable(requireContext())) {
             posLiveDataViewModel.callGetPOSLiveDataListAPI(
                 posLiveDataViewModel.getStoreID(selectedStoreObject),
@@ -93,7 +98,8 @@ class POSLiveFragment : Fragment() {
                     responseData.data?.let {
                         val posLiveDataList = responseData.data
                         if (posLiveDataList.size > 0) {
-                            setAdapter(posLiveDataList)
+                            val reverseList: List<POSLiveDataResponseItem> = posLiveDataList.reversed()
+                            setAdapter(reverseList)
                         } else {
                             binding.withDataLayout.visibility = View.GONE
                             binding.noDataLayout.visibility = View.VISIBLE
@@ -104,10 +110,10 @@ class POSLiveFragment : Fragment() {
         }
     }
 
-    private fun setAdapter(posLiveDataList: POSLiveDataResponse) {
+    private fun setAdapter(posLiveDataList: List<POSLiveDataResponseItem>) {
         binding.posLiveDataRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
         binding.posLiveDataRecyclerView.setHasFixedSize(true)
-        var mAdapter = POSLiveDataAdapter(posLiveDataList) {
+        var mAdapter = POSLiveDataAdapter(posLiveDataList, storeName) {
             if (it.TransactionTotalGrossAmount != "0") {
                 val bundle = Bundle()
                 bundle.putSerializable(AppConstant.POS_LIVE_DATA_RESPONSE_ITEM_KEY, it)
@@ -124,7 +130,7 @@ class POSLiveFragment : Fragment() {
                     .addToBackStack("POSLiveTransactionDetailsFragment")
                     .commit()
             } else {
-                requireContext().showToast("Nothing to show")
+                requireContext().showToast(getString(R.string.nothing_to_show))
             }
         }
         binding.posLiveDataRecyclerView.adapter = mAdapter
