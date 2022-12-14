@@ -25,27 +25,27 @@ class FuelPriceAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataItem: FuelPriceAPIResponseItem) = binding.apply {
 
-            if (dataItem.store_fuel_grade.isNotBlank()) {
+            if (!dataItem.store_fuel_grade.isNullOrEmpty()) {
                 txtFuelGradeName.text = dataItem.store_fuel_grade_display_name
             }
 
-            if (dataItem.old_cash_price.isNotBlank()) {
+            if (!dataItem.old_cash_price.isNullOrEmpty()) {
                 txtCurrentCashPrice.text = dataItem.old_cash_price
             }
 
-            if (dataItem.new_cash_price.isNotBlank()) {
+            if (!dataItem.new_cash_price.isNullOrEmpty()) {
                 txtNewCashPrice.text = dataItem.new_cash_price
             }
 
-            if (dataItem.old_credit_price.isNotBlank()) {
+            if (!dataItem.old_credit_price.isNullOrEmpty()) {
                 txtCurrentCreditPrice.text = dataItem.old_credit_price
             }
 
-            if (dataItem.new_credit_price.isNotBlank()) {
+            if (!dataItem.new_credit_price.isNullOrEmpty()) {
                 txtNewCreditPrice.text = dataItem.new_credit_price
             }
 
-            if (dataItem.updatedAt.isNotBlank()) {
+            if (!dataItem.updatedAt.isNullOrEmpty()) {
                 val convertedDate = dataItem.updatedAt
                 txtLastModified.text = convertedDate
             }
