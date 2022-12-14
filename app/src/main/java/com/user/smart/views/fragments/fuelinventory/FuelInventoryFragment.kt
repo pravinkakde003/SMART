@@ -1,19 +1,22 @@
 package com.user.smart.views.fragments.fuelinventory
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
 import com.user.smart.R
 import com.user.smart.databinding.FragmentFuelInventoryBinding
 import com.user.smart.utils.PreferenceManager
-import com.user.smart.utils.piechartutils.PieChart
-import com.user.smart.utils.piechartutils.Slice
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import kotlin.random.Random
 
 @AndroidEntryPoint
 class FuelInventoryFragment : Fragment() {
@@ -35,33 +38,47 @@ class FuelInventoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-
-        val pieChart = PieChart(
-            slices = provideSlices(), clickListener = null, sliceStartPoint = 0f, sliceWidth = 0f
-        ).build()
-
-        binding.fuelChart.setPieChart(pieChart)
-        binding.fuelChart.showLegend(binding.legendLayout)
+        initPieChart()
+        setDataToPieChart()
     }
 
-    private fun provideSlices(): ArrayList<Slice> {
-        return arrayListOf(
-            Slice(
-                Random.nextInt(100, 200).toFloat(),
-                R.color.primary_color,
-                "Regular"
-            ),
-            Slice(
-                Random.nextInt(100, 200).toFloat(),
-                R.color.red,
-                "Super"
-            ),
-            Slice(
-                Random.nextInt(100, 200).toFloat(),
-                R.color.materialIndigo600,
-                "Power"
-            )
-        )
+    private fun initPieChart() {
+        binding.fuelChart.setUsePercentValues(true)
+        binding.fuelChart.description.text = ""
+        binding.fuelChart.isDrawHoleEnabled = false
+        binding.fuelChart.setTouchEnabled(false)
+        binding.fuelChart.setDrawEntryLabels(false)
+        binding.fuelChart.setUsePercentValues(true)
+        binding.fuelChart.isRotationEnabled = false
+        binding.fuelChart.setDrawEntryLabels(false)
+        binding.fuelChart.legend.orientation = Legend.LegendOrientation.HORIZONTAL
+        binding.fuelChart.legend.position = Legend.LegendPosition.ABOVE_CHART_CENTER
+        binding.fuelChart.legend.isWordWrapEnabled = true
+        binding.fuelChart.legend.xEntrySpace = 25f
+    }
+
+    private fun setDataToPieChart() {
+        binding.fuelChart.setUsePercentValues(true)
+        val dataEntries = ArrayList<PieEntry>()
+        dataEntries.add(PieEntry(25f, "Super"))
+        dataEntries.add(PieEntry(45f, "Regular"))
+        dataEntries.add(PieEntry(30f, "Power"))
+
+        val colors: ArrayList<Int> = ArrayList()
+        colors.add(Color.parseColor("#EA4335"))
+        colors.add(Color.parseColor("#7366FF"))
+        colors.add(Color.parseColor("#D8B655"))
+
+        val dataSet = PieDataSet(dataEntries, "")
+        val data = PieData(dataSet)
+        data.setValueFormatter(PercentFormatter())
+        dataSet.sliceSpace = 1f
+        dataSet.colors = colors
+        binding.fuelChart.data = data
+        data.setValueTextSize(12f)
+        data.setValueTextColor(Color.parseColor("#FFFFFF"))
+        binding.fuelChart.animateY(1400)
+        binding.fuelChart.invalidate()
     }
 
     private fun setupToolbar() {

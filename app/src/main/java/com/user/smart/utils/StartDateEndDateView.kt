@@ -100,4 +100,12 @@ class StartDateEndDateView(context: Context, attrs: AttributeSet? = null) :
             startDateCalender.time = date
         }
     }
+
+    public fun getEndDateTextView(): ConstraintLayout {
+        return mBinding.endDateCalenderView
+    }
+
+    public fun getStartDateTextView(): ConstraintLayout {
+        return mBinding.startDateCalenderView
+    }
 }

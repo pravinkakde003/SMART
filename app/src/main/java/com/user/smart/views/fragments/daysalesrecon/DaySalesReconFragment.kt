@@ -63,6 +63,7 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
         }
 
         binding.dateSelectorView.setStartDateText(AppUtils.getYesterdayDate())
+        binding.dateSelectorView.getStartDateTextView().isClickable = false
     }
 
     override fun onDestroyView() {
