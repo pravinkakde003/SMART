@@ -129,7 +129,8 @@ object AppUtils {
     }
 
     fun getCurrentDate(): String {
-        return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
+        return "2022-12-13"
+//        return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
     }
 
     fun getYesterdayDate(): String {

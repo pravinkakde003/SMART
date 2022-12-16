@@ -1,9 +1,11 @@
 package com.user.smart.api
 
+import com.user.smart.models.DayReconResponse
 import com.user.smart.models.FuelPriceAPIResponse
 import com.user.smart.models.GetStoreListResponse
 import com.user.smart.models.POSLiveDataResponse
 import com.user.smart.utils.ApiConstants
+import com.user.smart.utils.ApiConstants.DAY
 import com.user.smart.utils.ApiConstants.POS_LIVE_PARAMETER
 import retrofit2.Response
 import retrofit2.http.GET
@@ -25,4 +27,11 @@ interface StoreApiServices {
     suspend fun getFuelPriceData(
         @Path("storeID") storeID: String
     ): Response<FuelPriceAPIResponse>
+
+
+    @GET(ApiConstants.DAY_SALES_RECON_END_POINT + "{storeID}/" + DAY + "/{date}/{date}")
+    suspend fun getDaySalesReconLiveData(
+        @Path("storeID") storeID: String,
+        @Path("date") date: String
+    ): Response<DayReconResponse>
 }

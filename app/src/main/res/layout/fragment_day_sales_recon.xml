@@ -26,38 +26,125 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/daySalesReconToolbar" />
 
-    <com.user.smart.utils.StartDateEndDateView
-        android:id="@+id/dateSelectorView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textFrom"
+        style="@style/AppSmallTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/select_date"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/dateCalenderView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtStoreName" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/merchandiseSalesButton"
-        style="@style/ButtonStyleRoundedFilled"
-        android:layout_width="match_parent"
-        android:layout_marginStart="16dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dateCalenderView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:paddingVertical="12dp"
-        android:text="@string/merchandiseSalesButtonText"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/square_border"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateSelectorView" />
+        app:layout_constraintTop_toBottomOf="@id/textFrom">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/fuelSalesButton"
-        style="@style/ButtonStyleRoundedFilled"
-        android:layout_width="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:paddingVertical="12dp"
-        android:text="@string/fuelSalesButtonText"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/startDateTextView"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/select_date"
+            android:textColor="@color/grey_variant5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_calendar_today_24"
+            android:tint="@color/grey_variant3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/withDataLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/merchandiseSalesButton" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCalenderView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/daySalesReconRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="12dp"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/noDataLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateCalenderView">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewNoData"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginBottom="112dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_no_data" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNoDataTitle"
+            style="@style/OnBoardingTitleTextStyle"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_result_found"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewNoData" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNoDataDescription"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="3dp"
+            android:text="Data for this store not available yet. Please try after sometime."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNoDataTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
