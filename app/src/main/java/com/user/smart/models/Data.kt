@@ -1,14 +1,10 @@
 package com.user.smart.models
 
 data class Data(
-    val FGM: List<FGM>,
-    val FGMVol: List<FGMVol>,
-    val FGM_total_amount: List<FGMTotalAmount>,
-    val FGM_total_volume: List<FGMTotalVolume>,
-    val MCM: List<MCM>,
-    val MCM_total: List<MCMTotal>,
-    val SalesTax: List<SalesTax>,
+    val In: In,
+    val Out: Out,
     val ZReading: String,
     val notes: String,
+    val totalOutamt: List<Any>,
     val totalinamt: List<Totalinamt>
 )

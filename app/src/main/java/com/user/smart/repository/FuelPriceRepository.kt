@@ -26,7 +26,7 @@ class FuelPriceRepository @Inject constructor(private val storeApiServices: Stor
                 storeID = storeID
             )
             handleResponse(response)
-        }catch (exception: Exception) {
+        } catch (exception: Exception) {
             if (exception is SocketTimeoutException) {
                 fuelPriceAPIResponseMutableLiveData.postValue(
                     NetworkResult.Error(

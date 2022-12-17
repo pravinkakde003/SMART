@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="0.5dp"
+    android:layout_marginEnd="0.5dp"
+    android:clipToPadding="false"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toStartOf="@id/imageViewMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtItemName"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@string/dash"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtItemSold"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/txtItemAmount"
+            app:layout_constraintStart_toEndOf="@id/txtItemName"
+            app:layout_constraintTop_toTopOf="@id/txtItemName"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtItemAmount"
+            style="@style/AppSmallTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/dash"
+            android:textColor="@color/grey_variant5"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtItemSold"
+            app:layout_constraintTop_toTopOf="@id/txtItemSold"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/gray_variant2"
+        app:layout_constraintBottom_toTopOf="@id/dataLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dataLayout" />
+</com.google.android.material.card.MaterialCardView>
+
+
+
+

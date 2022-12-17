@@ -1,20 +1,21 @@
 package com.user.smart.views.fragments.daysalesrecon
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.gson.Gson
 import com.user.smart.R
 import com.user.smart.databinding.FragmentDaySalesReconBinding
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
+import com.user.smart.views.adapters.DayReconAdapter
+import com.user.smart.views.adapters.DayReconViewItem
 import com.user.smart.views.viewmodel.DaySalesReconViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -34,6 +35,8 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
     @Inject
     lateinit var preferenceManager: PreferenceManager
 
+    private val dayReconRecyclerViewAdapter = DayReconAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,6 +52,11 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
         setClickListener()
         callGetPOSLiveDataAPI()
         observeBinding()
+        binding.daySalesReconRecyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            adapter = dayReconRecyclerViewAdapter
+        }
     }
 
     private fun callGetPOSLiveDataAPI() {
@@ -81,8 +89,121 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
                     responseData.data?.let {
                         val apiResponse = responseData.data
                         if (null != apiResponse) {
-                            if (apiResponse.data.size > 0) {
-                                Log.e("TAGG", Gson().toJson(apiResponse))
+                            if (apiResponse.data.isNotEmpty()) {
+                                val homeItemsList = mutableListOf<DayReconViewItem>()
+                                homeItemsList.add(DayReconViewItem.Title(title = "Merchandise Sales"))
+                                homeItemsList.add(
+                                    DayReconViewItem.SubTitle(
+                                        subTitleOne = "Department",
+                                        subTitleTwo = "Items Sold",
+                                        subTitleThree = "Amount"
+                                    )
+                                )
+                                if (!apiResponse.data[0].In.MCM.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.MCM) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.ListDataItem(
+                                                dataItem.MerchandiseCodeDescription,
+                                                String.format(
+                                                    "%.2f",
+                                                    dataItem.SalesQuantity.toFloat()
+                                                ),
+                                                dataItem.SalesAmount
+                                            )
+                                        )
+                                    }
+                                }
+                                if (!apiResponse.data[0].In.MCM_total.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.MCM_total) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.Total(
+                                                "Total Grocery",
+                                                "",
+                                                "" + dataItem.Original
+                                            )
+                                        )
+                                    }
+                                }
+
+                                homeItemsList.add(DayReconViewItem.Title(title = "Sales Tax"))
+                                if (!apiResponse.data[0].In.SalesTax.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.SalesTax) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.Total(
+                                                "Total",
+                                                "",
+                                                "" + dataItem.Original
+                                            )
+                                        )
+                                    }
+                                }
+
+
+                                homeItemsList.add(DayReconViewItem.Title(title = "Fuel Sold (Gallons)"))
+                                if (!apiResponse.data[0].In.FGMVol.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.FGMVol) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.ListDataItem(
+                                                dataItem.MerchandiseCodeDescription,
+                                                "",
+                                                dataItem.FuelGradeSalesVolume
+                                            )
+                                        )
+                                    }
+                                }
+                                if (!apiResponse.data[0].In.FGM_total_volume.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.FGM_total_volume) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.Total(
+                                                "Total Gas Volume",
+                                                "",
+                                                "" + dataItem.Original
+                                            )
+                                        )
+                                    }
+                                }
+
+
+
+
+                                homeItemsList.add(DayReconViewItem.Title(title = "Fuel Sold (Amount)"))
+                                if (!apiResponse.data[0].In.FGM.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.FGM) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.ListDataItem(
+                                                dataItem.MerchandiseCodeDescription,
+                                                "",
+                                                dataItem.FuelGradeSalesAmount
+                                            )
+                                        )
+                                    }
+                                }
+                                if (!apiResponse.data[0].In.FGM_total_amount.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[0].In.FGM_total_amount) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.Total(
+                                                "Total Gas Amt Sold",
+                                                "",
+                                                "" + dataItem.Original
+                                            )
+                                        )
+                                    }
+                                }
+
+                                homeItemsList.add(DayReconViewItem.Title(title = "Total in"))
+                                if (!apiResponse.data[2].totalinamt.isNullOrEmpty()) {
+                                    for (dataItem in apiResponse.data[2].totalinamt) {
+                                        homeItemsList.add(
+                                            DayReconViewItem.Total(
+                                                "Total",
+                                                "",
+                                                "" + dataItem.Original
+                                            )
+                                        )
+                                    }
+                                }
+
+                                dayReconRecyclerViewAdapter.items = homeItemsList
                             } else {
                                 binding.withDataLayout.visibility = View.GONE
                                 binding.noDataLayout.visibility = View.VISIBLE

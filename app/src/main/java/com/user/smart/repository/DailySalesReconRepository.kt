@@ -7,6 +7,7 @@ import com.user.smart.api.StoreApiServices
 import com.user.smart.models.DayReconResponse
 import com.user.smart.models.ErrorModel
 import retrofit2.Response
+import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 class DailySalesReconRepository @Inject constructor(private val storeApiServices: StoreApiServices) {
@@ -21,12 +22,34 @@ class DailySalesReconRepository @Inject constructor(private val storeApiServices
         storeID: String,
         date: String
     ) {
-        dailySalesReconResponseMutableLiveData.postValue(NetworkResult.Loading())
-        val response = storeApiServices.getDaySalesReconLiveData(
-            storeID = storeID,
-            date = date
-        )
-        handleResponse(response)
+        try {
+            dailySalesReconResponseMutableLiveData.postValue(NetworkResult.Loading())
+            val response = storeApiServices.getDaySalesReconLiveData(
+                storeID = storeID,
+                date = date
+            )
+            handleResponse(response)
+        } catch (exception: Exception) {
+            if (exception is SocketTimeoutException) {
+                dailySalesReconResponseMutableLiveData.postValue(
+                    NetworkResult.Error(
+                        ErrorModel(
+                            "SocketTimeoutException",
+                            10
+                        )
+                    )
+                )
+            } else {
+                dailySalesReconResponseMutableLiveData.postValue(
+                    NetworkResult.Error(
+                        ErrorModel(
+                            "Network Exception",
+                            10
+                        )
+                    )
+                )
+            }
+        }
     }
 
     private fun handleResponse(response: Response<DayReconResponse>) {
