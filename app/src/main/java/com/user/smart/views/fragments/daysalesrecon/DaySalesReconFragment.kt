@@ -9,16 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.user.smart.R
 import com.user.smart.databinding.FragmentDaySalesReconBinding
 import com.user.smart.repository.NetworkResult
 import com.user.smart.utils.*
 import com.user.smart.views.adapters.DayReconAdapter
-import com.user.smart.views.adapters.DayReconViewItem
 import com.user.smart.views.viewmodel.DaySalesReconViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -50,21 +49,21 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         setClickListener()
-        callGetPOSLiveDataAPI()
         observeBinding()
         binding.daySalesReconRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
             adapter = dayReconRecyclerViewAdapter
         }
+        callGetPOSLiveDataAPI(AppUtils.getCurrentDate())
     }
 
-    private fun callGetPOSLiveDataAPI() {
+    private fun callGetPOSLiveDataAPI(selectedDate: String) {
         val selectedStoreObject = preferenceManager.getSelectedStoreObject()
         if (AppUtils.isNetworkAvailable(requireContext())) {
             daySalesReconViewModel.callDailySalesReconAPI(
                 daySalesReconViewModel.getStoreID(selectedStoreObject),
-                AppUtils.getCurrentDate()
+                selectedDate
             )
         } else {
             AppUtils.showInternetAlertDialog(requireContext())
@@ -90,120 +89,9 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
                         val apiResponse = responseData.data
                         if (null != apiResponse) {
                             if (apiResponse.data.isNotEmpty()) {
-                                val homeItemsList = mutableListOf<DayReconViewItem>()
-                                homeItemsList.add(DayReconViewItem.Title(title = "Merchandise Sales"))
-                                homeItemsList.add(
-                                    DayReconViewItem.SubTitle(
-                                        subTitleOne = "Department",
-                                        subTitleTwo = "Items Sold",
-                                        subTitleThree = "Amount"
-                                    )
-                                )
-                                if (!apiResponse.data[0].In.MCM.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.MCM) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.ListDataItem(
-                                                dataItem.MerchandiseCodeDescription,
-                                                String.format(
-                                                    "%.2f",
-                                                    dataItem.SalesQuantity.toFloat()
-                                                ),
-                                                dataItem.SalesAmount
-                                            )
-                                        )
-                                    }
-                                }
-                                if (!apiResponse.data[0].In.MCM_total.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.MCM_total) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.Total(
-                                                "Total Grocery",
-                                                "",
-                                                "" + dataItem.Original
-                                            )
-                                        )
-                                    }
-                                }
-
-                                homeItemsList.add(DayReconViewItem.Title(title = "Sales Tax"))
-                                if (!apiResponse.data[0].In.SalesTax.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.SalesTax) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.Total(
-                                                "Total",
-                                                "",
-                                                "" + dataItem.Original
-                                            )
-                                        )
-                                    }
-                                }
-
-
-                                homeItemsList.add(DayReconViewItem.Title(title = "Fuel Sold (Gallons)"))
-                                if (!apiResponse.data[0].In.FGMVol.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.FGMVol) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.ListDataItem(
-                                                dataItem.MerchandiseCodeDescription,
-                                                "",
-                                                dataItem.FuelGradeSalesVolume
-                                            )
-                                        )
-                                    }
-                                }
-                                if (!apiResponse.data[0].In.FGM_total_volume.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.FGM_total_volume) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.Total(
-                                                "Total Gas Volume",
-                                                "",
-                                                "" + dataItem.Original
-                                            )
-                                        )
-                                    }
-                                }
-
-
-
-
-                                homeItemsList.add(DayReconViewItem.Title(title = "Fuel Sold (Amount)"))
-                                if (!apiResponse.data[0].In.FGM.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.FGM) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.ListDataItem(
-                                                dataItem.MerchandiseCodeDescription,
-                                                "",
-                                                dataItem.FuelGradeSalesAmount
-                                            )
-                                        )
-                                    }
-                                }
-                                if (!apiResponse.data[0].In.FGM_total_amount.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[0].In.FGM_total_amount) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.Total(
-                                                "Total Gas Amt Sold",
-                                                "",
-                                                "" + dataItem.Original
-                                            )
-                                        )
-                                    }
-                                }
-
-                                homeItemsList.add(DayReconViewItem.Title(title = "Total in"))
-                                if (!apiResponse.data[2].totalinamt.isNullOrEmpty()) {
-                                    for (dataItem in apiResponse.data[2].totalinamt) {
-                                        homeItemsList.add(
-                                            DayReconViewItem.Total(
-                                                "Total",
-                                                "",
-                                                "" + dataItem.Original
-                                            )
-                                        )
-                                    }
-                                }
-
-                                dayReconRecyclerViewAdapter.items = homeItemsList
+                                val preparedList =
+                                    daySalesReconViewModel.getPreparedItemList(apiResponse.data)
+                                dayReconRecyclerViewAdapter.items = preparedList
                             } else {
                                 binding.withDataLayout.visibility = View.GONE
                                 binding.noDataLayout.visibility = View.VISIBLE
@@ -215,7 +103,6 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
                                 positiveButtonClick(context.resources.getString(R.string.ok)) { }
                             }
                         }
-
                     }
                 }
             }
@@ -245,18 +132,22 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
             binding.txtStoreName.text = selectedStoreObject.store_name
         }
 
-        binding.startDateTextView.text = AppUtils.getCurrentDate()
+        val currentDate = AppUtils.formatDisplayDate(AppUtils.getCurrentDate())
+        binding.startDateTextView.text = currentDate
     }
 
     private fun showMaterialDatePicker() {
+        val constraintsBuilder =
+            CalendarConstraints.Builder()
+                .setValidator(DateValidatorPointBackward.now())
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText("Select date")
-            .setCalendarConstraints(CalendarConstraints.Builder().build())
+            .setCalendarConstraints(constraintsBuilder.build())
             .build()
         datePicker.addOnPositiveButtonClickListener {
             binding.startDateTextView.text = datePicker.headerText.toString()
-            val startDateCalender = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-            startDateCalender.time = Date(it)
+            val selectedDate = AppUtils.formatAPIFormattedDate(datePicker.headerText.toString())
+            callGetPOSLiveDataAPI(selectedDate)
         }
         datePicker.show(childFragmentManager, "MaterialDatePicker")
     }

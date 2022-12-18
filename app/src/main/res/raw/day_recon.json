@@ -1,0 +1,203 @@
+{
+  "_id": "639c5fd89f4c8962afc3ccbe",
+  "store_id": "631263ab0c99c7c91ded4292",
+  "dayrecon_date": "2022-12-13",
+  "data": [
+    {
+      "Out": {
+        "CreditedInJobberInvoice": [
+          {
+            "data": [
+              {
+                "@sysid": "3",
+                "name": "Credit Cards",
+                "count": "40",
+                "amount": "790.24"
+              },
+              {
+                "@sysid": "4",
+                "name": "Debit Cards",
+                "count": "126",
+                "amount": "1820.07"
+              }
+            ],
+            "Original": "2610.31",
+            "Manual": "2610.31"
+          }
+        ]
+      }
+    },
+    {
+      "totalinamt": [
+        {
+          "Original": 4780.05,
+          "Manual": 4780.05
+        }
+      ]
+    },
+    {
+      "notes": ""
+    },
+    {
+      "ZReading": ""
+    },
+    {
+      "totalOutamt": [
+
+      ]
+    },
+    {
+      "In": {
+        "MCM": [
+          {
+            "MerchandiseCode": "52",
+            "MerchandiseCodeDescription": "Beer",
+            "SalesQuantity": "68.000",
+            "SalesAmount": "341.32",
+            "ManualSalesQuantity": "68.000",
+            "ManualSalesAmount": "341.32"
+          },
+          {
+            "MerchandiseCode": "60",
+            "MerchandiseCodeDescription": "Beverage",
+            "SalesQuantity": "171.000",
+            "SalesAmount": "391.34",
+            "ManualSalesQuantity": "171.000",
+            "ManualSalesAmount": "391.34"
+          },
+          {
+            "MerchandiseCode": "68",
+            "MerchandiseCodeDescription": "CBD",
+            "SalesQuantity": "1.000",
+            "SalesAmount": "19.99",
+            "ManualSalesQuantity": "1.000",
+            "ManualSalesAmount": "19.99"
+          },
+          {
+            "MerchandiseCode": "55",
+            "MerchandiseCodeDescription": "Cigarettes",
+            "SalesQuantity": "49.000",
+            "SalesAmount": "370.96",
+            "ManualSalesQuantity": "49.000",
+            "ManualSalesAmount": "370.96"
+          },
+          {
+            "MerchandiseCode": "53",
+            "MerchandiseCodeDescription": "Deli",
+            "SalesQuantity": "59.000",
+            "SalesAmount": "362.85",
+            "ManualSalesQuantity": "59.000",
+            "ManualSalesAmount": "362.85"
+          },
+          {
+            "MerchandiseCode": "50",
+            "MerchandiseCodeDescription": "Grocery",
+            "SalesQuantity": "84.000",
+            "SalesAmount": "178.46",
+            "ManualSalesQuantity": "84.000",
+            "ManualSalesAmount": "178.46"
+          },
+          {
+            "MerchandiseCode": "65",
+            "MerchandiseCodeDescription": "HBA",
+            "SalesQuantity": "8.000",
+            "SalesAmount": "19.84",
+            "ManualSalesQuantity": "8.000",
+            "ManualSalesAmount": "19.84"
+          },
+          {
+            "MerchandiseCode": "61",
+            "MerchandiseCodeDescription": "Ice",
+            "SalesQuantity": "5.000",
+            "SalesAmount": "5.85",
+            "ManualSalesQuantity": "5.000",
+            "ManualSalesAmount": "5.85"
+          },
+          {
+            "MerchandiseCode": "72",
+            "MerchandiseCodeDescription": "Ice Cream",
+            "SalesQuantity": "1.000",
+            "SalesAmount": "3.59",
+            "ManualSalesQuantity": "1.000",
+            "ManualSalesAmount": "3.59"
+          },
+          {
+            "MerchandiseCode": "62",
+            "MerchandiseCodeDescription": "Novelty",
+            "SalesQuantity": "6.000",
+            "SalesAmount": "19.74",
+            "ManualSalesQuantity": "6.000",
+            "ManualSalesAmount": "19.74"
+          },
+          {
+            "MerchandiseCode": "54",
+            "MerchandiseCodeDescription": "Oil",
+            "SalesQuantity": "23.000",
+            "SalesAmount": "42.99",
+            "ManualSalesQuantity": "23.000",
+            "ManualSalesAmount": "42.99"
+          },
+          {
+            "MerchandiseCode": "58",
+            "MerchandiseCodeDescription": "Tobacco",
+            "SalesQuantity": "167.000",
+            "SalesAmount": "305.83",
+            "ManualSalesQuantity": "167.000",
+            "ManualSalesAmount": "305.83"
+          },
+          {
+            "MerchandiseCode": "66",
+            "MerchandiseCodeDescription": "Wine",
+            "SalesQuantity": "1.000",
+            "SalesAmount": "7.99",
+            "ManualSalesQuantity": "1.000",
+            "ManualSalesAmount": "7.99"
+          }
+        ],
+        "MCM_total": [
+          {
+            "Original": 2070.75,
+            "Manual": 2070.75
+          }
+        ],
+        "FGM": [
+          {
+            "FuelGradeID": "1",
+            "MerchandiseCodeDescription": "UNLD",
+            "FuelGradeSalesAmount": "2516.76",
+            "ManualFuelGradeSalesAmount": "2516.76"
+          }
+        ],
+        "FGMVol": [
+          {
+            "FuelGradeID": "1",
+            "MerchandiseCodeDescription": "UNLD",
+            "FuelGradeSalesVolume": "925.623",
+            "ManualFuelGradeSalesVolume": "925.623"
+          }
+        ],
+        "FGM_total_amount": [
+          {
+            "Original": 2516.76,
+            "Manual": 2516.76
+          }
+        ],
+        "FGM_total_volume": [
+          {
+            "Original": 925.62,
+            "Manual": 925.62
+          }
+        ],
+        "SalesTax": [
+          {
+            "Original": "192.54",
+            "Manual": "192.54"
+          }
+        ]
+      }
+    }
+  ],
+  "createdAt": "2022-12-16T12:08:56.654Z",
+  "updatedAt": "2022-12-16T12:08:56.654Z",
+  "__v": 0
+}

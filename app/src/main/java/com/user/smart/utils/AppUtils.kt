@@ -21,11 +21,13 @@ import com.user.smart.models.DashboardMenuModel
 import com.user.smart.models.GroupsListDataItem
 import com.user.smart.models.POSLiveDataResponseItem
 import com.user.smart.models.StoreListResponseItem
+import com.user.smart.utils.AppConstant.APP_CALENDER_DATE_FORMAT2
 import com.user.smart.utils.AppConstant.APP_DATE_FORMAT
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.hypot
+
 
 object AppUtils {
 
@@ -129,8 +131,28 @@ object AppUtils {
     }
 
     fun getCurrentDate(): String {
-        return "2022-12-13"
-//        return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
+//        return "2022-12-13"
+        return SimpleDateFormat(APP_DATE_FORMAT).format(Calendar.getInstance().time)
+    }
+
+    /**
+     * Display format date : MMM dd yyyy
+     * eg- 13 Dec 2022
+     */
+    fun formatDisplayDate(inputDate: String): String {
+        val formatter = SimpleDateFormat(APP_CALENDER_DATE_FORMAT2, Locale.US)
+        val outputDate = formatter.format(SimpleDateFormat(APP_DATE_FORMAT, Locale.US).parse(inputDate))
+        return outputDate.toString()
+    }
+
+    /**
+     * API format date : yyyy-MM-dd
+     * eg- 2022-12-13
+     */
+    fun formatAPIFormattedDate(inputDate: String): String {
+        val formatter = SimpleDateFormat(APP_DATE_FORMAT, Locale.US)
+        val outputDate = formatter.format(SimpleDateFormat(APP_CALENDER_DATE_FORMAT2, Locale.US).parse(inputDate))
+        return outputDate.toString()
     }
 
     fun getYesterdayDate(): String {
