@@ -18,6 +18,8 @@ import com.user.smart.utils.*
 import com.user.smart.views.adapters.DayReconAdapter
 import com.user.smart.views.viewmodel.DaySalesReconViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -145,8 +147,13 @@ class DaySalesReconFragment : Fragment(), View.OnClickListener {
             .setCalendarConstraints(constraintsBuilder.build())
             .build()
         datePicker.addOnPositiveButtonClickListener {
-            binding.startDateTextView.text = datePicker.headerText.toString()
-            val selectedDate = AppUtils.formatAPIFormattedDate(datePicker.headerText.toString())
+            val simpleFormat = SimpleDateFormat(
+                AppConstant.APP_CALENDER_DATE_FORMAT2,
+                Locale.US
+            )
+            simpleFormat.timeZone = TimeZone.getTimeZone("UTC")
+            binding.startDateTextView.text = simpleFormat.format(Date(it))
+            val selectedDate = AppUtils.formatAPIFormattedDate(binding.startDateTextView.text.toString())
             callGetPOSLiveDataAPI(selectedDate)
         }
         datePicker.show(childFragmentManager, "MaterialDatePicker")

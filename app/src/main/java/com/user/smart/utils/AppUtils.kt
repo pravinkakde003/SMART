@@ -140,9 +140,9 @@ object AppUtils {
      * eg- 13 Dec 2022
      */
     fun formatDisplayDate(inputDate: String): String {
+        val inDateFormat = SimpleDateFormat(APP_DATE_FORMAT).parse(inputDate)
         val formatter = SimpleDateFormat(APP_CALENDER_DATE_FORMAT2, Locale.US)
-        val outputDate = formatter.format(SimpleDateFormat(APP_DATE_FORMAT, Locale.US).parse(inputDate))
-        return outputDate.toString()
+        return formatter.format(inDateFormat)
     }
 
     /**
@@ -150,9 +150,9 @@ object AppUtils {
      * eg- 2022-12-13
      */
     fun formatAPIFormattedDate(inputDate: String): String {
+        val inDateFormat = SimpleDateFormat(APP_CALENDER_DATE_FORMAT2).parse(inputDate)
         val formatter = SimpleDateFormat(APP_DATE_FORMAT, Locale.US)
-        val outputDate = formatter.format(SimpleDateFormat(APP_CALENDER_DATE_FORMAT2, Locale.US).parse(inputDate))
-        return outputDate.toString()
+        return formatter.format(inDateFormat)
     }
 
     fun getYesterdayDate(): String {
