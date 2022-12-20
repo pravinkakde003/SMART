@@ -10,6 +10,7 @@ import com.user.smart.R
 import com.user.smart.databinding.FragmentEditFuelPriceBinding
 import com.user.smart.models.FuelPriceAPIResponseItem
 import com.user.smart.utils.AppConstant
+import com.user.smart.utils.AppUtils
 import com.user.smart.utils.PreferenceManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -43,24 +44,28 @@ class EditFuelPriceFragment : Fragment(), View.OnClickListener {
 
     private fun setDataToView(fuelPriceDataItem: FuelPriceAPIResponseItem) {
 
-        if (fuelPriceDataItem.store_fuel_grade.isNotBlank()) {
+        if (!fuelPriceDataItem.store_fuel_grade.isNullOrEmpty()) {
             binding.txtFuelGradeName.text = fuelPriceDataItem.store_fuel_grade_display_name
         }
 
-        if (fuelPriceDataItem.old_cash_price.isNotBlank()) {
+        if (!fuelPriceDataItem.old_cash_price.isNullOrEmpty()) {
             binding.txtCurrentCashPrice.text = fuelPriceDataItem.old_cash_price
         }
 
-        if (fuelPriceDataItem.new_cash_price.isNotBlank()) {
+        if (!fuelPriceDataItem.new_cash_price.isNullOrEmpty()) {
             binding.txtNewCashPrice.text = fuelPriceDataItem.new_cash_price
         }
 
-        if (fuelPriceDataItem.old_credit_price.isNotBlank()) {
+        if (!fuelPriceDataItem.old_credit_price.isNullOrEmpty()) {
             binding.txtCurrentCreditPrice.text = fuelPriceDataItem.old_credit_price
         }
 
-        if (fuelPriceDataItem.new_credit_price.isNotBlank()) {
+        if (!fuelPriceDataItem.new_credit_price.isNullOrEmpty()) {
             binding.txtNewCreditPrice.text = fuelPriceDataItem.new_credit_price
+        }
+        if (!fuelPriceDataItem.updatedAt.isNullOrEmpty()) {
+            val convertedDate = AppUtils.formatDisplayDate(fuelPriceDataItem.updatedAt)
+            binding.txtLastModified.text = convertedDate
         }
     }
 

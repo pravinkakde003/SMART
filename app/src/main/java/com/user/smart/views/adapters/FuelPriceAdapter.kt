@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.user.smart.databinding.FuelPriceLayoutItemBinding
 import com.user.smart.models.FuelPriceAPIResponseItem
+import com.user.smart.utils.AppUtils
 
 class FuelPriceAdapter(
     private var transactionsItemList: List<FuelPriceAPIResponseItem>,
@@ -46,7 +47,7 @@ class FuelPriceAdapter(
             }
 
             if (!dataItem.updatedAt.isNullOrEmpty()) {
-                val convertedDate = dataItem.updatedAt
+                val convertedDate = AppUtils.formatDisplayDate(dataItem.updatedAt)
                 txtLastModified.text = convertedDate
             }
 
