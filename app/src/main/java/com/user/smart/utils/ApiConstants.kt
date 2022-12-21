@@ -15,6 +15,8 @@ object ApiConstants {
 
     const val UPDATE_FUEL_PRICE_END_POINT ="store/updatefuelretailprice"
 
+    const val ACTIVE_LOTTERY_END_POINT ="store/getactivestorelotterylist/"
+
     // API PARAMETERS KEY
     const val USERNAME_KEY = "username"
     const val PASSWORD_KEY = "password"

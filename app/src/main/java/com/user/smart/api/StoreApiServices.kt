@@ -27,7 +27,6 @@ interface StoreApiServices {
         @Path("storeID") storeID: String
     ): Response<FuelPriceAPIResponse>
 
-
     @GET(ApiConstants.DAY_SALES_RECON_END_POINT + "{storeID}/" + DAY + "/{date}/{date}")
     suspend fun getDaySalesReconLiveData(
         @Path("storeID") storeID: String,
@@ -38,4 +37,9 @@ interface StoreApiServices {
     suspend fun updateFuelPrice(
         @Body rawRequest: FuelPriceEditRequestBody
     ): Response<FuelPriceEditResponse>
+
+    @GET(ApiConstants.ACTIVE_LOTTERY_END_POINT + "{storeID}")
+    suspend fun getActiveLotteryData(
+        @Path("storeID") storeID: String
+    ): Response<ActiveLotteryResponse>
 }

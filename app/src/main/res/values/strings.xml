@@ -175,6 +175,13 @@
     <string name="delete">Delete</string>
     <string name="update">Update</string>
     <string name="fuel_type">Fuel Type</string>
+
+    <string name="activate_date">Activate Date</string>
+    <string name="roll_no">Roll Number</string>
+    <string name="deal_no">Deal Number</string>
+    <string name="no_tickets">No of Tickets</string>
+    <string name="activate">Activate</string>
+
     <string name="gallon_sold">Gallon Sold</string>
     <string name="current_inve">Current Inve.</string>
     <string name="regular">Regular</string>

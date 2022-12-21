@@ -5,13 +5,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.user.smart.R
 import com.user.smart.databinding.FragmentTabLotteryActiveBinding
+import com.user.smart.models.ActiveLotteryResponse
+import com.user.smart.repository.NetworkResult
+import com.user.smart.utils.*
+import com.user.smart.views.adapters.ActiveLotteryAdapter
+import com.user.smart.views.viewmodel.ActiveLotteryViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class LotteryActiveFragment : Fragment(), View.OnClickListener {
+@AndroidEntryPoint
+class LotteryActiveFragment : Fragment() {
 
     private var _binding: FragmentTabLotteryActiveBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var progressDialog: CustomProgressDialog
+
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
+
+    private val activeLotteryViewModel: ActiveLotteryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,37 +42,59 @@ class LotteryActiveFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListener()
+        callGetActiveLotteryDataAPI()
+        observeBinding()
     }
 
-    private fun setClickListener() {
-        binding.dateTextView1.setOnClickListener(this)
-        binding.dateTextView2.setOnClickListener(this)
-    }
-
-    override fun onClick(view: View?) {
-        when (view) {
-            binding.dateTextView1 -> {
-                navigateToDetailFragment()
-            }
-            binding.dateTextView2 -> {
-                navigateToDetailFragment()
+    private fun observeBinding() {
+        activeLotteryViewModel.activeLotteryListLiveData.observe(requireActivity()) { responseData ->
+            progressDialog.hide()
+            when (responseData) {
+                is NetworkResult.Loading -> {
+                    progressDialog.show()
+                }
+                is NetworkResult.Error -> {
+                    activity?.showAlertDialog {
+                        setTitle(context.resources.getString(R.string.error))
+                        setMessage(responseData.errorMessage?.message)
+                        positiveButtonClick(context.resources.getString(R.string.ok)) { }
+                    }
+                }
+                is NetworkResult.Success -> {
+                    responseData.data?.let {
+                        val activeLotteryResponse = responseData.data
+                        if (activeLotteryResponse.size > 0) {
+                            setAdapter(activeLotteryResponse)
+                        } else {
+                            binding.withDataLayout.visibility = View.GONE
+                            binding.noDataLayout.visibility = View.VISIBLE
+                        }
+                    }
+                }
             }
         }
     }
 
-    private fun navigateToDetailFragment() {
-        val targetFragment = LotteryActiveDetailsFragment()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .setCustomAnimations(
-                R.anim.trans_left_in,
-                R.anim.trans_right_out,
-                R.anim.trans_right_in, R.anim.trans_right_out
+    private fun setAdapter(activeLotteryResponse: ActiveLotteryResponse) {
+        binding.activeLotteryRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        binding.activeLotteryRecyclerView.setHasFixedSize(true)
+        var mAdapter = ActiveLotteryAdapter(activeLotteryResponse) {
+
+        }
+        binding.activeLotteryRecyclerView.adapter = mAdapter
+    }
+
+    private fun callGetActiveLotteryDataAPI() {
+        val selectedStoreObject = preferenceManager.getSelectedStoreObject()
+        if (AppUtils.isNetworkAvailable(requireContext())) {
+            activeLotteryViewModel.callGetActiveLotteryListAPI(
+                activeLotteryViewModel.getStoreID(
+                    selectedStoreObject
+                )
             )
-            .add(R.id.fragmentContainer, targetFragment)
-            .setReorderingAllowed(true)
-            .addToBackStack("LotteryConfirmDetailsFragment")
-            .commit()
+        } else {
+            AppUtils.showInternetAlertDialog(requireContext())
+        }
     }
 
     override fun onDestroyView() {
