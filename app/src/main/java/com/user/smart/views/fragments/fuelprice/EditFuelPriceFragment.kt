@@ -77,18 +77,7 @@ class EditFuelPriceFragment : Fragment(), View.OnClickListener {
                     responseData.data?.let {
                         if (responseData.data.acknowledged) {
                             requireContext().showToast(getString(R.string.record_updated))
-                            val targetFragment = FuelPriceFragment()
-                            requireActivity().supportFragmentManager.beginTransaction()
-                                .setCustomAnimations(
-                                    R.anim.trans_right_in,
-                                    R.anim.trans_right_out,
-                                    R.anim.trans_left_in,
-                                    R.anim.trans_right_out
-                                )
-                                .replace(R.id.fragmentContainer, targetFragment)
-                                .setReorderingAllowed(true)
-                                .addToBackStack("EditFuelPriceFragment")
-                                .commit()
+                            requireActivity().onBackPressed()
                         }
                     }
                 }
