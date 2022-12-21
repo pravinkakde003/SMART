@@ -1,6 +1,7 @@
 package com.user.smart.views.fragments.fuelprice
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,8 +45,8 @@ class FuelPriceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-        callGetFuelPriceAPI()
         observeBinding()
+        callGetFuelPriceAPI()
     }
 
     private fun setupToolbar() {
@@ -120,12 +121,13 @@ class FuelPriceFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction()
                 .setCustomAnimations(
                     R.anim.trans_left_in,
+                    R.anim.trans_left_out,
+                    R.anim.trans_right_in,
                     R.anim.trans_right_out,
-                    R.anim.trans_right_in, R.anim.trans_right_out
                 )
-                .add(R.id.fragmentContainer, targetFragment)
+                .replace(R.id.fragmentContainer, targetFragment)
                 .setReorderingAllowed(true)
-                .addToBackStack("SendToPosDetailsFragment")
+                .addToBackStack("FuelPriceFragment")
                 .commit()
         }
         binding.fuelPriceRecyclerView.adapter = mAdapter

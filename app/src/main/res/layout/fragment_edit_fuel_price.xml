@@ -69,23 +69,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
+                    app:layout_constraintWidth_percent=".6" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/txtFuelGradeName"
-                    style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/disabled_square_border"
+                    android:enabled="false"
                     android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
+                    android:textColor="@color/grey_variant3"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeName"
                     app:layout_constraintTop_toTopOf="@id/txtLabelFuelGradeName"
                     app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".6" />
+                    app:layout_constraintWidth_percent=".4" />
 
                 <!-- Current Cash Price -->
                 <com.google.android.material.textview.MaterialTextView
@@ -93,29 +91,28 @@
                     style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/current_cash_price"
                     android:textColor="@color/grey_variant5"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtLabelFuelGradeName"
-                    app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtCurrentCashPrice"
-                    style="@style/AppSmallTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelFuelGradeName"
-                    app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCashPrice"
+                    app:layout_constraintTop_toBottomOf="@id/txtFuelGradeName"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent=".6" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtCurrentCashPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/disabled_square_border"
+                    android:enabled="false"
+                    android:gravity="end"
+                    android:textColor="@color/grey_variant3"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCashPrice"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
 
                 <!-- New Cash Price -->
                 <com.google.android.material.textview.MaterialTextView
@@ -123,29 +120,26 @@
                     style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/new_cash_price"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/new_cash_price_hint"
                     android:textColor="@color/grey_variant5"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtLabelCurrentCashPrice"
-                    app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtNewCashPrice"
-                    style="@style/AppSmallTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelCurrentCashPrice"
-                    app:layout_constraintTop_toTopOf="@id/txtLabelNewCashPrice"
+                    app:layout_constraintTop_toBottomOf="@id/txtCurrentCashPrice"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent=".6" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextNewCashPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/square_border"
+                    android:gravity="end"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelNewCashPrice"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
 
                 <!-- Current credit price -->
                 <com.google.android.material.textview.MaterialTextView
@@ -153,29 +147,28 @@
                     style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/current_credit_price"
                     android:textColor="@color/grey_variant5"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtLabelNewCashPrice"
-                    app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtCurrentCreditPrice"
-                    style="@style/AppSmallTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelNewCashPrice"
-                    app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCreditPrice"
+                    app:layout_constraintTop_toBottomOf="@id/editTextNewCashPrice"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent=".6" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtCurrentCreditPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/disabled_square_border"
+                    android:enabled="false"
+                    android:gravity="end"
+                    android:textColor="@color/grey_variant3"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelCurrentCreditPrice"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
 
                 <!-- New credit price -->
                 <com.google.android.material.textview.MaterialTextView
@@ -183,30 +176,26 @@
                     style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/new_credit_price"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/new_credit_price_hint"
                     android:textColor="@color/grey_variant5"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtLabelCurrentCreditPrice"
-                    app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtNewCreditPrice"
-                    style="@style/AppSmallTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelCurrentCreditPrice"
-                    app:layout_constraintTop_toTopOf="@id/txtLabelNewCreditPrice"
+                    app:layout_constraintTop_toBottomOf="@id/txtCurrentCreditPrice"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent=".6" />
 
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextNewCreditPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/square_border"
+                    android:gravity="end"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelNewCreditPrice"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
 
                 <!-- Last modified -->
                 <com.google.android.material.textview.MaterialTextView
@@ -214,30 +203,28 @@
                     style="@style/AppSmallTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/last_modified"
                     android:textColor="@color/grey_variant5"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtLabelNewCreditPrice"
-                    app:layout_constraintWidth_default="percent"
-                    app:layout_constraintWidth_percent=".4" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtLastModified"
-                    style="@style/AppSmallTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/dash"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtLabelNewCreditPrice"
-                    app:layout_constraintTop_toTopOf="@id/txtLabelLastModified"
+                    app:layout_constraintTop_toBottomOf="@id/editTextNewCreditPrice"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent=".6" />
 
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtLastModified"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/disabled_square_border"
+                    android:enabled="false"
+                    android:gravity="end"
+                    android:textColor="@color/grey_variant3"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtLabelLastModified"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

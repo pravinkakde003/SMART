@@ -101,6 +101,6 @@ class SearchStoreListingActivity : BaseActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
-        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out)
     }
 }

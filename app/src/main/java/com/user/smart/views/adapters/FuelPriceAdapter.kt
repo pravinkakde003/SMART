@@ -31,19 +31,19 @@ class FuelPriceAdapter(
             }
 
             if (!dataItem.old_cash_price.isNullOrEmpty()) {
-                txtCurrentCashPrice.text = dataItem.old_cash_price
+                txtCurrentCashPrice.text = "$${dataItem.old_cash_price}"
             }
 
             if (!dataItem.new_cash_price.isNullOrEmpty()) {
-                txtNewCashPrice.text = dataItem.new_cash_price
+                txtNewCashPrice.text = "$${dataItem.new_cash_price}"
             }
 
             if (!dataItem.old_credit_price.isNullOrEmpty()) {
-                txtCurrentCreditPrice.text = dataItem.old_credit_price
+                txtCurrentCreditPrice.text = "$${dataItem.old_credit_price}"
             }
 
             if (!dataItem.new_credit_price.isNullOrEmpty()) {
-                txtNewCreditPrice.text = dataItem.new_credit_price
+                txtNewCreditPrice.text = "$${dataItem.new_credit_price}"
             }
 
             if (!dataItem.updatedAt.isNullOrEmpty()) {

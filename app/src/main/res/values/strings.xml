@@ -196,8 +196,10 @@
     <string name="sales_percentage">Sales(%)</string>
     <string name="current_cash_price">Current cash price</string>
     <string name="new_cash_price">New cash price</string>
+    <string name="new_cash_price_hint">New cash price\n($__ x)</string>
     <string name="current_credit_price">Current credit price</string>
     <string name="new_credit_price">New credit price</string>
+    <string name="new_credit_price_hint">New credit price\n($__ x)</string>
     <string name="last_modified">Last modified</string>
     <string name="edit_fuel_price">Edit fuel price</string>
     <string name="end_balance">End balance</string>
@@ -269,6 +271,7 @@
     <string name="items">#Items</string>
     <string name="nothing_to_show">Nothing to show</string>
     <string name="generic_error_message">Something went wrong.</string>
+    <string name="record_updated">Record Updated</string>
     <string-array name="account_dropdown_array">
         <item>@string/auto_part</item>
         <item>@string/beer</item>

@@ -13,6 +13,8 @@ object ApiConstants {
     const val DAY_SALES_RECON_END_POINT = "store/getdayrecornreport/"
     const val DAY = "day"
 
+    const val UPDATE_FUEL_PRICE_END_POINT ="store/updatefuelretailprice"
+
     // API PARAMETERS KEY
     const val USERNAME_KEY = "username"
     const val PASSWORD_KEY = "password"
